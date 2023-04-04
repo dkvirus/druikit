@@ -5,4 +5,8 @@ export default defineConfig({
   themeConfig: {
     name: 'druikit',
   },
+  apiParser: {},
+  resolve: {
+    entryFile: './src/index.ts',
+  },
 });
