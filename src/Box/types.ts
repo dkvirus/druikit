@@ -37,9 +37,10 @@ export interface BoxType {
    * @description 鼠标是手状, 表示可点击的意思
    */
   pointer?: boolean;
-
-  backgroundColor?: Property.BackgroundColor;
-  cursor?: Property.Cursor;
+  /**
+   * @description 单行省略号
+   */
+  ellipsis?: boolean;
 
   color?: string;
   textAlign?: Property.TextAlign;
@@ -81,6 +82,9 @@ export interface BoxType {
   right?: number | string;
 
   border?: string;
+  borderStyle?: Property.BorderStyle;
+  borderWidth?: number | string;
+  borderColor?: Property.BorderColor;
   borderRadius?: number | string;
   boxShadow?: string;
 
@@ -100,6 +104,18 @@ export interface BoxType {
     | 'center'
     | 'baseline'
     | 'stretch';
+
+  background?: Property.Background;
+  backgroundColor?: Property.BackgroundColor;
+  backgroundImage?: Property.BackgroundImage;
+  backgroundRepeat?: Property.BackgroundRepeat;
+  backgroundAttachment?: Property.BackgroundAttachment;
+  backgroundPosition?: Property.BackgroundPosition;
+
+  cursor?: Property.Cursor;
+  overflow?: Property.Overflow;
+  overflowX?: Property.OverflowX;
+  overflowY?: Property.OverflowY;
 
   [key: string]: any;
 }

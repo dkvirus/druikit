@@ -108,4 +108,18 @@ export default () => {
 };
 ```
 
+## 文字省略号
+
+```jsx
+import { Box } from 'druikit';
+
+export default () => {
+  return (
+    <Box width={100} height={80} ellipsis border="1px solid #333">
+      hello world hello world hello world hello world
+    </Box>
+  );
+};
+```
+
 <API id="Box"></API>

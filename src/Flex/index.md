@@ -10,19 +10,21 @@ export default () => {
     <>
       <Flex justifyContent="center" border="1px solid #333">
         <Box width={50} height={50} backgroundColor="red" />
-        <Flex1 />
         <Box width={50} height={50} backgroundColor="blue" />
       </Flex>
+      <Box>justify-content: center</Box>
       <Box height={50} />
       <Flex justifyContent="space-between" border="1px solid #333">
         <Box width={50} height={50} backgroundColor="red" />
         <Box width={50} height={50} backgroundColor="blue" />
       </Flex>
+      <Box>justify-content: space-between</Box>
       <Box height={50} />
       <Flex justifyContent="space-around" border="1px solid #333">
         <Box width={50} height={50} backgroundColor="red" />
         <Box width={50} height={50} backgroundColor="blue" />
       </Flex>
+      <Box>justify-content: space-around</Box>
     </>
   );
 };
