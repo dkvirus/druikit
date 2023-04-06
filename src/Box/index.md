@@ -122,4 +122,29 @@ export default () => {
 };
 ```
 
+## ref 用法
+
+```jsx
+import { useRef } from 'react';
+import { Box } from 'druikit';
+
+export default () => {
+  const boxRef = useRef();
+  return (
+    <>
+      <Box ref={boxRef} width={100} height={80} backgroundColor="red"></Box>
+      <button
+        onClick={() => {
+          const displayValue = boxRef.current.style.display;
+          boxRef.current.style.display =
+            displayValue === 'none' ? 'block' : 'none';
+        }}
+      >
+        点击
+      </button>
+    </>
+  );
+};
+```
+
 <API id="Box"></API>

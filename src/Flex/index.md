@@ -29,3 +29,28 @@ export default () => {
   );
 };
 ```
+
+## ref 用法
+
+```jsx
+import { useRef } from 'react';
+import { Flex } from 'druikit';
+
+export default () => {
+  const flexRef = useRef();
+  return (
+    <>
+      <Flex ref={flexRef} width={100} height={80} backgroundColor="red"></Flex>
+      <button
+        onClick={() => {
+          const displayValue = flexRef.current.style.display;
+          flexRef.current.style.display =
+            displayValue === 'none' ? 'block' : 'none';
+        }}
+      >
+        点击
+      </button>
+    </>
+  );
+};
+```

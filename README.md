@@ -3,15 +3,12 @@
 [![NPM version](https://img.shields.io/npm/v/druikit.svg?style=flat)](https://npmjs.org/package/druikit)
 [![NPM downloads](http://img.shields.io/npm/dm/druikit.svg?style=flat)](https://npmjs.org/package/druikit)
 
-A react library developed with dumi
+A react component library developed with dumi
 
-## Usage
+## Components
 
-TODO
-
-## Options
-
-TODO
+- [x] Box
+- [x] Flex
 
 ## Development
 

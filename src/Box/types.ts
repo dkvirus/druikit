@@ -50,7 +50,7 @@ export interface BoxType {
 
   fontFamily?: Property.FontFamily;
   fontStyle?: Property.FontStyle;
-  fontSize?: Property.FontSize;
+  fontSize?: number | string;
   fontWeight?: Property.FontWeight;
 
   margin?: number | string;
