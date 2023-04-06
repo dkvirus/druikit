@@ -1,5 +1,5 @@
 import { Property } from 'csstype';
-import { CSSProperties, ReactNode } from 'react';
+import React, { CSSProperties, ReactNode } from 'react';
 
 export interface BoxType {
   /**
@@ -116,6 +116,22 @@ export interface BoxType {
   overflow?: Property.Overflow;
   overflowX?: Property.OverflowX;
   overflowY?: Property.OverflowY;
+
+  onClick?: (e: React.MouseEvent) => void;
+  onDrag?: (e: React.DragEvent) => void;
+  onDrop?: (e: React.DragEvent) => void;
+  onFocus?: (e: React.FocusEvent) => void;
+  onBlur?: (e: React.FocusEvent) => void;
+  onKeyDown?: (e: React.KeyboardEvent) => void;
+  onKeyUp?: (e: React.KeyboardEvent) => void;
+  onMouseEnter?: (e: React.MouseEvent) => void;
+  onMouseLeave?: (e: React.MouseEvent) => void;
+  onMouseOver?: (e: React.MouseEvent) => void;
+  onMouseOut?: (e: React.MouseEvent) => void;
+  onMouseMove?: (e: React.MouseEvent) => void;
+  onMouseDown?: (e: React.MouseEvent) => void;
+  onMouseUp?: (e: React.MouseEvent) => void;
+  onScroll?: (e: React.UIEvent) => void;
 
   [key: string]: any;
 }

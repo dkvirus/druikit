@@ -108,6 +108,22 @@ export const Box: FC<BoxType> = forwardRef<HTMLDivElement, BoxType>(
       pointer,
       ellipsis,
 
+      onClick,
+      onDrag,
+      onDrop,
+      onFocus,
+      onBlur,
+      onKeyDown,
+      onKeyUp,
+      onMouseEnter,
+      onMouseLeave,
+      onMouseOver,
+      onMouseOut,
+      onMouseMove,
+      onMouseDown,
+      onMouseUp,
+      onScroll,
+
       ...props
     },
     ref,
@@ -208,6 +224,21 @@ export const Box: FC<BoxType> = forwardRef<HTMLDivElement, BoxType>(
         ref={ref}
         style={{ ...sty, ...style }}
         className={className}
+        onClick={onClick}
+        onDrag={onDrag}
+        onDrop={onDrop}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        onKeyDown={onKeyDown}
+        onKeyUp={onKeyUp}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        onMouseOver={onMouseOver}
+        onMouseOut={onMouseOut}
+        onMouseMove={onMouseMove}
+        onMouseDown={onMouseDown}
+        onMouseUp={onMouseUp}
+        onScroll={onScroll}
         {...props}
       >
         {children}
