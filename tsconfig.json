@@ -12,5 +12,5 @@
       "druikit/*": ["src/*", "*"]
     }
   },
-  "include": [".dumi/**/*", ".dumirc.ts", "src/**/*"]
+  "include": [".dumi/**/*", ".dumirc.ts", "src/**/*", "test/dateUtils.test.ts"]
 }

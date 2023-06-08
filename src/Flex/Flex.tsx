@@ -1,4 +1,4 @@
-import React, { forwardRef, type FC } from 'react';
+import React, { FC, forwardRef } from 'react';
 import { Box, BoxType } from '../Box';
 
 export const Flex: FC<BoxType> = forwardRef(({ ...props }, ref) => {

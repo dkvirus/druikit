@@ -9,6 +9,10 @@ A react component library developed with dumi
 
 - [x] Box
 - [x] Flex
+- [x] InputNumber
+- [ ] Checkbox
+- [ ] Image: 懒加载, 配置前缀
+- [ ] Button
 
 ## Development
 
