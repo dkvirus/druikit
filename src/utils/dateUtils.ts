@@ -71,7 +71,7 @@ export function getDaysInMonth(date: Date): number {
 /**
  * 根据开始日期和结束日期补全中间日期, 获取日期范围
  */
-export function getRange(startDate: Date, endDate: Date): string[] {
+export function range(startDate: Date, endDate: Date): string[] {
   const startTime = new Date(format(startDate).ymd).getTime();
   const endTime = new Date(format(endDate).ymd).getTime();
   const millisecondInDay = 1000 * 60 * 60 * 24;
@@ -131,6 +131,6 @@ export const dateUtils = {
   MONTHS_ABBR,
   MONTHS_ZH,
   getDaysInMonth,
-  getRange,
+  range,
   format,
 };

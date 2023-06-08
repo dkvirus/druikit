@@ -9,6 +9,6 @@ describe('测试 dateUtils', () => {
     const startDate = new Date('2023-05-30');
     const endDate = new Date('2023-06-01');
     const result = ['2023-05-30', '2023-05-31', '2023-06-01'];
-    expect(dateUtils.getRange(startDate, endDate)).toEqual(result);
+    expect(dateUtils.range(startDate, endDate)).toEqual(result);
   });
 });
