@@ -25,6 +25,8 @@ export interface TextProps {
     capitalize?: boolean;
     uppercase?: boolean;
     lowercase?: boolean;
+    pointer?: boolean;
     children?: string;
+    onClick?: (e: React.MouseEvent) => void;
 }
-export declare const Text: ({ style, className, fontSize, fontSize32, fontSize16, fontSize14, fontSize12, color, color666, colorBlue, colorRed, capitalize, uppercase, lowercase, children, ...props }: TextProps) => React.JSX.Element;
+export declare const Text: ({ style, className, fontSize, fontSize32, fontSize16, fontSize14, fontSize12, color, color666, colorBlue, colorRed, capitalize, uppercase, lowercase, pointer, children, ...props }: TextProps) => React.JSX.Element;
