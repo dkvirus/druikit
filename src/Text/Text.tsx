@@ -27,7 +27,9 @@ export interface TextProps {
   capitalize?: boolean;
   uppercase?: boolean;
   lowercase?: boolean;
+  pointer?: boolean;
   children?: string;
+  onClick?: (e: React.MouseEvent) => void;
 }
 
 export const Text = ({
@@ -50,6 +52,7 @@ export const Text = ({
   capitalize,
   uppercase,
   lowercase,
+  pointer,
   children,
   ...props
 }: TextProps) => {
@@ -73,6 +76,10 @@ export const Text = ({
       lowercase,
     }),
   };
+
+  if (pointer) {
+    sty.cursor = 'pointer';
+  }
 
   return (
     <div
