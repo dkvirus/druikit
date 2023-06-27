@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "build": "father build",
+    "build:dist": "npm run prepublishOnly",
     "build:watch": "father dev",
     "dev": "dumi dev",
     "docs:build": "dumi build",

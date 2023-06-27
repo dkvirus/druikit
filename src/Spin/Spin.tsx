@@ -54,8 +54,6 @@ export const Spin = ({
 
     // 浏览器可视窗口高度
     const bodyEleHeight = window.innerHeight;
-    console.log('height', height);
-    console.log('bodyEleHeight', bodyEleHeight);
 
     if (height <= bodyEleHeight) {
       setLoadingMode(LoadingMode.flex);

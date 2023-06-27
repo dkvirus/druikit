@@ -20,8 +20,8 @@ export var Alert = function Alert(_ref) {
     sty.backgroundColor = '#fce8e7';
     sty.color = '#d62310';
   } else if (type === 'green') {
-    sty.backgroundColor = '#f6ffed';
-    sty.color = '#b7eb8f';
+    sty.backgroundColor = '#d4edda';
+    sty.color = '#155724';
   } else if (type === 'yellow') {
     sty.backgroundColor = '#fffbe6';
     sty.color = '#ffe58f';
