@@ -1,3 +1,23 @@
+## arrUtils
+
+### last
+
+获取数组最后一个元素
+
+### intersection
+
+求交集
+
+### difference
+
+求差集
+
+```js
+a1 = ['a', 'b', 'c'];
+a2 = ['a', 'd'];
+difference(a1, a2); // => ['b', 'c']
+```
+
 ## dateUtils
 
 ### format
