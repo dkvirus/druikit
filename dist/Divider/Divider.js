@@ -5,39 +5,43 @@ function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key i
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 import React from 'react';
-export var Alert = function Alert(_ref) {
+export var Divider = function Divider(_ref) {
   var style = _ref.style,
     className = _ref.className,
-    message = _ref.message,
     _ref$type = _ref.type,
-    type = _ref$type === void 0 ? 'error' : _ref$type,
-    error = _ref.error,
-    success = _ref.success,
-    warning = _ref.warning,
-    info = _ref.info;
-  var sty = {
-    padding: '5px 15px',
-    fontSize: 14,
-    display: 'inline-block'
-  };
-  if (type === 'error' || error) {
-    sty.backgroundColor = '#fce8e7';
-    sty.color = '#d62310';
+    type = _ref$type === void 0 ? 'horizontal' : _ref$type,
+    vertical = _ref.vertical,
+    horizontal = _ref.horizontal,
+    _ref$color = _ref.color,
+    color = _ref$color === void 0 ? 'rgba(0, 0, 0, 0.1)' : _ref$color,
+    _ref$thickness = _ref.thickness,
+    thickness = _ref$thickness === void 0 ? 1 : _ref$thickness,
+    _ref$length = _ref.length,
+    length = _ref$length === void 0 ? 30 : _ref$length,
+    _ref$fullLength = _ref.fullLength,
+    fullLength = _ref$fullLength === void 0 ? false : _ref$fullLength,
+    _ref$gap = _ref.gap,
+    gap = _ref$gap === void 0 ? 8 : _ref$gap;
+  var sty = _objectSpread({
+    backgroundColor: color
+  }, style);
+  var len = fullLength ? '100%' : length;
+  console.log('fullLength', fullLength);
+  console.log('len', len);
+  if (type === 'horizontal' || horizontal) {
+    sty.width = len;
+    sty.height = thickness;
+    sty.marginTop = gap;
+    sty.marginBottom = gap;
   }
-  if (type === 'success' || success) {
-    sty.backgroundColor = '#d4edda';
-    sty.color = '#155724';
-  }
-  if (type === 'warning' || warning) {
-    sty.backgroundColor = '#ffeeba';
-    sty.color = '#856404';
-  }
-  if (type === 'info' || info) {
-    sty.backgroundColor = '#e6f4ff';
-    sty.color = '#91caff';
+  if (type === 'vertical' || vertical) {
+    sty.width = thickness;
+    sty.height = len;
+    sty.marginLeft = gap;
+    sty.marginRight = gap;
   }
   return /*#__PURE__*/React.createElement("div", {
-    style: _objectSpread(_objectSpread({}, sty), style),
+    style: _objectSpread({}, sty),
     className: className
-  }, message);
+  });
 };

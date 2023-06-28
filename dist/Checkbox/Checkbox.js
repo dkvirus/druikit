@@ -9,9 +9,10 @@ import React from 'react';
 export var Checkbox = function Checkbox(_ref) {
   var style = _ref.style,
     className = _ref.className,
+    children = _ref.children,
     value = _ref.value,
     onChange = _ref.onChange,
-    children = _ref.children,
+    disabled = _ref.disabled,
     labelStyle = _ref.labelStyle,
     labelClassName = _ref.labelClassName,
     _ref$labelColor = _ref.labelColor,
@@ -30,17 +31,20 @@ export var Checkbox = function Checkbox(_ref) {
     _ref$gap = _ref.gap,
     gap = _ref$gap === void 0 ? 10 : _ref$gap;
   /* ******************************** label *********************************** */
-  var labelSty = {};
+  var labelSty = _objectSpread({
+    flex: 1
+  }, labelStyle);
   if (typeof labelColor !== 'undefined') {
     labelSty.color = labelColor;
+  }
+  if (disabled) {
+    labelSty.color = '#ccc';
   }
   if (typeof labelSize !== 'undefined') {
     labelSty.fontSize = labelSize;
   }
   var labelEl = /*#__PURE__*/React.createElement("div", {
-    style: _objectSpread(_objectSpread({
-      flex: 1
-    }, labelStyle), labelSty),
+    style: _objectSpread({}, labelSty),
     className: labelClassName
   }, children);
 
@@ -55,7 +59,7 @@ export var Checkbox = function Checkbox(_ref) {
     }, boxStyle), {}, {
       backgroundColor: boxBgColor
     })
-  }, value === true ? /*#__PURE__*/React.createElement(CheckOutlined, {
+  }, !disabled && value === true ? /*#__PURE__*/React.createElement(CheckOutlined, {
     color: boxColor,
     size: boxSize * 0.9
   }) : null);
@@ -67,18 +71,25 @@ export var Checkbox = function Checkbox(_ref) {
     }
   });
 
-  /* ******************************** 组装 *********************************** */
+  /* ******************************** boxPosition *********************************** */
   var contentEl = /*#__PURE__*/React.createElement(React.Fragment, null, boxEl, gapEl, labelEl);
   if (boxPosition === 'right') {
     contentEl = /*#__PURE__*/React.createElement(React.Fragment, null, labelEl, gapEl, boxEl);
   }
+  var sty = _objectSpread({
+    userSelect: 'none'
+  }, style);
+  if (disabled) {
+    sty.cursor = 'not-allowed';
+  }
   return /*#__PURE__*/React.createElement(Flex, {
     pointer: true,
     alignItems: "center",
-    style: style,
+    style: _objectSpread({}, sty),
     className: className,
     onClick: function onClick() {
-      return onChange === null || onChange === void 0 ? void 0 : onChange(!value);
+      if (disabled) return;
+      onChange === null || onChange === void 0 ? void 0 : onChange(!value);
     }
   }, contentEl);
 };

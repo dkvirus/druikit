@@ -5,39 +5,27 @@ function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key i
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 import React from 'react';
-export var Alert = function Alert(_ref) {
+export var ClockCircleOutlined = function ClockCircleOutlined(_ref) {
   var style = _ref.style,
     className = _ref.className,
-    message = _ref.message,
-    _ref$type = _ref.type,
-    type = _ref$type === void 0 ? 'error' : _ref$type,
-    error = _ref.error,
-    success = _ref.success,
-    warning = _ref.warning,
-    info = _ref.info;
-  var sty = {
-    padding: '5px 15px',
-    fontSize: 14,
-    display: 'inline-block'
-  };
-  if (type === 'error' || error) {
-    sty.backgroundColor = '#fce8e7';
-    sty.color = '#d62310';
-  }
-  if (type === 'success' || success) {
-    sty.backgroundColor = '#d4edda';
-    sty.color = '#155724';
-  }
-  if (type === 'warning' || warning) {
-    sty.backgroundColor = '#ffeeba';
-    sty.color = '#856404';
-  }
-  if (type === 'info' || info) {
-    sty.backgroundColor = '#e6f4ff';
-    sty.color = '#91caff';
-  }
-  return /*#__PURE__*/React.createElement("div", {
-    style: _objectSpread(_objectSpread({}, sty), style),
-    className: className
-  }, message);
+    _ref$size = _ref.size,
+    size = _ref$size === void 0 ? 12 : _ref$size,
+    _ref$color = _ref.color,
+    color = _ref$color === void 0 ? '#666' : _ref$color;
+  return /*#__PURE__*/React.createElement("svg", {
+    className: className,
+    style: _objectSpread({}, style),
+    xmlns: "http://www.w3.org/2000/svg",
+    width: size,
+    height: size,
+    fill: color,
+    viewBox: "0 0 24 24"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+  }));
 };
