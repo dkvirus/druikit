@@ -4,28 +4,42 @@ import React, { CSSProperties, ReactNode } from 'react';
 export interface CheckboxProps {
   style?: CSSProperties;
   className?: string;
+  children?: string | ReactNode;
+  // form
   value?: boolean;
   onChange?: (value: boolean) => void;
-  children?: string | ReactNode;
-  labelColor?: string;
-  labelSize?: number;
+  disabled?: boolean;
+  // label
   labelStyle?: CSSProperties;
   labelClassName?: string;
+  labelColor?: string;
+  labelSize?: number;
+  // style
   boxStyle?: CSSProperties;
   boxClassName?: string;
   boxBgColor?: string;
   boxColor?: string;
   boxSize?: number;
+  /**
+   * @description 框与文字的位置
+   * @default left
+   */
   boxPosition?: 'left' | 'right';
+  /**
+   * @description 框与文字的距离
+   * @default 10
+   */
   gap?: number;
 }
 
 export const Checkbox = ({
   style,
   className,
+  children,
+  // form
   value,
   onChange,
-  children,
+  disabled,
   // label
   labelStyle,
   labelClassName,
@@ -42,10 +56,17 @@ export const Checkbox = ({
   gap = 10,
 }: CheckboxProps) => {
   /* ******************************** label *********************************** */
-  const labelSty: CSSProperties = {};
+  const labelSty: CSSProperties = {
+    flex: 1,
+    ...labelStyle,
+  };
 
   if (typeof labelColor !== 'undefined') {
     labelSty.color = labelColor;
+  }
+
+  if (disabled) {
+    labelSty.color = '#ccc';
   }
 
   if (typeof labelSize !== 'undefined') {
@@ -53,10 +74,7 @@ export const Checkbox = ({
   }
 
   const labelEl = (
-    <div
-      style={{ flex: 1, ...labelStyle, ...labelSty }}
-      className={labelClassName}
-    >
+    <div style={{ ...labelSty }} className={labelClassName}>
       {children}
     </div>
   );
@@ -74,7 +92,7 @@ export const Checkbox = ({
         backgroundColor: boxBgColor,
       }}
     >
-      {value === true ? (
+      {!disabled && value === true ? (
         <CheckOutlined color={boxColor} size={boxSize * 0.9} />
       ) : null}
     </Flex>
@@ -83,7 +101,7 @@ export const Checkbox = ({
   /* ******************************** gap *********************************** */
   const gapEl = <div style={{ width: gap }} />;
 
-  /* ******************************** 组装 *********************************** */
+  /* ******************************** boxPosition *********************************** */
   let contentEl: ReactNode = (
     <>
       {boxEl}
@@ -102,13 +120,25 @@ export const Checkbox = ({
     );
   }
 
+  const sty: CSSProperties = {
+    userSelect: 'none',
+    ...style,
+  };
+
+  if (disabled) {
+    sty.cursor = 'not-allowed';
+  }
+
   return (
     <Flex
       pointer
       alignItems="center"
-      style={style}
+      style={{ ...sty }}
       className={className}
-      onClick={() => onChange?.(!value)}
+      onClick={() => {
+        if (disabled) return;
+        onChange?.(!value);
+      }}
     >
       {contentEl}
     </Flex>

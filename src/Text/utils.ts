@@ -1,3 +1,4 @@
+import { Property } from 'csstype';
 import { CSSProperties } from 'react';
 
 export function getFontSize({
@@ -38,14 +39,44 @@ export function getFontSize({
   return sty;
 }
 
+export function getFontWeight({
+  fontWeight,
+  bold,
+  bolder,
+}: {
+  fontWeight?: Property.FontWeight;
+  bold?: boolean;
+  bolder?: boolean;
+}) {
+  const sty: CSSProperties = {};
+
+  if (fontWeight) {
+    sty.fontWeight = fontWeight;
+  }
+
+  if (bold) {
+    sty.fontWeight = 'bold';
+  }
+
+  if (bolder) {
+    sty.fontWeight = 'bolder';
+  }
+
+  return sty;
+}
+
 export function getColor({
   color,
+  color333,
   color666,
+  color999,
   colorBlue,
   colorRed,
 }: {
   color?: string;
+  color333?: boolean;
   color666?: boolean;
+  color999?: boolean;
   colorBlue?: boolean;
   colorRed?: boolean;
 }) {
@@ -55,8 +86,16 @@ export function getColor({
     sty.color = color;
   }
 
+  if (color333) {
+    sty.color = '#333333';
+  }
+
   if (color666) {
     sty.color = '#666666';
+  }
+
+  if (color999) {
+    sty.color = '#999999';
   }
 
   if (colorBlue) {

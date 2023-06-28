@@ -4,14 +4,22 @@ export interface AlertProps {
   style?: CSSProperties;
   className?: string;
   message?: string;
-  type?: 'red' | 'green' | 'blue' | 'yellow';
+  type?: 'error' | 'success' | 'warning' | 'info';
+  error?: boolean;
+  success?: boolean;
+  warning?: boolean;
+  info?: boolean;
 }
 
 export const Alert = ({
   style,
   className,
   message,
-  type = 'red',
+  type = 'error',
+  error,
+  success,
+  warning,
+  info,
 }: AlertProps) => {
   const sty: CSSProperties = {
     padding: '5px 15px',
@@ -19,16 +27,19 @@ export const Alert = ({
     display: 'inline-block',
   };
 
-  if (type === 'red') {
+  if (type === 'error' || error) {
     sty.backgroundColor = '#fce8e7';
     sty.color = '#d62310';
-  } else if (type === 'green') {
+  }
+  if (type === 'success' || success) {
     sty.backgroundColor = '#d4edda';
     sty.color = '#155724';
-  } else if (type === 'yellow') {
-    sty.backgroundColor = '#fffbe6';
-    sty.color = '#ffe58f';
-  } else {
+  }
+  if (type === 'warning' || warning) {
+    sty.backgroundColor = '#ffeeba';
+    sty.color = '#856404';
+  }
+  if (type === 'info' || info) {
     sty.backgroundColor = '#e6f4ff';
     sty.color = '#91caff';
   }
