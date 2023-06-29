@@ -1,6 +1,6 @@
 {
   "name": "druikit",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "A react library developed with dumi",
   "license": "MIT",
   "module": "dist/index.js",
@@ -16,7 +16,7 @@
     "docs:build": "dumi build",
     "doctor": "father doctor",
     "lint": "npm run lint:es && npm run lint:css",
-    "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
+    "lint:css": "stylelint \"{src,test}/**/*.{less}\"",
     "lint:es": "eslint \"{src,test}/**/*.{jsx,ts,tsx}\"",
     "prepare": "husky install && dumi setup",
     "prepublishOnly": "father doctor && npm run build",
@@ -32,7 +32,7 @@
     "*.{md,json}": [
       "prettier --write --no-error-on-unmatched-pattern"
     ],
-    "*.{css,less}": [
+    "*.{less}": [
       "stylelint --fix",
       "prettier --write"
     ],

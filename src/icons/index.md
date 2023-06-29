@@ -6,6 +6,7 @@
 
 ```jsx
 import {
+  CaretDownOutlined,
   CheckOutlined,
   ClockCircleOutlined,
   LoadingOutlined,
@@ -16,6 +17,16 @@ import {
 export default () => {
   return (
     <Flex flexWrap>
+      <Flex
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        padding={20}
+      >
+        <CaretDownOutlined size={40} />
+        <Box height={20} />
+        <Box>CaretDownOutlined</Box>
+      </Flex>
       <Flex
         flexDirection="column"
         justifyContent="center"
