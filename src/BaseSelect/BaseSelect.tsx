@@ -14,8 +14,6 @@ import './styles.css';
 export interface BaseSelectProps {
   style?: CSSProperties;
   className?: string;
-  left?: number;
-  right?: number;
   label?: string;
   labelStyle?: CSSProperties;
   labelClassName?: string;

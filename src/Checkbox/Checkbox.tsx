@@ -1,5 +1,6 @@
-import { CheckOutlined, Flex } from 'druikit';
 import React, { CSSProperties, ReactNode } from 'react';
+import { CheckOutlined, Flex } from '../index';
+import { classnames } from '../utils/cssUtils';
 
 export interface CheckboxProps {
   style?: CSSProperties;
@@ -20,6 +21,7 @@ export interface CheckboxProps {
   boxBgColor?: string;
   boxColor?: string;
   boxSize?: number;
+  boxVisible?: boolean;
   /**
    * @description 框与文字的位置
    * @default left
@@ -42,7 +44,7 @@ export const Checkbox = ({
   disabled,
   // label
   labelStyle,
-  labelClassName,
+  labelClassName = '',
   labelColor = '#666',
   labelSize = 12,
   // box
@@ -51,6 +53,7 @@ export const Checkbox = ({
   boxBgColor = '#eeeeee',
   boxColor = '#999999',
   boxSize = 15,
+  boxVisible = true,
   boxPosition,
   // gap
   gap = 10,
@@ -73,14 +76,19 @@ export const Checkbox = ({
     labelSty.fontSize = labelSize;
   }
 
+  const labelCls = classnames({
+    [labelClassName]: true,
+    ['disabled']: disabled,
+  });
+
   const labelEl = (
-    <div style={{ ...labelSty }} className={labelClassName}>
+    <div style={{ ...labelSty }} className={labelCls}>
       {children}
     </div>
   );
 
   /* ******************************** box *********************************** */
-  const boxEl = (
+  let boxEl: ReactNode = (
     <Flex
       justifyContent="center"
       alignItems="center"
@@ -97,6 +105,9 @@ export const Checkbox = ({
       ) : null}
     </Flex>
   );
+  if (!boxVisible) {
+    boxEl = null;
+  }
 
   /* ******************************** gap *********************************** */
   const gapEl = <div style={{ width: gap }} />;
@@ -105,7 +116,7 @@ export const Checkbox = ({
   let contentEl: ReactNode = (
     <>
       {boxEl}
-      {gapEl}
+      {boxEl ? gapEl : null}
       {labelEl}
     </>
   );
@@ -114,7 +125,7 @@ export const Checkbox = ({
     contentEl = (
       <>
         {labelEl}
-        {gapEl}
+        {labelEl ? gapEl : null}
         {boxEl}
       </>
     );

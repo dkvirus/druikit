@@ -56,6 +56,38 @@ export default () => {
 };
 ```
 
+## boxVisible
+
+框是否显示
+
+```jsx
+import { useState } from 'react';
+import { Checkbox, Box } from 'druikit';
+
+export default () => {
+  const [checkboxValue, setCheckboxValue] = useState(true);
+
+  return (
+    <Box width={200} padding={20} border="1px solid #999">
+      <Checkbox
+        value={checkboxValue}
+        onChange={(value) => setCheckboxValue(value)}
+      >
+        boxVisible: true (default)
+      </Checkbox>
+      <Box height={10} />
+      <Checkbox
+        value={checkboxValue}
+        onChange={(value) => setCheckboxValue(value)}
+        boxVisible={false}
+      >
+        boxVisible: false
+      </Checkbox>
+    </Box>
+  );
+};
+```
+
 ## gap
 
 框与文字的距离。

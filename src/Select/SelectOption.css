@@ -1,0 +1,13 @@
+.select-option_wrapper {
+    padding: 6px 15px;
+    height: 19px;
+}
+
+.select-option_wrapper:hover {
+    background-color: #e6eaea!important;
+}
+
+.select-option_wrapper:hover .select-option_label:not(.disabled),
+.select-option_label-active {
+    color: #01a699 !important;
+}

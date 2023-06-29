@@ -163,18 +163,18 @@ export default () => {
 ## 手动关闭下拉框
 
 ```jsx
-import { useState, useRef } from 'react'
+import { useState, useRef } from 'react';
 import { BaseSelect, Box, Flex, Button } from 'druikit';
 
 export default () => {
-  const selectRef = useRef<BaseSelectRefProps>()
+  const selectRef = useRef < BaseSelectRefProps > null;
 
   const renderDropdown = (
     <>
       <div>hello</div>
       <div>world</div>
     </>
-  )
+  );
 
   return (
     <Flex alignItems="center">
@@ -186,7 +186,7 @@ export default () => {
       <Box width={10} />
       <Button onClick={() => selectRef.current?.close()}>关闭下拉框</Button>
     </Flex>
-  )
+  );
 };
 ```
 

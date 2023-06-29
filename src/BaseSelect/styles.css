@@ -77,6 +77,8 @@
     z-index: 1;
     min-height: 10px;
     width: fit-content;
+    min-width: 140px;
+    box-sizing: border-box;
 }
 
 .base-select_dropdown-open {

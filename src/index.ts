@@ -15,6 +15,7 @@ export {
 export { InputNumber } from './InputNumber';
 export { MonthPanel } from './MonthPanel';
 export { MonthPicker } from './MonthPicker';
+export { Select, SelectOption } from './Select';
 export { Spin } from './Spin';
 export { Switch } from './Switch';
 export { Text } from './Text';
