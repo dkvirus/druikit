@@ -9,6 +9,7 @@ import {
   CaretDownOutlined,
   CheckOutlined,
   ClockCircleOutlined,
+  CloseOutlined,
   LoadingOutlined,
   Flex,
   Box,
@@ -46,6 +47,16 @@ export default () => {
         <ClockCircleOutlined size={40} />
         <Box height={20} />
         <Box>ClockCircleOutlined</Box>
+      </Flex>
+      <Flex
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        padding={20}
+      >
+        <CloseOutlined size={40} />
+        <Box height={20} />
+        <Box>CloseOutlined</Box>
       </Flex>
       <Flex
         flexDirection="column"

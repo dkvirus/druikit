@@ -1,13 +1,10 @@
 import React, { CSSProperties, useRef, useState } from 'react';
 import { BaseSelect, BaseSelectProps, BaseSelectRefProps } from '../BaseSelect';
-import { Text } from '../Text';
-import { SelectOption } from './SelectOption';
-
-export interface OptionItem {
-  label: string;
-  value: string;
-  disabled?: boolean;
-}
+import {
+  OptionItem,
+  SelectDropdownHeader,
+  SelectOption,
+} from '../SelectOption';
 
 export interface SelectProps extends BaseSelectProps {
   style?: CSSProperties;
@@ -57,20 +54,9 @@ export const Select = ({
     ...labelStyle,
   };
 
-  const dropdownHeader = (
-    <Text
-      fontSize12
-      color666
-      bold
-      style={{ padding: dropdownTitle ? '10px 15px 0px' : 0 }}
-    >
-      {dropdownTitle}
-    </Text>
-  );
-
   const renderDropdown = (
     <>
-      {dropdownHeader}
+      <SelectDropdownHeader title={dropdownTitle} />
       <div style={{ paddingTop: 10, paddingBottom: 10 }}>
         {options.map((item) => (
           <SelectOption

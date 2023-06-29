@@ -100,7 +100,7 @@ export const Checkbox = ({
         backgroundColor: boxBgColor,
       }}
     >
-      {!disabled && value === true ? (
+      {value === true ? (
         <CheckOutlined color={boxColor} size={boxSize * 0.9} />
       ) : null}
     </Flex>

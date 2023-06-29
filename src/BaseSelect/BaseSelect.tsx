@@ -25,6 +25,7 @@ export interface BaseSelectProps {
   dropdownClassName?: string;
   disabled?: boolean;
   onOpenChanged?: (open: boolean) => void;
+  onClickAway?: () => void;
   /**
    * @description 被选中时下拉框显示文字
    */
@@ -57,6 +58,7 @@ export const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
       dropdownClassName = '',
       disabled,
       onOpenChanged,
+      onClickAway,
       placeholder,
       placement = 'bottomLeft',
     }: BaseSelectProps,
@@ -120,7 +122,12 @@ export const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
     };
 
     return (
-      <ClickAwayListener onClickAway={() => setOpen(false)}>
+      <ClickAwayListener
+        onClickAway={() => {
+          setOpen(false);
+          onClickAway?.();
+        }}
+      >
         <div style={style} className={className}>
           {label ? (
             <div style={labelStyle} className={labelCls}>

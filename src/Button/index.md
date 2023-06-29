@@ -13,6 +13,8 @@ export default () => {
       <Button>Default Button</Button>
       <Box width={10} />
       <Button danger>Danger Button</Button>
+      <Box width={10} />
+      <Button primary>Primary Button</Button>
     </Flex>
   );
 };
@@ -40,6 +42,42 @@ export default () => {
         </Button>
       </Flex>
     </Box>
+  );
+};
+```
+
+## bordered
+
+是否有边框
+
+```jsx
+import { Button, Box, Flex } from 'druikit';
+
+export default () => {
+  return (
+    <Flex>
+      <Button>bordered: true (默认值)</Button>
+      <Box width={10} />
+      <Button bordered={false}>bordered: false</Button>
+    </Flex>
+  );
+};
+```
+
+## fullWidth
+
+宽度设置为 100%
+
+```jsx
+import { Button, Box, Flex } from 'druikit';
+
+export default () => {
+  return (
+    <Flex flexDirection="column" alignItems="flex-start">
+      <Button>fullWidth: false (默认值)</Button>
+      <Box height={10} />
+      <Button fullWidth>fullWidth: true</Button>
+    </Flex>
   );
 };
 ```

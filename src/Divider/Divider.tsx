@@ -31,8 +31,6 @@ export const Divider = ({
   };
 
   const len = fullLength ? '100%' : length;
-  console.log('fullLength', fullLength);
-  console.log('len', len);
 
   if (type === 'horizontal' || horizontal) {
     sty.width = len;

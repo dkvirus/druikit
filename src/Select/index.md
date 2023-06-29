@@ -6,7 +6,7 @@
 
 ```jsx
 import { useState } from 'react';
-import { Select, SelectOption } from 'druikit';
+import { Select } from 'druikit';
 
 export default () => {
   const [value, setValue] = useState('');
@@ -33,7 +33,7 @@ export default () => {
 
 ```jsx
 import { useState } from 'react';
-import { Select, SelectOption, Box, Flex } from 'druikit';
+import { Select, Box, Flex } from 'druikit';
 
 export default () => {
   const [value, setValue] = useState('');
@@ -69,7 +69,7 @@ export default () => {
 
 ```jsx
 import { useState } from 'react';
-import { Select, SelectOption, Box, Flex } from 'druikit';
+import { Select, Box, Flex } from 'druikit';
 
 export default () => {
   const [value, setValue] = useState('');
@@ -104,7 +104,7 @@ export default () => {
 
 ```jsx
 import { useState } from 'react';
-import { Select, SelectOption, Box, Flex } from 'druikit';
+import { Select, Box, Flex } from 'druikit';
 
 export default () => {
   const [value, setValue] = useState('');
@@ -145,7 +145,7 @@ export default () => {
 
 ```jsx
 import { useState } from 'react';
-import { Select, SelectOption, Box, Flex } from 'druikit';
+import { Select, Box, Flex } from 'druikit';
 
 export default () => {
   const [value, setValue] = useState('');
@@ -184,7 +184,7 @@ export default () => {
 
 ```jsx
 import { useState } from 'react';
-import { Select, SelectOption, Box, Flex } from 'druikit';
+import { Select, Box, Flex } from 'druikit';
 
 export default () => {
   const [value, setValue] = useState('');
@@ -213,7 +213,7 @@ export default () => {
 
 ```jsx
 import { useState } from 'react';
-import { Select, SelectOption } from 'druikit';
+import { Select } from 'druikit';
 
 export default () => {
   const [value, setValue] = useState('');

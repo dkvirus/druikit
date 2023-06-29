@@ -10,12 +10,20 @@ export {
   CaretDownOutlined,
   CheckOutlined,
   ClockCircleOutlined,
+  CloseOutlined,
   LoadingOutlined,
 } from './icons';
 export { InputNumber } from './InputNumber';
 export { MonthPanel } from './MonthPanel';
 export { MonthPicker } from './MonthPicker';
-export { Select, SelectOption } from './Select';
+export { MultiSelect } from './MultiSelect';
+export { Select } from './Select';
+export {
+  SelectButtonGroup,
+  SelectDropdownHeader,
+  SelectOkButton,
+  SelectOption,
+} from './SelectOption';
 export { Spin } from './Spin';
 export { Switch } from './Switch';
 export { Text } from './Text';

@@ -147,6 +147,10 @@ export default () => {
       </Checkbox>
       <Box height={10} />
       <Checkbox disabled>禁用状态: disabled = true</Checkbox>
+      <Box height={10} />
+      <Checkbox value disabled>
+        禁用状态: disabled = true
+      </Checkbox>
     </Box>
   );
 };

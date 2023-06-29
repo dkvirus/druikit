@@ -8,11 +8,14 @@ export interface ButtonProps {
   onClick?: () => void;
   disabled?: boolean;
   loading?: boolean;
-  type?: 'danger' | 'default';
+  type?: 'danger' | 'primary' | 'default';
   danger?: boolean;
+  primary?: boolean;
+  bordered?: boolean;
   prefix?: ReactNode;
   suffix?: ReactNode;
   shape?: 'round' | 'square';
+  fullWidth?: boolean;
   left?: number;
   right?: number;
   gap?: number;
@@ -27,9 +30,12 @@ export const Button = ({
   loading,
   type = 'default',
   danger,
+  primary,
+  bordered = true,
   prefix,
   suffix,
   shape = 'round',
+  fullWidth,
   left,
   right,
   gap = 10,
@@ -43,6 +49,7 @@ export const Button = ({
     alignItems: 'center',
     fontSize: 14,
     cursor: 'pointer',
+    boxSizing: 'border-box',
   };
 
   /* *************************** left, right ***************************** */
@@ -54,7 +61,7 @@ export const Button = ({
     sty.marginRight = right;
   }
 
-  /* *************************** type, danger ***************************** */
+  /* *************************** type, danger, primary ***************************** */
   if (type === 'default') {
     sty.color = '#666';
     sty.border = '1px solid #a0a0a0';
@@ -64,6 +71,22 @@ export const Button = ({
     sty.backgroundColor = '#ec7765';
     sty.color = '#ffffff';
     sty.border = '1px solid #ec7765';
+  }
+
+  if (type === 'primary' || primary) {
+    sty.backgroundColor = '#01a699';
+    sty.color = '#fff';
+    sty.border = '1px solid #01a699';
+  }
+
+  /* *************************** bordered ***************************** */
+  if (!bordered) {
+    sty.border = 'none';
+  }
+
+  /* *************************** fullWidth ***************************** */
+  if (fullWidth) {
+    sty.width = '100%';
   }
 
   /* *************************** disabled ***************************** */

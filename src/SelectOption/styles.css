@@ -1,0 +1,43 @@
+.select-option_wrapper {
+    padding: 6px 15px;
+    height: 19px;
+}
+
+.select-option_wrapper:hover {
+    background-color: #e6eaea!important;
+}
+
+.select-option_wrapper:hover .select-option_label:not(.disabled),
+.select-option_label-active {
+    color: #01a699 !important;
+}
+
+/* select button group */
+.select-button-group_wrapper {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: #999;
+}
+
+.select-button-group_item {
+    height: 20px;
+    line-height: 20px;
+    flex: 1;
+}
+
+.select-button-group_item-hover:hover {
+    background-color: #e6eaea!important;
+    cursor: pointer;
+}
+
+.select-button-group_item-clear {
+    padding-left: 15px;
+    text-align: left;
+}
+
+.select-button-group_item-select {
+    padding-right: 15px;
+    text-align: right;
+}
