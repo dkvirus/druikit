@@ -13,7 +13,10 @@ export {
   LoadingOutlined,
 } from './icons';
 export { InputNumber } from './InputNumber';
+export { MonthPanel } from './MonthPanel';
+export { MonthPicker } from './MonthPicker';
 export { Spin } from './Spin';
+export { Switch } from './Switch';
 export { Text } from './Text';
 export { arrayUtils } from './utils/arrayUtils';
 export { cssUtils } from './utils/cssUtils';

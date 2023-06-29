@@ -16,6 +16,9 @@ export interface BaseSelectProps {
   className?: string;
   left?: number;
   right?: number;
+  label?: string;
+  labelStyle?: CSSProperties;
+  labelClassName?: string;
   renderSelector?: ReactNode;
   selectorStyle?: CSSProperties;
   selectorClassName?: string;
@@ -44,6 +47,9 @@ export const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
     {
       style,
       className = '',
+      label,
+      labelStyle,
+      labelClassName = '',
       renderSelector,
       selectorStyle,
       selectorClassName = '',
@@ -65,13 +71,16 @@ export const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
       onOpenChanged?.(open);
     }, [open]);
 
-    /* ************************* select ****************************** */
-    const sty: CSSProperties = { ...style };
+    /* ************************* label ****************************** */
+    const labelCls = classnames({
+      'base-select_label': true,
+      [labelClassName]: true,
+    });
 
-    const cls = classnames({
+    /* ************************* select ****************************** */
+    const selectCls = classnames({
       'base-select_select': true,
       'base-select_select-disabled': disabled,
-      [className]: true,
     });
 
     /* ************************* selector ****************************** */
@@ -114,23 +123,30 @@ export const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
 
     return (
       <ClickAwayListener onClickAway={() => setOpen(false)}>
-        <div style={sty} className={cls}>
-          {renderSelector ? (
-            <div onClick={onClickSelector}>{renderSelector}</div>
-          ) : (
-            <div
-              style={selectorStyle}
-              className={selectorCls}
-              onClick={onClickSelector}
-            >
-              <div className={selectorSelectionCls}>
-                {selectorValue || placeholder}
-              </div>
-              <CaretDownOutlined className={selectorArrowCls} />
+        <div style={style} className={className}>
+          {label ? (
+            <div style={labelStyle} className={labelCls}>
+              {label}
             </div>
-          )}
-          <div style={dropdownSty} className={dropdownCls}>
-            {renderDropdown}
+          ) : null}
+          <div className={selectCls}>
+            {renderSelector ? (
+              <div onClick={onClickSelector}>{renderSelector}</div>
+            ) : (
+              <div
+                style={selectorStyle}
+                className={selectorCls}
+                onClick={onClickSelector}
+              >
+                <div className={selectorSelectionCls}>
+                  {selectorValue || placeholder}
+                </div>
+                <CaretDownOutlined className={selectorArrowCls} />
+              </div>
+            )}
+            <div style={dropdownSty} className={dropdownCls}>
+              {renderDropdown}
+            </div>
           </div>
         </div>
       </ClickAwayListener>

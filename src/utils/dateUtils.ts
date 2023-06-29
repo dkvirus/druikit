@@ -1,4 +1,4 @@
-const WEEKS = [
+export const WEEKS = [
   'Monday',
   'Tuesday',
   'Wednesday',
@@ -7,10 +7,18 @@ const WEEKS = [
   'Saturday',
   'Sunday',
 ];
-const WEEKS_ABBR = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-const WEEKS_ZH = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+export const WEEKS_ABBR = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+export const WEEKS_ZH = [
+  '周一',
+  '周二',
+  '周三',
+  '周四',
+  '周五',
+  '周六',
+  '周日',
+];
 
-const MONTHS = [
+export const MONTHS = [
   'January',
   'February',
   'March',
@@ -24,7 +32,7 @@ const MONTHS = [
   'November',
   'December',
 ];
-const MONTHS_ABBR = [
+export const MONTHS_ABBR = [
   'Jan',
   'Feb',
   'Mar',
@@ -38,7 +46,7 @@ const MONTHS_ABBR = [
   'Nov',
   'Dec',
 ];
-const MONTHS_ZH = [
+export const MONTHS_ZH = [
   '一月',
   '二月',
   '三月',
