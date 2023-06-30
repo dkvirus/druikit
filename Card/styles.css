@@ -1,0 +1,11 @@
+.card_wrapper {
+    border-radius: 18px;
+    border: 1px solid #E9E9E9;
+    overflow: hidden;
+    box-shadow: 0 2px 15px 0 rgba(0,0,0,.08);
+}
+
+.card_fringe {
+    background-color: #74B6B6;
+    width: 100%;
+}
