@@ -7,12 +7,24 @@ A react component library developed with dumi
 
 ## Components
 
+- [x] Alert
+- [x] BaseSelect
 - [x] Box
+- [x] Button
+- [x] Card
+- [x] Checkbox
+- [x] ClickAwayListener
+- [x] Divider
 - [x] Flex
 - [x] InputNumber
-- [ ] Checkbox
-- [ ] Image: 懒加载, 配置前缀
-- [ ] Button
+- [x] MonthPanel
+- [x] MonthPicker
+- [x] MultiSelect
+- [x] Select
+- [x] Spin
+- [x] Switch
+- [x] Text
+- [x] Icons
 
 ## Development
 
