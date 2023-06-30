@@ -9,6 +9,4 @@ export default defineConfig({
   resolve: {
     entryFile: './src/index.ts',
   },
-  base: '/druikit/',
-  publicPath: '/druikit/',
 });
