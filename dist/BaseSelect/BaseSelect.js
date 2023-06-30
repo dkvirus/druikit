@@ -61,6 +61,7 @@ export var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
   /* ************************* selector ****************************** */
   var selectorCls = classnames(_defineProperty({
     'base-select_selector': true,
+    'base-select_selector-hover': true,
     'base-select_selector-selected': selected
   }, selectorClassName, true));
   var selectorSelectionCls = classnames(['base-select_selector-selection']);

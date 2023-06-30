@@ -56,10 +56,10 @@ export var SelectDropdownHeader = function SelectDropdownHeader(_ref2) {
     justifyContent: "center",
     alignItems: "center",
     onClick: onClick
-  }, /*#__PURE__*/React.createElement(CloseOutlined, {
+  }, onClick ? /*#__PURE__*/React.createElement(CloseOutlined, {
     size: 12,
     color: "#666"
-  })));
+  }) : null));
 };
 export var SelectButtonGroup = function SelectButtonGroup(_ref3) {
   var _classnames2, _classnames3;

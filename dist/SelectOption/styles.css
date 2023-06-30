@@ -1,6 +1,7 @@
 .select-option_wrapper {
     padding: 6px 15px;
     height: 19px;
+    box-sizing: content-box;
 }
 
 .select-option_wrapper:hover {

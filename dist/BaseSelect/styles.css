@@ -38,6 +38,10 @@
     color: #666666;
 }
 
+.base-select_selector-hover:hover {
+    background-color: #e6eaea !important;
+}
+
 .base-select_selector-selected {
     border-color: #01a699 !important;
     color: #01a699 !important;
