@@ -164,7 +164,7 @@ export default () => {
 
 ```jsx
 import { useState, useRef } from 'react';
-import { BaseSelect, Box, Flex, Button } from 'druikit';
+import { BaseSelect, BaseSelectRefProps, Box, Flex, Button } from 'druikit';
 
 export default () => {
   const selectRef = useRef < BaseSelectRefProps > null;

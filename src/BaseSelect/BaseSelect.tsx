@@ -86,6 +86,7 @@ export const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
     /* ************************* selector ****************************** */
     const selectorCls = classnames({
       'base-select_selector': true,
+      'base-select_selector-hover': true,
       'base-select_selector-selected': selected,
       [selectorClassName]: true,
     });

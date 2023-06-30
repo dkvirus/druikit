@@ -36,7 +36,7 @@ export default () => {
   const [checkboxValue, setCheckboxValue] = useState(true);
 
   return (
-    <Box width={200} padding={20} border="1px solid #999">
+    <Box width={300} padding={20} border="1px solid #999">
       <Checkbox
         value={checkboxValue}
         onChange={(value) => setCheckboxValue(value)}
@@ -68,7 +68,7 @@ export default () => {
   const [checkboxValue, setCheckboxValue] = useState(true);
 
   return (
-    <Box width={200} padding={20} border="1px solid #999">
+    <Box width={300} padding={20} border="1px solid #999">
       <Checkbox
         value={checkboxValue}
         onChange={(value) => setCheckboxValue(value)}
@@ -100,7 +100,7 @@ export default () => {
   const [checkboxValue, setCheckboxValue] = useState(true);
 
   return (
-    <Box width={200} padding={20} border="1px solid #999">
+    <Box width={300} padding={20} border="1px solid #999">
       <Checkbox
         value={checkboxValue}
         onChange={(value) => setCheckboxValue(value)}

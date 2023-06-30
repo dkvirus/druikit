@@ -89,7 +89,7 @@ export const SelectDropdownHeader = ({
         alignItems="center"
         onClick={onClick}
       >
-        <CloseOutlined size={12} color="#666" />
+        {onClick ? <CloseOutlined size={12} color="#666" /> : null}
       </Flex>
     </Flex>
   );
