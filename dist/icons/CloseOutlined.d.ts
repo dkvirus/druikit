@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-export declare const ClockCircleOutlined: ({ style, className, size, color, }: {
+export declare const CloseOutlined: ({ style, className, size, color, }: {
     style?: React.CSSProperties | undefined;
     className?: string | undefined;
     size?: number | undefined;

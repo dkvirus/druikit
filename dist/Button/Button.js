@@ -16,10 +16,14 @@ export var Button = function Button(_ref) {
     _ref$type = _ref.type,
     type = _ref$type === void 0 ? 'default' : _ref$type,
     danger = _ref.danger,
+    primary = _ref.primary,
+    _ref$bordered = _ref.bordered,
+    bordered = _ref$bordered === void 0 ? true : _ref$bordered,
     prefix = _ref.prefix,
     suffix = _ref.suffix,
     _ref$shape = _ref.shape,
     shape = _ref$shape === void 0 ? 'round' : _ref$shape,
+    fullWidth = _ref.fullWidth,
     left = _ref.left,
     right = _ref.right,
     _ref$gap = _ref.gap,
@@ -32,7 +36,8 @@ export var Button = function Button(_ref) {
     justifyContent: 'center',
     alignItems: 'center',
     fontSize: 14,
-    cursor: 'pointer'
+    cursor: 'pointer',
+    boxSizing: 'border-box'
   };
 
   /* *************************** left, right ***************************** */
@@ -43,7 +48,7 @@ export var Button = function Button(_ref) {
     sty.marginRight = right;
   }
 
-  /* *************************** type, danger ***************************** */
+  /* *************************** type, danger, primary ***************************** */
   if (type === 'default') {
     sty.color = '#666';
     sty.border = '1px solid #a0a0a0';
@@ -52,6 +57,21 @@ export var Button = function Button(_ref) {
     sty.backgroundColor = '#ec7765';
     sty.color = '#ffffff';
     sty.border = '1px solid #ec7765';
+  }
+  if (type === 'primary' || primary) {
+    sty.backgroundColor = '#01a699';
+    sty.color = '#fff';
+    sty.border = '1px solid #01a699';
+  }
+
+  /* *************************** bordered ***************************** */
+  if (!bordered) {
+    sty.border = 'none';
+  }
+
+  /* *************************** fullWidth ***************************** */
+  if (fullWidth) {
+    sty.width = '100%';
   }
 
   /* *************************** disabled ***************************** */

@@ -10,7 +10,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-import React, { useEffect, useState, useImperativeHandle, forwardRef } from 'react';
+import React, { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import { ClickAwayListener } from "../ClickAwayListener";
 import { CaretDownOutlined } from "../icons";
 import { classnames, handlePlacement } from "../utils/cssUtils";
@@ -19,6 +19,10 @@ export var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
   var style = _ref.style,
     _ref$className = _ref.className,
     className = _ref$className === void 0 ? '' : _ref$className,
+    label = _ref.label,
+    labelStyle = _ref.labelStyle,
+    _ref$labelClassName = _ref.labelClassName,
+    labelClassName = _ref$labelClassName === void 0 ? '' : _ref$labelClassName,
     renderSelector = _ref.renderSelector,
     selectorStyle = _ref.selectorStyle,
     _ref$selectorClassNam = _ref.selectorClassName,
@@ -30,6 +34,7 @@ export var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
     dropdownClassName = _ref$dropdownClassNam === void 0 ? '' : _ref$dropdownClassNam,
     disabled = _ref.disabled,
     onOpenChanged = _ref.onOpenChanged,
+    _onClickAway = _ref.onClickAway,
     placeholder = _ref.placeholder,
     _ref$placement = _ref.placement,
     placement = _ref$placement === void 0 ? 'bottomLeft' : _ref$placement;
@@ -42,12 +47,16 @@ export var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
     onOpenChanged === null || onOpenChanged === void 0 ? void 0 : onOpenChanged(open);
   }, [open]);
 
+  /* ************************* label ****************************** */
+  var labelCls = classnames(_defineProperty({
+    'base-select_label': true
+  }, labelClassName, true));
+
   /* ************************* select ****************************** */
-  var sty = _objectSpread({}, style);
-  var cls = classnames(_defineProperty({
+  var selectCls = classnames({
     'base-select_select': true,
     'base-select_select-disabled': disabled
-  }, className, true));
+  });
 
   /* ************************* selector ****************************** */
   var selectorCls = classnames(_defineProperty({
@@ -84,11 +93,17 @@ export var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
   };
   return /*#__PURE__*/React.createElement(ClickAwayListener, {
     onClickAway: function onClickAway() {
-      return setOpen(false);
+      setOpen(false);
+      _onClickAway === null || _onClickAway === void 0 ? void 0 : _onClickAway();
     }
   }, /*#__PURE__*/React.createElement("div", {
-    style: sty,
-    className: cls
+    style: style,
+    className: className
+  }, label ? /*#__PURE__*/React.createElement("div", {
+    style: labelStyle,
+    className: labelCls
+  }, label) : null, /*#__PURE__*/React.createElement("div", {
+    className: selectCls
   }, renderSelector ? /*#__PURE__*/React.createElement("div", {
     onClick: onClickSelector
   }, renderSelector) : /*#__PURE__*/React.createElement("div", {
@@ -102,5 +117,5 @@ export var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
   })), /*#__PURE__*/React.createElement("div", {
     style: dropdownSty,
     className: dropdownCls
-  }, renderDropdown)));
+  }, renderDropdown))));
 });

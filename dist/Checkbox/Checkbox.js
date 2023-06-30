@@ -4,9 +4,11 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-import { CheckOutlined, Flex } from "./..";
 import React from 'react';
+import { CheckOutlined, Flex } from "../index";
+import { classnames } from "../utils/cssUtils";
 export var Checkbox = function Checkbox(_ref) {
+  var _classnames;
   var style = _ref.style,
     className = _ref.className,
     children = _ref.children,
@@ -14,7 +16,8 @@ export var Checkbox = function Checkbox(_ref) {
     onChange = _ref.onChange,
     disabled = _ref.disabled,
     labelStyle = _ref.labelStyle,
-    labelClassName = _ref.labelClassName,
+    _ref$labelClassName = _ref.labelClassName,
+    labelClassName = _ref$labelClassName === void 0 ? '' : _ref$labelClassName,
     _ref$labelColor = _ref.labelColor,
     labelColor = _ref$labelColor === void 0 ? '#666' : _ref$labelColor,
     _ref$labelSize = _ref.labelSize,
@@ -27,6 +30,8 @@ export var Checkbox = function Checkbox(_ref) {
     boxColor = _ref$boxColor === void 0 ? '#999999' : _ref$boxColor,
     _ref$boxSize = _ref.boxSize,
     boxSize = _ref$boxSize === void 0 ? 15 : _ref$boxSize,
+    _ref$boxVisible = _ref.boxVisible,
+    boxVisible = _ref$boxVisible === void 0 ? true : _ref$boxVisible,
     boxPosition = _ref.boxPosition,
     _ref$gap = _ref.gap,
     gap = _ref$gap === void 0 ? 10 : _ref$gap;
@@ -43,9 +48,10 @@ export var Checkbox = function Checkbox(_ref) {
   if (typeof labelSize !== 'undefined') {
     labelSty.fontSize = labelSize;
   }
+  var labelCls = classnames((_classnames = {}, _defineProperty(_classnames, labelClassName, true), _defineProperty(_classnames, 'disabled', disabled), _classnames));
   var labelEl = /*#__PURE__*/React.createElement("div", {
     style: _objectSpread({}, labelSty),
-    className: labelClassName
+    className: labelCls
   }, children);
 
   /* ******************************** box *********************************** */
@@ -59,10 +65,13 @@ export var Checkbox = function Checkbox(_ref) {
     }, boxStyle), {}, {
       backgroundColor: boxBgColor
     })
-  }, !disabled && value === true ? /*#__PURE__*/React.createElement(CheckOutlined, {
+  }, value === true ? /*#__PURE__*/React.createElement(CheckOutlined, {
     color: boxColor,
     size: boxSize * 0.9
   }) : null);
+  if (!boxVisible) {
+    boxEl = null;
+  }
 
   /* ******************************** gap *********************************** */
   var gapEl = /*#__PURE__*/React.createElement("div", {
@@ -72,9 +81,9 @@ export var Checkbox = function Checkbox(_ref) {
   });
 
   /* ******************************** boxPosition *********************************** */
-  var contentEl = /*#__PURE__*/React.createElement(React.Fragment, null, boxEl, gapEl, labelEl);
+  var contentEl = /*#__PURE__*/React.createElement(React.Fragment, null, boxEl, boxEl ? gapEl : null, labelEl);
   if (boxPosition === 'right') {
-    contentEl = /*#__PURE__*/React.createElement(React.Fragment, null, labelEl, gapEl, boxEl);
+    contentEl = /*#__PURE__*/React.createElement(React.Fragment, null, labelEl, labelEl ? gapEl : null, boxEl);
   }
   var sty = _objectSpread({
     userSelect: 'none'

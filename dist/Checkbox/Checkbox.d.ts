@@ -15,6 +15,7 @@ export interface CheckboxProps {
     boxBgColor?: string;
     boxColor?: string;
     boxSize?: number;
+    boxVisible?: boolean;
     /**
      * @description 框与文字的位置
      * @default left
@@ -26,4 +27,4 @@ export interface CheckboxProps {
      */
     gap?: number;
 }
-export declare const Checkbox: ({ style, className, children, value, onChange, disabled, labelStyle, labelClassName, labelColor, labelSize, boxStyle, boxClassName, boxBgColor, boxColor, boxSize, boxPosition, gap, }: CheckboxProps) => React.JSX.Element;
+export declare const Checkbox: ({ style, className, children, value, onChange, disabled, labelStyle, labelClassName, labelColor, labelSize, boxStyle, boxClassName, boxBgColor, boxColor, boxSize, boxVisible, boxPosition, gap, }: CheckboxProps) => React.JSX.Element;

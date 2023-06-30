@@ -6,13 +6,16 @@ export interface ButtonProps {
     onClick?: () => void;
     disabled?: boolean;
     loading?: boolean;
-    type?: 'danger' | 'default';
+    type?: 'danger' | 'primary' | 'default';
     danger?: boolean;
+    primary?: boolean;
+    bordered?: boolean;
     prefix?: ReactNode;
     suffix?: ReactNode;
     shape?: 'round' | 'square';
+    fullWidth?: boolean;
     left?: number;
     right?: number;
     gap?: number;
 }
-export declare const Button: ({ style, className, children, onClick, disabled, loading, type, danger, prefix, suffix, shape, left, right, gap, }: ButtonProps) => React.JSX.Element;
+export declare const Button: ({ style, className, children, onClick, disabled, loading, type, danger, primary, bordered, prefix, suffix, shape, fullWidth, left, right, gap, }: ButtonProps) => React.JSX.Element;

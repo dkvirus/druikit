@@ -1,6 +1,6 @@
 /**
  * 处理类名
- * 
+ *
  * ``` js
  * classnames(['aaa', 'bbb', '', 'ddd'])   // 'aaa bbb ddd'
  * classnames({'aaa': true, 'bbb': false, 'ccc': true})   // 'aaa ccc'

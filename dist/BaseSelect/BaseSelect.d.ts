@@ -3,8 +3,9 @@ import './styles.css';
 export interface BaseSelectProps {
     style?: CSSProperties;
     className?: string;
-    left?: number;
-    right?: number;
+    label?: string;
+    labelStyle?: CSSProperties;
+    labelClassName?: string;
     renderSelector?: ReactNode;
     selectorStyle?: CSSProperties;
     selectorClassName?: string;
@@ -13,6 +14,7 @@ export interface BaseSelectProps {
     dropdownClassName?: string;
     disabled?: boolean;
     onOpenChanged?: (open: boolean) => void;
+    onClickAway?: () => void;
     /**
      * @description 被选中时下拉框显示文字
      */
