@@ -5,6 +5,10 @@
 
 A react component library developed with dumi
 
+## Document
+
+Documentation at [druikit.dkvirus.com](https://druikit.dkvirus.com/)
+
 ## Components
 
 - [x] Alert
