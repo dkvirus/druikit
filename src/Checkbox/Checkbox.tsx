@@ -61,7 +61,6 @@ export const Checkbox = ({
   /* ******************************** label *********************************** */
   const labelSty: CSSProperties = {
     flex: 1,
-    ...labelStyle,
   };
 
   if (typeof labelColor !== 'undefined') {
@@ -82,7 +81,7 @@ export const Checkbox = ({
   });
 
   const labelEl = (
-    <div style={{ ...labelSty }} className={labelCls}>
+    <div style={{ ...labelSty, ...labelStyle }} className={labelCls}>
       {children}
     </div>
   );

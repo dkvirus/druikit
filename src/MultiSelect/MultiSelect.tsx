@@ -194,9 +194,11 @@ export const MultiSelect = ({
           selectAll={selectAll}
           onSelectAll={onSelectAll}
         />
-        <Divider fullLength gap={0} color="#eee" />
+        {selectAll && clearAll ? (
+          <Divider fullLength gap={0} color="#eee" />
+        ) : null}
         <div style={{ paddingTop: 10, paddingBottom: 10 }}>
-          {opts.map((item) => {
+          {opts.map((item, index) => {
             const selectedValue = getSelectedValue(opts);
             const minCountNotAllowed =
               selectedValue.length === minCount &&
@@ -204,17 +206,29 @@ export const MultiSelect = ({
             const maxCountNotAllowed =
               selectedValue.length === maxCount &&
               !selectedValue.includes(item.value);
+            const key = item.label + index.toString();
+            if (typeof item.value === 'string') {
+              return (
+                <SelectOption
+                  key={key}
+                  labelStyle={dropdownLabelStyle}
+                  labelClassName={labelClassName}
+                  value={item.checked}
+                  onChange={(checked) => onClick(checked, item)}
+                  disabled={
+                    minCountNotAllowed || maxCountNotAllowed || item.disabled
+                  }
+                  boxVisible
+                >
+                  {item.label}
+                </SelectOption>
+              );
+            }
             return (
               <SelectOption
-                key={item.value}
-                labelStyle={dropdownLabelStyle}
-                labelClassName={labelClassName}
-                value={item.checked}
-                onChange={(checked) => onClick(checked, item)}
-                disabled={
-                  minCountNotAllowed || maxCountNotAllowed || item.disabled
-                }
-                boxVisible
+                key={key}
+                groupTitle
+                labelClassName={item.labelClassName}
               >
                 {item.label}
               </SelectOption>

@@ -182,4 +182,41 @@ export default () => {
 };
 ```
 
+## 分组
+
+```jsx
+import { useState } from 'react';
+import { MultiSelect, Flex, Box } from 'druikit';
+
+export default () => {
+  const [value, setValue] = useState<string[]>([]);
+
+  const options = [
+    { label: 'Countries' },
+    { label: 'Sweden', value: 'Sweden' },
+    { label: 'Finland', value: 'Finland' },
+    { label: 'Norway', value: 'Norway' },
+    { label: 'Fruits' },
+    { label: 'Apple', value: 'Apple' },
+    { label: 'Orange', value: 'Orange' },
+  ];
+
+  return (
+    <Flex>
+      <MultiSelect
+        label="Region"
+        placeholder="Region"
+        clearAll={false}
+        selectAll={false}
+        options={options}
+        value={value}
+        onChange={(value) => setValue(value)}
+      />
+      <Box width={20} />
+      <Box>{value.join(', ')}</Box>
+    </Flex>
+  );
+};
+```
+
 <API id="MultiSelect"></API>

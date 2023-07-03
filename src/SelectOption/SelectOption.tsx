@@ -9,7 +9,8 @@ import './styles.css';
 
 export interface OptionItem {
   label: string;
-  value: string;
+  labelClassName?: string;
+  value?: string;
   disabled?: boolean;
   checked?: boolean;
 }
@@ -24,6 +25,7 @@ export interface OptionProps {
   labelStyle?: CSSProperties;
   labelClassName?: string;
   boxVisible?: boolean;
+  groupTitle?: boolean;
 }
 
 export const SelectOption = ({
@@ -36,8 +38,13 @@ export const SelectOption = ({
   labelStyle,
   labelClassName = '',
   boxVisible = false,
+  groupTitle = false,
 }: OptionProps) => {
-  const cls = classnames(['select-option_wrapper', className]);
+  const cls = classnames({
+    ['select-option_wrapper']: true,
+    ['select-option_wrapper-hover']: !disabled && !groupTitle,
+    [className]: true,
+  });
 
   const labelCls = classnames({
     ['select-option_label-active']: value === true,
@@ -45,11 +52,17 @@ export const SelectOption = ({
     [labelClassName]: true,
   });
 
+  const labelSty: CSSProperties = { ...labelStyle };
+  if (groupTitle) {
+    labelSty.fontSize = 14;
+    labelSty.cursor = 'auto';
+  }
+
   return (
     <Checkbox
       className={cls}
       style={style}
-      labelStyle={labelStyle}
+      labelStyle={labelSty}
       labelClassName={labelCls}
       boxVisible={boxVisible}
       value={value}

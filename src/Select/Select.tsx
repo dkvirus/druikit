@@ -58,25 +58,39 @@ export const Select = ({
     <>
       <SelectDropdownHeader title={dropdownTitle} />
       <div style={{ paddingTop: 10, paddingBottom: 10 }}>
-        {options.map((item) => (
-          <SelectOption
-            key={item.value}
-            labelStyle={dropdownLabelStyle}
-            labelClassName={labelClassName}
-            value={item.value === value}
-            disabled={item.disabled}
-            onChange={(value) => {
-              if (disabled) return;
-              if (value === true) {
-                setSelectorValue(item.label);
-                selectRef.current?.close();
-                onChange?.(item.value);
-              }
-            }}
-          >
-            {item.label}
-          </SelectOption>
-        ))}
+        {options.map((item, index) => {
+          const key = item.label + index.toString();
+          if (typeof item.value === 'string') {
+            return (
+              <SelectOption
+                key={key}
+                labelStyle={dropdownLabelStyle}
+                labelClassName={labelClassName}
+                value={item.value === value}
+                disabled={item.disabled}
+                onChange={(value) => {
+                  if (disabled) return;
+                  if (value === true) {
+                    setSelectorValue(item.label);
+                    selectRef.current?.close();
+                    onChange?.(item.value as string);
+                  }
+                }}
+              >
+                {item.label}
+              </SelectOption>
+            );
+          }
+          return (
+            <SelectOption
+              key={key}
+              groupTitle
+              labelClassName={item.labelClassName}
+            >
+              {item.label}
+            </SelectOption>
+          );
+        })}
       </div>
     </>
   );

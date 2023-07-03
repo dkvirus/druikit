@@ -236,4 +236,33 @@ export default () => {
 };
 ```
 
+## 分组
+
+```jsx
+import { useState } from 'react';
+import { Select, Box, Flex } from 'druikit';
+
+export default () => {
+  const [value, setValue] = useState('');
+
+  const options = [
+    { label: 'Country' },
+    { label: 'Sweden', value: 'Sweden' },
+    { label: 'Japan', value: 'Japan', disabled: true },
+  ];
+
+  return (
+    <Flex alignItems="flex-end">
+      <Select
+        label="Region"
+        placeholder="Region"
+        options={options}
+        value={value}
+        onChange={(value) => setValue(value)}
+      />
+    </Flex>
+  );
+};
+```
+
 <API id="Select"></API>
