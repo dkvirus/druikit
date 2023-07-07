@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 
-export const ClockCircleOutlined = ({
+const ClockCircleOutlined = ({
   style,
   className,
   size = 12,
@@ -27,3 +27,5 @@ export const ClockCircleOutlined = ({
     </svg>
   );
 };
+
+export default ClockCircleOutlined;

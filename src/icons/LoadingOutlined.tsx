@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 
-export const LoadingOutlined = ({
+const LoadingOutlined = ({
   style,
   className,
   size = 12,
@@ -44,3 +44,5 @@ export const LoadingOutlined = ({
     </svg>
   );
 };
+
+export default LoadingOutlined;

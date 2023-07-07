@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 
-export const CaretDownOutlined = ({
+const CaretDownOutlined = ({
   style,
   className,
   size = 12,
@@ -24,3 +24,5 @@ export const CaretDownOutlined = ({
     </svg>
   );
 };
+
+export default CaretDownOutlined;

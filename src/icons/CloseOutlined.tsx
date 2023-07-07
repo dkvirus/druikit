@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 
-export const CloseOutlined = ({
+const CloseOutlined = ({
   style,
   className,
   size = 12,
@@ -24,3 +24,5 @@ export const CloseOutlined = ({
     </svg>
   );
 };
+
+export default CloseOutlined;

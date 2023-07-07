@@ -1,5 +1,5 @@
 import React from 'react';
-export var CheckOutlined = function CheckOutlined(_ref) {
+var CheckOutlined = function CheckOutlined(_ref) {
   var style = _ref.style,
     className = _ref.className,
     _ref$size = _ref.size,
@@ -19,3 +19,4 @@ export var CheckOutlined = function CheckOutlined(_ref) {
     points: "142.8,323.85 35.7,216.75 0,252.45 142.8,395.25 448.8,89.25 413.1,53.55"
   })));
 };
+export default CheckOutlined;

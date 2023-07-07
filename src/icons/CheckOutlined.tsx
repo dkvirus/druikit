@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 
-export const CheckOutlined = ({
+const CheckOutlined = ({
   style,
   className,
   size = 12,
@@ -26,3 +26,5 @@ export const CheckOutlined = ({
     </svg>
   );
 };
+
+export default CheckOutlined;

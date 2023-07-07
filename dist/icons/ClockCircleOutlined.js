@@ -5,7 +5,7 @@ function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key i
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 import React from 'react';
-export var ClockCircleOutlined = function ClockCircleOutlined(_ref) {
+var ClockCircleOutlined = function ClockCircleOutlined(_ref) {
   var style = _ref.style,
     className = _ref.className,
     _ref$size = _ref.size,
@@ -29,3 +29,4 @@ export var ClockCircleOutlined = function ClockCircleOutlined(_ref) {
     d: "M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"
   }));
 };
+export default ClockCircleOutlined;

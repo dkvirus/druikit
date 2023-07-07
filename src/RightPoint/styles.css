@@ -1,0 +1,59 @@
+.right-point_wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-family: 'Nunito Sans';
+}
+
+.right-point_wrapper-hover:hover .right-point_arrow {
+    background-color: #e6eaea!important;
+    cursor: pointer;
+}
+
+.right-point_wrapper-small {
+    height: 26px;
+}
+
+.right-point_wrapper-middle {
+    height: 34px;
+}
+
+.right-point_wrapper-large {
+    height: 41px;
+}
+
+.right-point_pointer {
+    cursor: pointer;
+}
+
+.right-point_highlight {
+    background: #B9DCDD !important;
+}
+
+.right-point_arrow {
+    max-height: 34px;
+    height: 100%;
+    background: #EDEFEE;
+    border-radius: 2px 0px 0px 2px;
+    padding-left: 5px;
+    clip-path: polygon(0 0, 95% 0, 100% 50%, 95% 100%, 0 100%);
+}
+
+.right-point_label {
+    position: absolute;
+    left: 7px;
+    line-height: 34px;
+    color: #666;
+}
+
+.right-point_label-small {
+    font-size: 12px;
+    transform: scale(0.916);
+    transform-origin: left center;
+}
+
+.right-point_label-middle,
+.right-point_label-large {
+    font-size: 14px;
+}
+
