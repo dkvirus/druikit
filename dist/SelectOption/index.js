@@ -9,7 +9,7 @@ import Button from "../Button";
 import Checkbox from "../Checkbox";
 import Flex from "../Flex";
 import { CloseOutlined } from "../icons";
-import { Text } from "../Text";
+import Text from "../Text";
 import { classnames } from "../utils/cssUtils";
 import "./styles.css";
 var SelectOption = function SelectOption(_ref) {

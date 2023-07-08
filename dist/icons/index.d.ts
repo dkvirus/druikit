@@ -1,4 +1,11 @@
+export { default as ArrowDownOutlined } from './ArrowDownOutlined';
+export { default as ArrowRightOutlined } from './ArrowRightOutlined';
+export { default as ArrowUpOutlined } from './ArrowUpOutlined';
+export { default as CalendarOutlined } from './CalendarOutlined';
 export { default as CaretDownOutlined } from './CaretDownOutlined';
+export { default as CaretLeftOutlined } from './CaretLeftOutlined';
+export { default as CaretRightOutlined } from './CaretRightOutlined';
+export { default as CaretUpOutlined } from './CaretUpOutlined';
 export { default as CheckOutlined } from './CheckOutlined';
 export { default as ClockCircleOutlined } from './ClockCircleOutlined';
 export { default as CloseOutlined } from './CloseOutlined';

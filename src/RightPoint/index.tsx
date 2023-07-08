@@ -1,5 +1,5 @@
-import classnames from 'classnames';
 import React, { CSSProperties, FC } from 'react';
+import { classnames } from '../utils/cssUtils';
 import './styles.css';
 
 export interface RightPointProps {
