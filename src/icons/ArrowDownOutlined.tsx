@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 
-const CaretDownOutlined = ({
+const ArrowDownOutlined = ({
   style,
   className,
   size = 12,
@@ -15,14 +15,16 @@ const CaretDownOutlined = ({
     <svg
       style={style}
       className={className}
-      viewBox="0 0 1024 1024"
-      width={size}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
       height={size}
+      width={size}
       fill={color}
     >
-      <path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path>
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z" />
     </svg>
   );
 };
 
-export default CaretDownOutlined;
+export default ArrowDownOutlined;

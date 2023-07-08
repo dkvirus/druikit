@@ -12,11 +12,20 @@ export { default as Checkbox } from './Checkbox';
 export type { CheckboxProps } from './Checkbox';
 export { default as ClickAwayListener } from './ClickAwayListener';
 export type { ClickAwayListenerProps } from './ClickAwayListener';
+export { default as DisplayText } from './DisplayText';
+export type { DisplayTextProps } from './DisplayText';
 export { default as Divider } from './Divider';
 export type { DividerProps } from './Divider';
 export { default as Flex, Flex1 } from './Flex';
 export {
+  ArrowDownOutlined,
+  ArrowRightOutlined,
+  ArrowUpOutlined,
+  CalendarOutlined,
   CaretDownOutlined,
+  CaretLeftOutlined,
+  CaretRightOutlined,
+  CaretUpOutlined,
   CheckOutlined,
   ClockCircleOutlined,
   CloseOutlined,
