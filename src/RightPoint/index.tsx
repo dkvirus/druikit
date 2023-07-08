@@ -46,7 +46,7 @@ const RightPoint: FC<RightPointProps> = ({
   };
 
   const arrowSty: CSSProperties = {
-    width: Number(arrowPercent) * 0.85 + '%',
+    width: Math.min(Number(arrowPercent), 100) * 0.85 + '%',
   };
 
   const arrowCls = classnames({

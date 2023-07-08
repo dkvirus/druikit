@@ -17,6 +17,27 @@ export default () => {
 };
 ```
 
+## arrowPercent
+
+进度条百分比, 值如果大于 100 按照 100 计算。
+
+```jsx
+import { useState } from 'react';
+import { RightPoint, Box } from 'druikit';
+
+export default () => {
+  return (
+    <>
+      <RightPoint width={300} arrowPercent={80} label="arrowPercent: 80" />
+      <Box height={10} />
+      <RightPoint width={300} arrowPercent={100} label="arrowPercent: 100" />
+      <Box height={10} />
+      <RightPoint width={300} arrowPercent={120} label="arrowPercent: 120" />
+    </>
+  );
+};
+```
+
 ## disabled
 
 禁用状态: 1. 鼠标悬浮时不会改变背景色 2. 鼠标悬浮时不是手状,是箭头
