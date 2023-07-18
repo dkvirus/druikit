@@ -15,6 +15,11 @@ export interface MultiSelectProps extends BaseSelectProps {
   onChange?: (value: string[]) => void;
   disabled?: boolean;
   options?: OptionItem[];
+  /**
+   * @description 下拉框大小
+   * @default middle
+   */
+  size?: 'small' | 'middle' | 'large';
   label?: string;
   labelStyle?: CSSProperties;
   labelClassName?: string;
@@ -86,6 +91,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
   onChange,
   disabled,
   options = [],
+  size = 'middle',
   label,
   labelStyle,
   labelClassName,
@@ -247,6 +253,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
       disabled={disabled}
       label={label}
       selectorValue={selectorValue}
+      selectorSize={size}
       placeholder={placeholder}
       renderDropdown={renderDropdown}
       dropdownStyle={dropdownSty}

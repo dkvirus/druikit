@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { Select } from 'druikit';
 
 export default () => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState('Sweden');
 
   const options = [
     { label: 'Sweden', value: 'Sweden' },
@@ -261,6 +261,32 @@ export default () => {
         onChange={(value) => setValue(value)}
       />
     </Flex>
+  );
+};
+```
+
+## 三种大小
+
+```jsx
+import { useState } from 'react';
+import { Select, Box } from 'druikit';
+
+export default () => {
+  const [value, setValue] = useState('Sweden');
+
+  const options = [
+    { label: 'Sweden', value: 'Sweden' },
+    { label: 'Japan', value: 'Japan' },
+  ];
+
+  return (
+    <>
+      <Select placeholder="Region" options={options} size="small" />
+      <Box height={10} />
+      <Select placeholder="Region" options={options} />
+      <Box height={10} />
+      <Select placeholder="Region" options={options} size="large" />
+    </>
   );
 };
 ```

@@ -17,6 +17,7 @@ import {
   CheckOutlined,
   ClockCircleOutlined,
   CloseOutlined,
+  InfoCircleOutlined,
   LoadingOutlined,
   Flex,
   Box,
@@ -145,6 +146,17 @@ export default () => {
         <CloseOutlined size={40} />
         <Box height={20} />
         <Box>CloseOutlined</Box>
+      </Flex>
+      <Flex
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        padding={20}
+        width={200}
+      >
+        <InfoCircleOutlined size={40} />
+        <Box height={20} />
+        <Box>InfoCircleOutlined</Box>
       </Flex>
       <Flex
         flexDirection="column"

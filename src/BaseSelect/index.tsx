@@ -20,6 +20,7 @@ export interface BaseSelectProps {
   renderSelector?: ReactNode;
   selectorStyle?: CSSProperties;
   selectorClassName?: string;
+  selectorSize?: 'small' | 'middle' | 'large';
   renderDropdown?: ReactNode;
   dropdownStyle?: CSSProperties;
   dropdownClassName?: string;
@@ -53,6 +54,7 @@ const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
       selectorStyle,
       selectorClassName = '',
       selectorValue,
+      selectorSize = 'middle',
       renderDropdown,
       dropdownStyle,
       dropdownClassName = '',
@@ -80,12 +82,14 @@ const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
     /* ************************* select ****************************** */
     const selectCls = classnames({
       'base-select_select': true,
+      [`base-select_select-${selectorSize}`]: true,
       'base-select_select-disabled': disabled,
     });
 
     /* ************************* selector ****************************** */
     const selectorCls = classnames({
       'base-select_selector': true,
+      [`base-select_selector-radius-${selectorSize}`]: true,
       'base-select_selector-hover': true,
       'base-select_selector-selected': selected,
       [selectorClassName]: true,
@@ -101,13 +105,13 @@ const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
 
     /* ************************* dropdown ****************************** */
     const dropdownSty: CSSProperties = {
-      top: 50,
       ...dropdownStyle,
       ...handlePlacement(placement),
     };
 
     const dropdownCls = classnames({
       'base-select_dropdown': true,
+      [`base-select_dropdown-${selectorSize}`]: true,
       'base-select_dropdown-open': open,
       [dropdownClassName]: true,
     });

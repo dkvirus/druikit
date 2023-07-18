@@ -128,6 +128,45 @@ export default () => {
 };
 ```
 
+## 三种大小
+
+```jsx
+import { BaseSelect, Box } from 'druikit';
+
+export default () => {
+  const renderDropdown = (
+    <>
+      <div>hello</div>
+      <div>world</div>
+    </>
+  );
+
+  return (
+    <>
+      <BaseSelect
+        placeholder="Email"
+        dropdownStyle={{ width: 200, background: 'red' }}
+        renderDropdown={renderDropdown}
+        selectorSize="small"
+      />
+      <Box height={10} />
+      <BaseSelect
+        placeholder="Email"
+        dropdownStyle={{ width: 200, background: 'red' }}
+        renderDropdown={renderDropdown}
+      />
+      <Box height={10} />
+      <BaseSelect
+        placeholder="Email"
+        dropdownStyle={{ width: 200, background: 'red' }}
+        renderDropdown={renderDropdown}
+        selectorSize="large"
+      />
+    </>
+  );
+};
+```
+
 ## onOpenChanged
 
 监听下拉框关闭/打开状态

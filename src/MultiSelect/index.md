@@ -219,4 +219,48 @@ export default () => {
 };
 ```
 
+## 三种大小
+
+```jsx
+import { useState } from 'react';
+import { MultiSelect, Flex, Box } from 'druikit';
+
+export default () => {
+  const [value, setValue] = useState<string[]>([]);
+
+  const options = [
+    { label: 'Sweden', value: 'Sweden' },
+    { label: 'Finland', value: 'Finland' },
+    { label: 'Norway', value: 'Norway' },
+  ];
+
+  return (
+    <Flex>
+      <MultiSelect
+        label="Region"
+        placeholder="Region"
+        dropdownTitle="Region"
+        options={options}
+        size="small"
+      />
+      <Box width={10} />
+      <MultiSelect
+        label="Region"
+        placeholder="Region"
+        dropdownTitle="Region"
+        options={options}
+      />
+      <Box width={10} />
+      <MultiSelect
+        label="Region"
+        placeholder="Region"
+        dropdownTitle="Region"
+        options={options}
+        size="large"
+      />
+    </Flex>
+  );
+};
+```
+
 <API id="MultiSelect"></API>

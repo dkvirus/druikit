@@ -29,10 +29,13 @@ export {
   CheckOutlined,
   ClockCircleOutlined,
   CloseOutlined,
+  InfoCircleOutlined,
   LoadingOutlined,
 } from './icons';
 export { default as InputNumber } from './InputNumber';
 export type { InputNumberProps, InputNumberValue } from './InputNumber';
+export { default as ModuleTitle } from './ModuleTitle';
+export type { ModuleTitleProps } from './ModuleTitle';
 export { default as MonthPanel } from './MonthPanel';
 export type { MonthPanelProps, MonthPanelValue } from './MonthPanel';
 export { default as MonthPicker } from './MonthPicker';

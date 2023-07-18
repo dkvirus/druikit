@@ -12,6 +12,11 @@ export interface SelectProps extends BaseSelectProps {
   onChange?: (value: string) => void;
   disabled?: boolean;
   options?: OptionItem[];
+  /**
+   * @description 下拉框大小
+   * @default middle
+   */
+  size?: 'small' | 'middle' | 'large';
   label?: string;
   labelStyle?: CSSProperties;
   labelClassName?: string;
@@ -21,13 +26,19 @@ export interface SelectProps extends BaseSelectProps {
   dropdownClassName?: string;
 }
 
+const getSelectorValue = (value: string, options: OptionItem[]) => {
+  if (!value) return '';
+  return options.find((item) => item.value === value)?.label || '';
+};
+
 const Select: FC<SelectProps> = ({
   style,
   className = '',
-  value,
+  value = '',
   onChange,
   disabled,
   options = [],
+  size = 'middle',
   label,
   labelStyle,
   labelClassName,
@@ -38,7 +49,9 @@ const Select: FC<SelectProps> = ({
   ...props
 }) => {
   const selectRef = useRef<BaseSelectRefProps>(null);
-  const [selectorValue, setSelectorValue] = useState('');
+  const [selectorValue, setSelectorValue] = useState(
+    getSelectorValue(value, options),
+  );
 
   /* ************************* dropdown ******************************* */
   const dropdownSty: CSSProperties = {
@@ -102,6 +115,7 @@ const Select: FC<SelectProps> = ({
       disabled={disabled}
       label={label}
       selectorValue={selectorValue}
+      selectorSize={size}
       placeholder={placeholder}
       renderDropdown={renderDropdown}
       dropdownStyle={dropdownSty}
