@@ -144,6 +144,7 @@ export default () => {
   return (
     <>
       <BaseSelect
+        label="Email"
         placeholder="Email"
         dropdownStyle={{ width: 200, background: 'red' }}
         renderDropdown={renderDropdown}
@@ -151,12 +152,14 @@ export default () => {
       />
       <Box height={10} />
       <BaseSelect
+        label="Email"
         placeholder="Email"
         dropdownStyle={{ width: 200, background: 'red' }}
         renderDropdown={renderDropdown}
       />
       <Box height={10} />
       <BaseSelect
+        label="Email"
         placeholder="Email"
         dropdownStyle={{ width: 200, background: 'red' }}
         renderDropdown={renderDropdown}

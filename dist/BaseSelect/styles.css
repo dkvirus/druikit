@@ -10,11 +10,24 @@
 
 .base-select_select {
     width: 140px;
-    height: 36px;
     background-color: #ffffff;
-    font-size: 14px;
     cursor: pointer;
     position: relative;
+}
+
+.base-select_select-small {
+    height: 28px;
+    font-size: 12px;
+}
+
+.base-select_select-middle {
+    height: 36px;
+    font-size: 14px;
+}
+
+.base-select_select-large {
+    height: 44px;
+    font-size: 16px;
 }
 
 .base-select_select-disabled {
@@ -33,9 +46,20 @@
     align-items: center;
     padding-left: 15px;
     padding-right: 10px;
-    border-radius: 18px;
     border: solid 1px #999999;
     color: #666666;
+}
+
+.base-select_selector-radius-small {
+    border-radius: 14px;
+}
+
+.base-select_selector-radius-middle {
+    border-radius: 18px;
+}
+
+.base-select_selector-radius-large {
+    border-radius: 22px;
 }
 
 .base-select_selector-hover:hover {
@@ -83,6 +107,18 @@
     width: fit-content;
     min-width: 140px;
     box-sizing: border-box;
+}
+
+.base-select_dropdown-small {
+    top: 38px;
+}
+
+.base-select_dropdown-middle {
+    top: 46px;
+}
+
+.base-select_dropdown-large {
+    top: 54px;
 }
 
 .base-select_dropdown-open {

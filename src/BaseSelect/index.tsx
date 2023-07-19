@@ -76,6 +76,7 @@ const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
     /* ************************* label ****************************** */
     const labelCls = classnames({
       'base-select_label': true,
+      [`base-select_label-${selectorSize}`]: true,
       [labelClassName]: true,
     });
 

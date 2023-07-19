@@ -8,6 +8,11 @@ export interface SelectProps extends BaseSelectProps {
     onChange?: (value: string) => void;
     disabled?: boolean;
     options?: OptionItem[];
+    /**
+     * @description 下拉框大小
+     * @default middle
+     */
+    size?: 'small' | 'middle' | 'large';
     label?: string;
     labelStyle?: CSSProperties;
     labelClassName?: string;

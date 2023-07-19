@@ -9,4 +9,5 @@ export { default as CaretUpOutlined } from "./CaretUpOutlined";
 export { default as CheckOutlined } from "./CheckOutlined";
 export { default as ClockCircleOutlined } from "./ClockCircleOutlined";
 export { default as CloseOutlined } from "./CloseOutlined";
+export { default as InfoCircleOutlined } from "./InfoCircleOutlined";
 export { default as LoadingOutlined } from "./LoadingOutlined";

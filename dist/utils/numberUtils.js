@@ -6,6 +6,27 @@ export function isNumberOfStringType(value) {
 }
 
 /**
+ * 是否是数值
+ */
+export function isNumber(value) {
+  return typeof value === 'number';
+}
+
+/**
+ * 是否是整数
+ */
+export function isInt(value) {
+  return typeof value === 'number' && !String(value).includes('.');
+}
+
+/**
+ * 是否是小数
+ */
+export function isFloat(value) {
+  return typeof value === 'number' && String(value).includes('.');
+}
+
+/**
  * 生成随机整数
  */
 export function randint() {
@@ -30,8 +51,32 @@ export function randfloat() {
   }
   return num;
 }
+
+/**
+ * 数值每三位用逗号隔开
+ */
+export function formatNumberByComma(value) {
+  if (typeof value !== 'string' && typeof value !== 'number') {
+    return '';
+  } else if (!isNumberOfStringType(String(value))) {
+    return String(value);
+  } else if (isInt(Number(value))) {
+    // 整数
+    return String(value).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  } else {
+    // 小数
+    // numArr[0] 整数   numArr[1] 小数
+    var numArr = String(value).split('.');
+    numArr[0] = String(numArr[0]).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return numArr.join('.');
+  }
+}
 export var numberUtils = {
   isNumberOfStringType: isNumberOfStringType,
+  isNumber: isNumber,
+  isInt: isInt,
+  isFloat: isFloat,
+  formatNumberByComma: formatNumberByComma,
   randint: randint,
   randfloat: randfloat
 };

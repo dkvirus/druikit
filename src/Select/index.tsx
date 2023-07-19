@@ -24,6 +24,8 @@ export interface SelectProps extends BaseSelectProps {
   dropdownTitle?: string;
   dropdownStyle?: CSSProperties;
   dropdownClassName?: string;
+  dropdownLabelStyle?: CSSProperties;
+  dropdownLabelClassName?: string;
 }
 
 const getSelectorValue = (value: string, options: OptionItem[]) => {
@@ -46,6 +48,8 @@ const Select: FC<SelectProps> = ({
   dropdownTitle,
   dropdownStyle,
   dropdownClassName,
+  dropdownLabelStyle,
+  dropdownLabelClassName,
   ...props
 }) => {
   const selectRef = useRef<BaseSelectRefProps>(null);
@@ -60,10 +64,10 @@ const Select: FC<SelectProps> = ({
     ...dropdownStyle,
   };
 
-  const dropdownLabelStyle: CSSProperties = {
+  const dropdownLabelSty: CSSProperties = {
     width: 'fit-content',
     whiteSpace: 'nowrap',
-    ...labelStyle,
+    ...dropdownLabelStyle,
   };
 
   const renderDropdown = (
@@ -76,8 +80,8 @@ const Select: FC<SelectProps> = ({
             return (
               <SelectOption
                 key={key}
-                labelStyle={dropdownLabelStyle}
-                labelClassName={labelClassName}
+                labelStyle={dropdownLabelSty}
+                labelClassName={dropdownLabelClassName}
                 value={item.value === value}
                 disabled={item.disabled}
                 onChange={(value) => {
@@ -114,6 +118,8 @@ const Select: FC<SelectProps> = ({
       className={className}
       disabled={disabled}
       label={label}
+      labelStyle={labelStyle}
+      labelClassName={labelClassName}
       selectorValue={selectorValue}
       selectorSize={size}
       placeholder={placeholder}

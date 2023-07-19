@@ -16,6 +16,7 @@ import { CaretDownOutlined } from "../icons";
 import { classnames, handlePlacement } from "../utils/cssUtils";
 import "./styles.css";
 var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
+  var _classnames2, _classnames3, _classnames4;
   var style = _ref.style,
     _ref$className = _ref.className,
     className = _ref$className === void 0 ? '' : _ref$className,
@@ -28,6 +29,8 @@ var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
     _ref$selectorClassNam = _ref.selectorClassName,
     selectorClassName = _ref$selectorClassNam === void 0 ? '' : _ref$selectorClassNam,
     selectorValue = _ref.selectorValue,
+    _ref$selectorSize = _ref.selectorSize,
+    selectorSize = _ref$selectorSize === void 0 ? 'middle' : _ref$selectorSize,
     renderDropdown = _ref.renderDropdown,
     dropdownStyle = _ref.dropdownStyle,
     _ref$dropdownClassNam = _ref.dropdownClassName,
@@ -53,17 +56,14 @@ var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
   }, labelClassName, true));
 
   /* ************************* select ****************************** */
-  var selectCls = classnames({
-    'base-select_select': true,
-    'base-select_select-disabled': disabled
-  });
+  var selectCls = classnames((_classnames2 = {
+    'base-select_select': true
+  }, _defineProperty(_classnames2, "base-select_select-".concat(selectorSize), true), _defineProperty(_classnames2, 'base-select_select-disabled', disabled), _classnames2));
 
   /* ************************* selector ****************************** */
-  var selectorCls = classnames(_defineProperty({
-    'base-select_selector': true,
-    'base-select_selector-hover': true,
-    'base-select_selector-selected': selected
-  }, selectorClassName, true));
+  var selectorCls = classnames((_classnames3 = {
+    'base-select_selector': true
+  }, _defineProperty(_classnames3, "base-select_selector-radius-".concat(selectorSize), true), _defineProperty(_classnames3, 'base-select_selector-hover', true), _defineProperty(_classnames3, 'base-select_selector-selected', selected), _defineProperty(_classnames3, selectorClassName, true), _classnames3));
   var selectorSelectionCls = classnames(['base-select_selector-selection']);
   var selectorArrowCls = classnames({
     'base-select_selector-arrow': true,
@@ -72,13 +72,10 @@ var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
   });
 
   /* ************************* dropdown ****************************** */
-  var dropdownSty = _objectSpread(_objectSpread({
-    top: 50
-  }, dropdownStyle), handlePlacement(placement));
-  var dropdownCls = classnames(_defineProperty({
-    'base-select_dropdown': true,
-    'base-select_dropdown-open': open
-  }, dropdownClassName, true));
+  var dropdownSty = _objectSpread(_objectSpread({}, dropdownStyle), handlePlacement(placement));
+  var dropdownCls = classnames((_classnames4 = {
+    'base-select_dropdown': true
+  }, _defineProperty(_classnames4, "base-select_dropdown-".concat(selectorSize), true), _defineProperty(_classnames4, 'base-select_dropdown-open', open), _defineProperty(_classnames4, dropdownClassName, true), _classnames4));
 
   /* ************************* 组件对外暴露的方法 ****************************** */
   useImperativeHandle(ref, function () {

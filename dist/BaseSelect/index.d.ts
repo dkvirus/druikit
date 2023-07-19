@@ -9,6 +9,7 @@ export interface BaseSelectProps {
     renderSelector?: ReactNode;
     selectorStyle?: CSSProperties;
     selectorClassName?: string;
+    selectorSize?: 'small' | 'middle' | 'large';
     renderDropdown?: ReactNode;
     dropdownStyle?: CSSProperties;
     dropdownClassName?: string;

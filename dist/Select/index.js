@@ -1,5 +1,5 @@
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-var _excluded = ["style", "className", "value", "onChange", "disabled", "options", "label", "labelStyle", "labelClassName", "placeholder", "dropdownTitle", "dropdownStyle", "dropdownClassName"];
+var _excluded = ["style", "className", "value", "onChange", "disabled", "options", "size", "label", "labelStyle", "labelClassName", "placeholder", "dropdownTitle", "dropdownStyle", "dropdownClassName"];
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -17,15 +17,25 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 import React, { useRef, useState } from 'react';
 import BaseSelect from "../BaseSelect";
 import SelectOption, { SelectDropdownHeader } from "../SelectOption";
+var getSelectorValue = function getSelectorValue(value, options) {
+  var _options$find;
+  if (!value) return '';
+  return ((_options$find = options.find(function (item) {
+    return item.value === value;
+  })) === null || _options$find === void 0 ? void 0 : _options$find.label) || '';
+};
 var Select = function Select(_ref) {
   var style = _ref.style,
     _ref$className = _ref.className,
     className = _ref$className === void 0 ? '' : _ref$className,
-    value = _ref.value,
+    _ref$value = _ref.value,
+    value = _ref$value === void 0 ? '' : _ref$value,
     _onChange = _ref.onChange,
     disabled = _ref.disabled,
     _ref$options = _ref.options,
     options = _ref$options === void 0 ? [] : _ref$options,
+    _ref$size = _ref.size,
+    size = _ref$size === void 0 ? 'middle' : _ref$size,
     label = _ref.label,
     labelStyle = _ref.labelStyle,
     labelClassName = _ref.labelClassName,
@@ -35,7 +45,7 @@ var Select = function Select(_ref) {
     dropdownClassName = _ref.dropdownClassName,
     props = _objectWithoutProperties(_ref, _excluded);
   var selectRef = useRef(null);
-  var _useState = useState(''),
+  var _useState = useState(getSelectorValue(value, options)),
     _useState2 = _slicedToArray(_useState, 2),
     selectorValue = _useState2[0],
     setSelectorValue = _useState2[1];
@@ -89,6 +99,7 @@ var Select = function Select(_ref) {
     disabled: disabled,
     label: label,
     selectorValue: selectorValue,
+    selectorSize: size,
     placeholder: placeholder,
     renderDropdown: renderDropdown,
     dropdownStyle: dropdownSty,
