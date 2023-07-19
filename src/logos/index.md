@@ -28,6 +28,7 @@ import {
   BottegavenetaLogo,
   BrunellocucinelliLogo,
   BurberryLogo,
+  BymalinaLogo,
   CalidaLogo,
   CalvinkleinLogo,
   CanadagooseLogo,
@@ -215,6 +216,10 @@ export default () => {
     {
       name: 'BurberryLogo',
       component: <BurberryLogo />,
+    },
+    {
+      name: 'BymalinaLogo',
+      component: <BymalinaLogo />,
     },
     {
       name: 'CalidaLogo',
@@ -592,6 +597,21 @@ export default () => {
         })}
       </Flex>
     </>
+  );
+};
+```
+
+## VendorLogo
+
+```jsx
+import React from 'react';
+import { VendorLogo, Box } from 'druikit';
+
+export default () => {
+  return (
+    <Box width={150} height={50}>
+      <VendorLogo vendorCode="didriksons" />
+    </Box>
   );
 };
 ```
