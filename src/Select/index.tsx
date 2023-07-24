@@ -1,4 +1,4 @@
-import React, { CSSProperties, FC, useRef, useState } from 'react';
+import React, { CSSProperties, FC, useEffect, useRef, useState } from 'react';
 import BaseSelect, { BaseSelectProps, BaseSelectRefProps } from '../BaseSelect';
 import SelectOption, {
   OptionItem,
@@ -56,6 +56,11 @@ const Select: FC<SelectProps> = ({
   const [selectorValue, setSelectorValue] = useState(
     getSelectorValue(value, options),
   );
+
+  useEffect(() => {
+    if (!value) return;
+    setSelectorValue(getSelectorValue(value, options));
+  }, [value, options]);
 
   /* ************************* dropdown ******************************* */
   const dropdownSty: CSSProperties = {
