@@ -16,7 +16,7 @@ import { CaretDownOutlined } from "../icons";
 import { classnames, handlePlacement } from "../utils/cssUtils";
 import "./styles.css";
 var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
-  var _classnames2, _classnames3, _classnames4;
+  var _classnames, _classnames2, _classnames3, _classnames4;
   var style = _ref.style,
     _ref$className = _ref.className,
     className = _ref$className === void 0 ? '' : _ref$className,
@@ -51,9 +51,9 @@ var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
   }, [open]);
 
   /* ************************* label ****************************** */
-  var labelCls = classnames(_defineProperty({
+  var labelCls = classnames((_classnames = {
     'base-select_label': true
-  }, labelClassName, true));
+  }, _defineProperty(_classnames, "base-select_label-".concat(selectorSize), true), _defineProperty(_classnames, labelClassName, true), _classnames));
 
   /* ************************* select ****************************** */
   var selectCls = classnames((_classnames2 = {

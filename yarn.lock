@@ -4104,9 +4104,9 @@ dumi-assets-types@2.0.0-alpha.0:
   resolved "https://registry.npmmirror.com/dumi-assets-types/-/dumi-assets-types-2.0.0-alpha.0.tgz#46bf619ed1cb6d27bbe6a9cfe4be51e5e9589981"
   integrity sha512-a/Y5lf0G6gwsEQ9hop/n03CcjmHsGBk384Cz/AEX6mRYrfSpUx/lQvP9HLoXkCzScl9PL1sSmLPnMkgaXDCZLA==
 
-dumi@^2.0.2:
+dumi@^2.2.1:
   version "2.2.1"
-  resolved "https://registry.npmmirror.com/dumi/-/dumi-2.2.1.tgz#3d31dc27a5c089c55287ae1975e8332e346bb4f3"
+  resolved "https://registry.yarnpkg.com/dumi/-/dumi-2.2.1.tgz#3d31dc27a5c089c55287ae1975e8332e346bb4f3"
   integrity sha512-9AU79JbFQ+hhkL2Y0XYEuSuwiyz+U2KcqstzI68n9BKYODP9VGs0UlfrHfd8W+8bSbiHTNXNz0eRbBdZBMswgQ==
   dependencies:
     "@ant-design/icons-svg" "^4.2.1"
