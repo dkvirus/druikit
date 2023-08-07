@@ -24,6 +24,7 @@ export interface MultiSelectProps extends BaseSelectProps {
   labelStyle?: CSSProperties;
   labelClassName?: string;
   placeholder?: string;
+  selectorTextWhenSelectAll?: string;
   dropdownTitle?: string;
   dropdownMaxHeight?: number;
   dropdownStyle?: CSSProperties;
@@ -57,8 +58,11 @@ function getOpts(options: OptionItem[], value: string[]) {
   return newOptions;
 }
 
-function getSelectorValue(options: OptionItem[]) {
+function getSelectorValue(options: OptionItem[], selectorText = 'All') {
   const newOptions = options.filter((o) => !o.disabled && o.checked);
+  if (options.every((o) => !o.disabled && o.checked)) {
+    return selectorText;
+  }
   const value = newOptions.map((o) => o.value);
   if (value.length > 1) {
     const label = newOptions[0].label;
@@ -96,6 +100,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
   labelStyle,
   labelClassName,
   placeholder,
+  selectorTextWhenSelectAll = 'All',
   dropdownTitle,
   dropdownMaxHeight = 300,
   dropdownStyle,
@@ -117,7 +122,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
   }, [options, value]);
 
   useEffect(() => {
-    setSelectorValue(getSelectorValue(opts));
+    setSelectorValue(getSelectorValue(opts, selectorTextWhenSelectAll));
   }, [opts]);
 
   /* ************************* dropdown ******************************* */
@@ -155,7 +160,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
       o.checked = selectedValue.includes(o.value);
     });
     setOpts(newOpts);
-    setSelectorValue(getSelectorValue(newOpts));
+    setSelectorValue(getSelectorValue(newOpts, selectorTextWhenSelectAll));
   };
 
   /**
@@ -174,7 +179,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
       }
     });
     setOpts(newOpts);
-    setSelectorValue(getSelectorValue(newOpts));
+    setSelectorValue(getSelectorValue(newOpts, selectorTextWhenSelectAll));
   };
 
   const onOk = () => {

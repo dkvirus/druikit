@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-declare type ClickAwayMouseEventHandler = 'onClick' | 'onMouseDown' | 'onMouseUp' | 'onPointerDown' | 'onPointerUp';
-declare type ClickAwayTouchEventHandler = 'onTouchStart' | 'onTouchEnd';
+type ClickAwayMouseEventHandler = 'onClick' | 'onMouseDown' | 'onMouseUp' | 'onPointerDown' | 'onPointerUp';
+type ClickAwayTouchEventHandler = 'onTouchStart' | 'onTouchEnd';
 export interface ClickAwayListenerProps {
     /**
      * The wrapped element.

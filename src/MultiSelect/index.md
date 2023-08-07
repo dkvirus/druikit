@@ -263,4 +263,33 @@ export default () => {
 };
 ```
 
+## 全部选中显示 All
+
+```jsx
+import { useState } from 'react';
+import { MultiSelect, Flex, Box } from 'druikit';
+
+export default () => {
+  const [value, setValue] = useState<string[]>(['Sweden', 'Finland', 'Norway']);
+
+  const options = [
+    { label: 'Sweden', value: 'Sweden' },
+    { label: 'Finland', value: 'Finland' },
+    { label: 'Norway', value: 'Norway' },
+  ];
+
+  return (
+    <Flex>
+      <MultiSelect
+        label="Region"
+        placeholder="Region"
+        dropdownTitle="Region"
+        options={options}
+        value={value}
+      />
+    </Flex>
+  );
+};
+```
+
 <API id="MultiSelect"></API>
