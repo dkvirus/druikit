@@ -53,6 +53,7 @@ import {
   FurlaLogo,
   FusalpLogo,
   GanniLogo,
+  GapLogo,
   GinatricotLogo,
   HanroLogo,
   HemaLogo,
@@ -99,6 +100,7 @@ import {
   SalsajeansLogo,
   SandroLogo,
   SchiesserLogo,
+  SelectedVendorsLogo,
   SezaneLogo,
   StadiumLogo,
   StenstromsLogo,
@@ -109,6 +111,7 @@ import {
   TommyhilfigerLogo,
   TotemeLogo,
   TriumphLogo,
+  UniqloLogo,
   VictoriassecretLogo,
   WeekdayLogo,
   WeraLogo,
@@ -318,6 +321,10 @@ export default () => {
       component: <GanniLogo />,
     },
     {
+      name: 'GapLogo',
+      component: <GapLogo />,
+    },
+    {
       name: 'GinatricotLogo',
       component: <GinatricotLogo />,
     },
@@ -502,6 +509,10 @@ export default () => {
       component: <SchiesserLogo />,
     },
     {
+      name: 'SelectedVendorsLogo',
+      component: <SelectedVendorsLogo />,
+    },
+    {
       name: 'SezaneLogo',
       component: <SezaneLogo />,
     },
@@ -540,6 +551,10 @@ export default () => {
     {
       name: 'TriumphLogo',
       component: <TriumphLogo />,
+    },
+    {
+      name: 'UniqloLogo',
+      component: <UniqloLogo />,
     },
     {
       name: 'VictoriassecretLogo',

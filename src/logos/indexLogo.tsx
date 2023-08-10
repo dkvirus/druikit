@@ -49,6 +49,7 @@ import {
   FurlaLogo,
   FusalpLogo,
   GanniLogo,
+  GapLogo,
   GinatricotLogo,
   HanroLogo,
   HemaLogo,
@@ -95,6 +96,7 @@ import {
   SalsajeansLogo,
   SandroLogo,
   SchiesserLogo,
+  SelectedVendorsLogo,
   SezaneLogo,
   StadiumLogo,
   StenstromsLogo,
@@ -105,6 +107,7 @@ import {
   TommyhilfigerLogo,
   TotemeLogo,
   TriumphLogo,
+  UniqloLogo,
   VictoriassecretLogo,
   WeekdayLogo,
   WeraLogo,
@@ -330,6 +333,9 @@ const VendorLogo = ({ vendorCode = '' }: { vendorCode?: string }) => {
     case 'ganni':
       logoEl = <GanniLogo />;
       break;
+    case 'gap':
+      logoEl = <GapLogo />;
+      break;
     case 'ginatricot':
       logoEl = <GinatricotLogo />;
       break;
@@ -510,6 +516,9 @@ const VendorLogo = ({ vendorCode = '' }: { vendorCode?: string }) => {
     case 'sandro':
       logoEl = <SandroLogo />;
       break;
+    case 'Selected vendors':
+      logoEl = <SelectedVendorsLogo />;
+      break;
     case 'tommyhilfiger':
       logoEl = <TommyhilfigerLogo />;
       break;
@@ -521,6 +530,9 @@ const VendorLogo = ({ vendorCode = '' }: { vendorCode?: string }) => {
       break;
     case 'toteme':
       logoEl = <TotemeLogo />;
+      break;
+    case 'uniqlo':
+      logoEl = <UniqloLogo />;
       break;
     case 'victoriassecret':
       logoEl = <VictoriassecretLogo />;
