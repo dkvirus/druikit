@@ -1,5 +1,5 @@
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-var _excluded = ["style", "className", "value", "onChange", "disabled", "options", "size", "label", "labelStyle", "labelClassName", "placeholder", "dropdownTitle", "dropdownMaxHeight", "dropdownStyle", "dropdownClassName", "selectAll", "clearAll", "minCount", "maxCount"];
+var _excluded = ["style", "className", "value", "onChange", "disabled", "options", "size", "label", "labelStyle", "labelClassName", "placeholder", "selectorTextWhenSelectAll", "dropdownTitle", "dropdownMaxHeight", "dropdownStyle", "dropdownClassName", "selectAll", "clearAll", "minCount", "maxCount"];
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -29,9 +29,15 @@ function getOpts(options, value) {
   return newOptions;
 }
 function getSelectorValue(options) {
+  var selectorText = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'All';
   var newOptions = options.filter(function (o) {
     return !o.disabled && o.checked;
   });
+  if (options.every(function (o) {
+    return !o.disabled && o.checked;
+  })) {
+    return selectorText;
+  }
   var value = newOptions.map(function (o) {
     return o.value;
   });
@@ -77,6 +83,8 @@ var MultiSelect = function MultiSelect(_ref) {
     labelStyle = _ref.labelStyle,
     labelClassName = _ref.labelClassName,
     placeholder = _ref.placeholder,
+    _ref$selectorTextWhen = _ref.selectorTextWhenSelectAll,
+    selectorTextWhenSelectAll = _ref$selectorTextWhen === void 0 ? 'All' : _ref$selectorTextWhen,
     dropdownTitle = _ref.dropdownTitle,
     _ref$dropdownMaxHeigh = _ref.dropdownMaxHeight,
     dropdownMaxHeight = _ref$dropdownMaxHeigh === void 0 ? 300 : _ref$dropdownMaxHeigh,
@@ -106,7 +114,7 @@ var MultiSelect = function MultiSelect(_ref) {
     setOpts(newOpts);
   }, [options, value]);
   useEffect(function () {
-    setSelectorValue(getSelectorValue(opts));
+    setSelectorValue(getSelectorValue(opts, selectorTextWhenSelectAll));
   }, [opts]);
 
   /* ************************* dropdown ******************************* */
@@ -144,7 +152,7 @@ var MultiSelect = function MultiSelect(_ref) {
       o.checked = selectedValue.includes(o.value);
     });
     setOpts(newOpts);
-    setSelectorValue(getSelectorValue(newOpts));
+    setSelectorValue(getSelectorValue(newOpts, selectorTextWhenSelectAll));
   };
 
   /**
@@ -162,7 +170,7 @@ var MultiSelect = function MultiSelect(_ref) {
       }
     });
     setOpts(newOpts);
-    setSelectorValue(getSelectorValue(newOpts));
+    setSelectorValue(getSelectorValue(newOpts, selectorTextWhenSelectAll));
   };
   var onOk = function onOk() {
     var _selectRef$current;

@@ -17,6 +17,7 @@ export interface MultiSelectProps extends BaseSelectProps {
     labelStyle?: CSSProperties;
     labelClassName?: string;
     placeholder?: string;
+    selectorTextWhenSelectAll?: string;
     dropdownTitle?: string;
     dropdownMaxHeight?: number;
     dropdownStyle?: CSSProperties;
