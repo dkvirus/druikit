@@ -12,9 +12,11 @@ import {
   AlertOutlined,
   AnalysisFilled,
   AnalysisOutlined,
+  AntiClockWiseOutlined,
   ArrowDownOutlined,
   ArrowRightOutlined,
   ArrowUpOutlined,
+  BookOutlined,
   CalendarOutlined,
   CaretUpOutlined,
   CaretDownOutlined,
@@ -23,10 +25,22 @@ import {
   CheckOutlined,
   ClockCircleOutlined,
   CloseOutlined,
+  CloudDownloadFilled,
+  DashboardFilled,
+  DeleteFilled,
+  DoubleRightOutlined,
+  DownloadOutlined,
+  EditOutlined,
   EjectOutlined,
+  ExpandOutlined,
+  EyeFilled,
   InfoCircleOutlined,
+  LeftOutlined,
   LoadingOutlined,
+  MenuOutlined,
+  PlusOutlined,
   ReleaseOutlined,
+  RightOutlined,
   UserSettingOutlined,
   Flex,
   Box,
@@ -71,6 +85,10 @@ export default () => {
       icon: <ArrowUpOutlined size={40} />,
     },
     {
+      name: 'BookOutlined',
+      icon: <BookOutlined size={40} />,
+    },
+    {
       name: 'CalendarOutlined',
       icon: <CalendarOutlined size={40} />,
     },
@@ -99,12 +117,48 @@ export default () => {
       icon: <ClockCircleOutlined size={40} />,
     },
     {
+      name: 'AntiClockWiseOutlined',
+      icon: <AntiClockWiseOutlined size={40} />,
+    },
+    {
       name: 'CloseOutlined',
       icon: <CloseOutlined size={40} />,
     },
     {
+      name: 'CloudDownloadFilled',
+      icon: <CloudDownloadFilled size={40} />,
+    },
+    {
+      name: 'DashboardFilled',
+      icon: <DashboardFilled size={40} />,
+    },
+    {
+      name: 'DeleteFilled',
+      icon: <DeleteFilled size={40} />,
+    },
+    {
+      name: 'DoubleRightOutlined',
+      icon: <DoubleRightOutlined size={40} />,
+    },
+    {
+      name: 'DownloadOutlined',
+      icon: <DownloadOutlined size={40} />,
+    },
+    {
+      name: 'EditOutlined',
+      icon: <EditOutlined size={40} />,
+    },
+    {
       name: 'EjectOutlined',
       icon: <EjectOutlined size={40} />,
+    },
+    {
+      name: 'ExpandOutlined',
+      icon: <ExpandOutlined size={40} />,
+    },
+    {
+      name: 'EyeFilled',
+      icon: <EyeFilled size={40} />,
     },
     {
       name: 'InfoCircleOutlined',
@@ -113,6 +167,22 @@ export default () => {
     {
       name: 'LoadingOutlined',
       icon: <LoadingOutlined size={40} />,
+    },
+    {
+      name: 'LeftOutlined',
+      icon: <LeftOutlined size={40} />,
+    },
+    {
+      name: 'RightOutlined',
+      icon: <RightOutlined size={40} />,
+    },
+    {
+      name: 'MenuOutlined',
+      icon: <MenuOutlined size={40} />,
+    },
+    {
+      name: 'PlusOutlined',
+      icon: <PlusOutlined size={40} />,
     },
     {
       name: 'ReleaseOutlined',

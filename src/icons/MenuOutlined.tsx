@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 
-const IndexIcon = ({
+const MenuOutlined = ({
   style,
   className,
   size = 12,
@@ -41,4 +41,4 @@ const IndexIcon = ({
   );
 };
 
-export default IndexIcon;
+export default MenuOutlined;
