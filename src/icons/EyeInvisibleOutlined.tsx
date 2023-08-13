@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IndexIcon = ({
+const EyeInvisibleOutlined = ({
   size = 12,
   color = '#666',
   ...props
@@ -27,4 +27,4 @@ const IndexIcon = ({
   );
 };
 
-export default IndexIcon;
+export default EyeInvisibleOutlined;

@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 
-const MenuOutlined = ({
+const UnorderedListOutlined = ({
   style,
   className,
   size = 12,
@@ -41,4 +41,4 @@ const MenuOutlined = ({
   );
 };
 
-export default MenuOutlined;
+export default UnorderedListOutlined;

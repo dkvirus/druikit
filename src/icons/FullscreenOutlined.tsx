@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 
-const ExpandOutlined = ({
+const FullscreenOutlined = ({
   style,
   className,
   size = 12,
@@ -27,4 +27,4 @@ const ExpandOutlined = ({
   );
 };
 
-export default ExpandOutlined;
+export default FullscreenOutlined;

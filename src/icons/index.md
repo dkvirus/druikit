@@ -32,16 +32,33 @@ import {
   DownloadOutlined,
   EditOutlined,
   EjectOutlined,
-  ExpandOutlined,
+  FullscreenOutlined,
   EyeFilled,
   InfoCircleOutlined,
   LeftOutlined,
   LoadingOutlined,
-  MenuOutlined,
+  UnorderedListOutlined,
   PlusOutlined,
   ReleaseOutlined,
   RightOutlined,
   UserSettingOutlined,
+  AssortmentFilled,
+  SolidCircleOutlined,
+  CloudUploadFilled,
+  EmptyCircleOutlined,
+  EyeInvisibleOutlined,
+  FilePdfFilled,
+  LaunchOutlined,
+  LinkOutlined,
+  LockFilled,
+  MinusOutlined,
+  MoreOutlined,
+  MulticolorFilled,
+  PinFilled,
+  SearchOutlined,
+  SettingOutlined,
+  ShareOutlined,
+  UnlockFilled,
   Flex,
   Box,
 } from 'druikit';
@@ -125,40 +142,48 @@ export default () => {
       icon: <CloseOutlined size={40} />,
     },
     {
-      name: 'CloudDownloadFilled',
-      icon: <CloudDownloadFilled size={40} />,
-    },
-    {
       name: 'DashboardFilled',
       icon: <DashboardFilled size={40} />,
-    },
-    {
-      name: 'DeleteFilled',
-      icon: <DeleteFilled size={40} />,
-    },
-    {
-      name: 'DoubleRightOutlined',
-      icon: <DoubleRightOutlined size={40} />,
     },
     {
       name: 'DownloadOutlined',
       icon: <DownloadOutlined size={40} />,
     },
     {
+      name: 'CloudDownloadFilled',
+      icon: <CloudDownloadFilled size={40} />,
+    },
+    {
+      name: 'CloudUploadFilled',
+      icon: <CloudUploadFilled size={40} />,
+    },
+    {
+      name: 'DeleteFilled',
+      icon: <DeleteFilled size={40} />,
+    },
+    {
       name: 'EditOutlined',
       icon: <EditOutlined size={40} />,
+    },
+    {
+      name: 'DoubleRightOutlined',
+      icon: <DoubleRightOutlined size={40} />,
     },
     {
       name: 'EjectOutlined',
       icon: <EjectOutlined size={40} />,
     },
     {
-      name: 'ExpandOutlined',
-      icon: <ExpandOutlined size={40} />,
+      name: 'FullscreenOutlined',
+      icon: <FullscreenOutlined size={40} />,
     },
     {
       name: 'EyeFilled',
       icon: <EyeFilled size={40} />,
+    },
+    {
+      name: 'EyeInvisibleOutlined',
+      icon: <EyeInvisibleOutlined size={40} />,
     },
     {
       name: 'InfoCircleOutlined',
@@ -177,12 +202,16 @@ export default () => {
       icon: <RightOutlined size={40} />,
     },
     {
-      name: 'MenuOutlined',
-      icon: <MenuOutlined size={40} />,
+      name: 'UnorderedListOutlined',
+      icon: <UnorderedListOutlined size={40} />,
     },
     {
       name: 'PlusOutlined',
       icon: <PlusOutlined size={40} />,
+    },
+    {
+      name: 'MinusOutlined',
+      icon: <MinusOutlined size={40} />,
     },
     {
       name: 'ReleaseOutlined',
@@ -191,6 +220,62 @@ export default () => {
     {
       name: 'UserSettingOutlined',
       icon: <UserSettingOutlined size={40} />,
+    },
+    {
+      name: 'AssortmentFilled',
+      icon: <AssortmentFilled size={40} />,
+    },
+    {
+      name: 'SolidCircleOutlined',
+      icon: <SolidCircleOutlined size={40} />,
+    },
+    {
+      name: 'EmptyCircleOutlined',
+      icon: <EmptyCircleOutlined size={40} />,
+    },
+    {
+      name: 'FilePdfFilled',
+      icon: <FilePdfFilled size={40} />,
+    },
+    {
+      name: 'LaunchOutlined',
+      icon: <LaunchOutlined size={40} />,
+    },
+    {
+      name: 'LinkOutlined',
+      icon: <LinkOutlined size={40} />,
+    },
+    {
+      name: 'LockFilled',
+      icon: <LockFilled size={40} />,
+    },
+    {
+      name: 'UnlockFilled',
+      icon: <UnlockFilled size={40} />,
+    },
+    {
+      name: 'MoreOutlined',
+      icon: <MoreOutlined size={40} />,
+    },
+    {
+      name: 'MulticolorFilled',
+      icon: <MulticolorFilled size={40} />,
+    },
+    {
+      name: 'PinFilled',
+      icon: <PinFilled size={40} />,
+    },
+    {
+      name: 'SearchOutlined',
+      icon: <SearchOutlined size={40} />,
+    },
+    {
+      name: 'SettingOutlined',
+      icon: <SettingOutlined size={40} />,
+    },
+    {
+      name: 'ShareOutlined',
+      icon: <ShareOutlined size={40} />,
     },
   ];
 
