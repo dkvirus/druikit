@@ -1,4 +1,8 @@
 export { default as AccountOutlined } from './AccountOutlined';
+export { default as AlertAddOutlined } from './AlertAddOutlined';
+export { default as AlertOutlined } from './AlertOutlined';
+export { default as AnalysisFilled } from './AnalysisFilled';
+export { default as AnalysisOutlined } from './AnalysisOutlined';
 export { default as ArrowDownOutlined } from './ArrowDownOutlined';
 export { default as ArrowRightOutlined } from './ArrowRightOutlined';
 export { default as ArrowUpOutlined } from './ArrowUpOutlined';
@@ -11,6 +15,8 @@ export { default as CheckOutlined } from './CheckOutlined';
 export { default as ClockCircleOutlined } from './ClockCircleOutlined';
 export { default as CloseOutlined } from './CloseOutlined';
 export { default as EjectOutlined } from './EjectOutlined';
+export { default as IndexIcon } from './IndexIcon';
 export { default as InfoCircleOutlined } from './InfoCircleOutlined';
 export { default as LoadingOutlined } from './LoadingOutlined';
 export { default as ReleaseOutlined } from './ReleaseOutlined';
+export { default as UserSettingOutlined } from './UserSettingOutlined';

@@ -6,7 +6,12 @@
 
 ```jsx
 import {
+  IndexIcon,
   AccountOutlined,
+  AlertAddOutlined,
+  AlertOutlined,
+  AnalysisFilled,
+  AnalysisOutlined,
   ArrowDownOutlined,
   ArrowRightOutlined,
   ArrowUpOutlined,
@@ -22,6 +27,7 @@ import {
   InfoCircleOutlined,
   LoadingOutlined,
   ReleaseOutlined,
+  UserSettingOutlined,
   Flex,
   Box,
 } from 'druikit';
@@ -29,8 +35,28 @@ import {
 export default () => {
   const icons = [
     {
+      name: 'IndexIcon',
+      icon: <IndexIcon size={40} />,
+    },
+    {
       name: 'AccountOutlined',
       icon: <AccountOutlined size={40} />,
+    },
+    {
+      name: 'AlertAddOutlined',
+      icon: <AlertAddOutlined size={40} />,
+    },
+    {
+      name: 'AlertOutlined',
+      icon: <AlertOutlined size={40} />,
+    },
+    {
+      name: 'AnalysisFilled',
+      icon: <AnalysisFilled size={40} />,
+    },
+    {
+      name: 'AnalysisOutlined',
+      icon: <AnalysisOutlined size={40} />,
     },
     {
       name: 'ArrowDownOutlined',
@@ -91,6 +117,10 @@ export default () => {
     {
       name: 'ReleaseOutlined',
       icon: <ReleaseOutlined size={40} />,
+    },
+    {
+      name: 'UserSettingOutlined',
+      icon: <UserSettingOutlined size={40} />,
     },
   ];
 

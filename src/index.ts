@@ -52,6 +52,10 @@ export { default as Text } from './Text';
 export type { TextProps } from './Text';
 export {
   AccountOutlined,
+  AlertAddOutlined,
+  AlertOutlined,
+  AnalysisFilled,
+  AnalysisOutlined,
   ArrowDownOutlined,
   ArrowRightOutlined,
   ArrowUpOutlined,
@@ -64,9 +68,11 @@ export {
   ClockCircleOutlined,
   CloseOutlined,
   EjectOutlined,
+  IndexIcon,
   InfoCircleOutlined,
   LoadingOutlined,
   ReleaseOutlined,
+  UserSettingOutlined,
 } from './icons';
 export {
   AccentLogo,
