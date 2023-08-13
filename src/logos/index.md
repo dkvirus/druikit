@@ -73,6 +73,7 @@ import {
   LevisLogo,
   LindexLogo,
   LivlyLogo,
+  LululemonLogo,
   MaisonKitsuneLogo,
   MajeLogo,
   MangoLogo,
@@ -399,6 +400,10 @@ export default () => {
     {
       name: 'LivlyLogo',
       component: <LivlyLogo />,
+    },
+    {
+      name: 'LululemonLogo',
+      component: <LululemonLogo />,
     },
     {
       name: 'MaisonKitsuneLogo',

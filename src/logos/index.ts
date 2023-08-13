@@ -67,6 +67,7 @@ export { default as KjusLogo } from './KjusLogo';
 export { default as LevisLogo } from './LevisLogo';
 export { default as LindexLogo } from './LindexLogo';
 export { default as LivlyLogo } from './LivlyLogo';
+export { default as LululemonLogo } from './LululemonLogo';
 export { default as MaisonKitsuneLogo } from './MaisonKitsuneLogo';
 export { default as MajeLogo } from './MajeLogo';
 export { default as MangoLogo } from './MangoLogo';

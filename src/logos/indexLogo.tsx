@@ -69,6 +69,7 @@ import {
   LevisLogo,
   LindexLogo,
   LivlyLogo,
+  LululemonLogo,
   MaisonKitsuneLogo,
   MajeLogo,
   MangoLogo,
@@ -398,6 +399,9 @@ const VendorLogo = ({ vendorCode = '' }: { vendorCode?: string }) => {
       break;
     case 'levis':
       logoEl = <LevisLogo />;
+      break;
+    case 'lululemon':
+      logoEl = <LululemonLogo />;
       break;
     case 'marimekko':
       logoEl = <MarimekkoLogo />;

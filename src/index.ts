@@ -158,6 +158,7 @@ export {
   LevisLogo,
   LindexLogo,
   LivlyLogo,
+  LululemonLogo,
   MaisonKitsuneLogo,
   MajeLogo,
   MangoLogo,
