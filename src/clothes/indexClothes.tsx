@@ -174,106 +174,137 @@ const MTops = [
 const ClothesIcon = ({
   clothes = '',
   targetGroup = '',
+  size = 12,
+  ...props
 }: {
   clothes?: string;
   targetGroup?: string;
+  size?: number;
 }) => {
   if (['Men', 'All Options'].includes(targetGroup) && clothes === 'Accessories')
-    return <MenAccessories />;
+    return <MenAccessories size={size} {...props} />;
   if (['Men', 'All Options'].includes(targetGroup) && clothes === 'Body Wear')
-    return <MenBodywear />;
+    return <MenBodywear size={size} {...props} />;
   if (['Men', 'All Options'].includes(targetGroup) && clothes === 'Bottoms')
-    return <MenBottoms />;
+    return <MenBottoms size={size} {...props} />;
   if (['Men', 'All Options'].includes(targetGroup) && clothes === 'T-Shirts')
-    return <MenTshirts />;
+    return <MenTshirts size={size} {...props} />;
   if (['Men', 'All Options'].includes(targetGroup) && clothes === 'Tops')
-    return <MenTops />;
+    return <MenTops size={size} {...props} />;
   if (['Men', 'All Options'].includes(targetGroup) && clothes === 'Outerwear')
-    return <MenOuterwear />;
+    return <MenOuterwear size={size} {...props} />;
   if (
     ['Men', 'All Options'].includes(targetGroup) &&
     FootWears.includes(clothes)
   )
-    return <MenFootwear />;
+    return <MenFootwear size={size} {...props} />;
   if (['Men', 'All Options'].includes(targetGroup) && Jeans.includes(clothes))
-    return <MenJeans />;
+    return <MenJeans size={size} {...props} />;
   if (['Men', 'All Options'].includes(targetGroup) && Suits.includes(clothes))
-    return <MenSuitBlazers />;
+    return <MenSuitBlazers size={size} {...props} />;
 
   if (targetGroup === 'Women' && clothes === 'Accessories')
-    return <WomenAccessories />;
+    return <WomenAccessories size={size} {...props} />;
   if (targetGroup === 'Women' && clothes === 'Body Wear')
-    return <WomenBodywear />;
-  if (targetGroup === 'Women' && clothes === 'Bottoms') return <WomenBottoms />;
+    return <WomenBodywear size={size} {...props} />;
+  if (targetGroup === 'Women' && clothes === 'Bottoms')
+    return <WomenBottoms size={size} {...props} />;
   if (targetGroup === 'Women' && clothes === 'T-Shirts')
-    return <WomenTshirts />;
-  if (targetGroup === 'Women' && clothes === 'Tops') return <WomenTops />;
+    return <WomenTshirts size={size} {...props} />;
+  if (targetGroup === 'Women' && clothes === 'Tops')
+    return <WomenTops size={size} {...props} />;
   if (targetGroup === 'Women' && clothes === 'Outerwear')
-    return <WomenOuterwear />;
+    return <WomenOuterwear size={size} {...props} />;
   if (targetGroup === 'Women' && FootWears.includes(clothes))
-    return <WomenFootwear />;
-  if (targetGroup === 'Women' && Jeans.includes(clothes)) return <WomenJeans />;
+    return <WomenFootwear size={size} {...props} />;
+  if (targetGroup === 'Women' && Jeans.includes(clothes))
+    return <WomenJeans size={size} {...props} />;
   if (targetGroup === 'Women' && Suits.includes(clothes))
-    return <WomenSuitBlazers />;
+    return <WomenSuitBlazers size={size} {...props} />;
 
   if (targetGroup === 'Children' && clothes === 'Accessories')
-    return <ChildrenAccessories />;
+    return <ChildrenAccessories size={size} {...props} />;
   if (targetGroup === 'Children' && clothes === 'Body Wear')
-    return <ChildrenBodywear />;
+    return <ChildrenBodywear size={size} {...props} />;
   if (targetGroup === 'Children' && clothes === 'Product Sets')
-    return <ChildrenProductSets />;
+    return <ChildrenProductSets size={size} {...props} />;
   if (targetGroup === 'Children' && clothes === 'Bodies')
-    return <ChildrenBodies />;
+    return <ChildrenBodies size={size} {...props} />;
   if (targetGroup === 'Children' && clothes === 'T-Shirts')
-    return <ChildrenShirts />;
-  if (targetGroup === 'Children' && clothes === 'Tops') return <ChildrenTops />;
+    return <ChildrenShirts size={size} {...props} />;
+  if (targetGroup === 'Children' && clothes === 'Tops')
+    return <ChildrenTops size={size} {...props} />;
   if (targetGroup === 'Children' && clothes === 'Outerwear')
-    return <ChildrenOuterwear />;
+    return <ChildrenOuterwear size={size} {...props} />;
   if (targetGroup === 'Children' && Dresses.includes(clothes))
-    return <ChildrenDresses />;
+    return <ChildrenDresses size={size} {...props} />;
 
-  if (Bags.includes(clothes)) return <MarimekkoBags />;
-  if (MCoats.includes(clothes)) return <MarimekkoCoats />;
-  if (MDresses.includes(clothes)) return <MarimekkoDresses />;
-  if (MGloves.includes(clothes)) return <MarimekkoGloves />;
-  if (MHeadwears.includes(clothes)) return <MarimekkoHeadwears />;
-  if (MJackets.includes(clothes)) return <MarimekkoJackets />;
-  if (MMarket.includes(clothes)) return <MarimekkoMarket />;
-  if (MOthers.includes(clothes)) return <MarimekkoOthers />;
-  if (MShorts.includes(clothes)) return <MarimekkoShorts />;
-  if (MTrousers.includes(clothes)) return <MarimekkoTrousers />;
-  if (MAnkleTrousers.includes(clothes)) return <MarimekkoAnkleTrousers />;
-  if (MSwimwears.includes(clothes)) return <MarimekkoSwimwears />;
-  if (MSocks.includes(clothes)) return <MarimekkoSocks />;
-  if (MScarves.includes(clothes)) return <MarimekkoScarves />;
-  if (MOtherBags.includes(clothes)) return <MarimekkoOtherBags />;
-  if (MOtherAccessories.includes(clothes)) return <MarimekkoOtherAccessories />;
-  if (MShoes.includes(clothes)) return <MarimekkoShoes />;
-  if (MSkirts.includes(clothes)) return <MarimekkoSkirts />;
-  if (MTops.includes(clothes)) return <MarimekkoTops />;
+  if (Bags.includes(clothes)) return <MarimekkoBags size={size} {...props} />;
+  if (MCoats.includes(clothes))
+    return <MarimekkoCoats size={size} {...props} />;
+  if (MDresses.includes(clothes))
+    return <MarimekkoDresses size={size} {...props} />;
+  if (MGloves.includes(clothes))
+    return <MarimekkoGloves size={size} {...props} />;
+  if (MHeadwears.includes(clothes))
+    return <MarimekkoHeadwears size={size} {...props} />;
+  if (MJackets.includes(clothes))
+    return <MarimekkoJackets size={size} {...props} />;
+  if (MMarket.includes(clothes))
+    return <MarimekkoMarket size={size} {...props} />;
+  if (MOthers.includes(clothes))
+    return <MarimekkoOthers size={size} {...props} />;
+  if (MShorts.includes(clothes))
+    return <MarimekkoShorts size={size} {...props} />;
+  if (MTrousers.includes(clothes))
+    return <MarimekkoTrousers size={size} {...props} />;
+  if (MAnkleTrousers.includes(clothes))
+    return <MarimekkoAnkleTrousers size={size} {...props} />;
+  if (MSwimwears.includes(clothes))
+    return <MarimekkoSwimwears size={size} {...props} />;
+  if (MSocks.includes(clothes))
+    return <MarimekkoSocks size={size} {...props} />;
+  if (MScarves.includes(clothes))
+    return <MarimekkoScarves size={size} {...props} />;
+  if (MOtherBags.includes(clothes))
+    return <MarimekkoOtherBags size={size} {...props} />;
+  if (MOtherAccessories.includes(clothes))
+    return <MarimekkoOtherAccessories size={size} {...props} />;
+  if (MShoes.includes(clothes))
+    return <MarimekkoShoes size={size} {...props} />;
+  if (MSkirts.includes(clothes))
+    return <MarimekkoSkirts size={size} {...props} />;
+  if (MTops.includes(clothes)) return <MarimekkoTops size={size} {...props} />;
 
-  if (clothes === 'Trousers') return <CommonTrousers />;
-  if (clothes === 'Tops') return <CommonTops />;
-  if (clothes === 'Blouses') return <CommonBlousers />;
-  if (clothes === 'Jersey Tops') return <CommonJerseyTops />;
-  if (clothes === 'Outdoor') return <CommonOutdoor />;
-  if (clothes === 'Shoes') return <CommonShoes />;
-  if (clothes === 'Skirts') return <CommonSkirts />;
-  if (clothes === 'Shirts') return <MenShirts />;
-  if (clothes === 'Others') return <CommonOthers />;
-  if (clothes === 'Waistcoats') return <CommonWaistcoats />;
-  if (clothes === 'Swimwear') return <MarimekkoSwimwears />;
-  if (clothes === 'Socks/Tights') return <CommonSocksTights />;
-  if (clothes === 'Shorts') return <CommonShorts />;
-  if (clothes === 'Layer') return <CommonLayer />;
-  if (clothes === 'Bodies/Overalls') return <CommonBodiesOverall />;
-  if (Nightwear.indexOf(clothes)) return <CommonNightwear />;
-  if (Bags.includes(clothes)) return <CommonBags />;
-  if (Knits.includes(clothes)) return <CommonKnitTops />;
-  if (Dresses.includes(clothes)) return <WomenDresses />;
-  if (CategoryTotal.includes(clothes)) return <CommonTotal />;
+  if (clothes === 'Trousers') return <CommonTrousers size={size} {...props} />;
+  if (clothes === 'Tops') return <CommonTops size={size} {...props} />;
+  if (clothes === 'Blouses') return <CommonBlousers size={size} {...props} />;
+  if (clothes === 'Jersey Tops')
+    return <CommonJerseyTops size={size} {...props} />;
+  if (clothes === 'Outdoor') return <CommonOutdoor size={size} {...props} />;
+  if (clothes === 'Shoes') return <CommonShoes size={size} {...props} />;
+  if (clothes === 'Skirts') return <CommonSkirts size={size} {...props} />;
+  if (clothes === 'Shirts') return <MenShirts size={size} {...props} />;
+  if (clothes === 'Others') return <CommonOthers size={size} {...props} />;
+  if (clothes === 'Waistcoats')
+    return <CommonWaistcoats size={size} {...props} />;
+  if (clothes === 'Swimwear')
+    return <MarimekkoSwimwears size={size} {...props} />;
+  if (clothes === 'Socks/Tights')
+    return <CommonSocksTights size={size} {...props} />;
+  if (clothes === 'Shorts') return <CommonShorts size={size} {...props} />;
+  if (clothes === 'Layer') return <CommonLayer size={size} {...props} />;
+  if (clothes === 'Bodies/Overalls')
+    return <CommonBodiesOverall size={size} {...props} />;
+  if (Nightwear.indexOf(clothes))
+    return <CommonNightwear size={size} {...props} />;
+  if (Bags.includes(clothes)) return <CommonBags size={size} {...props} />;
+  if (Knits.includes(clothes)) return <CommonKnitTops size={size} {...props} />;
+  if (Dresses.includes(clothes)) return <WomenDresses size={size} {...props} />;
+  if (CategoryTotal.includes(clothes))
+    return <CommonTotal size={size} {...props} />;
 
-  return <CommonOthers />;
+  return <CommonOthers size={size} {...props} />;
 };
 
 export default ClothesIcon;
