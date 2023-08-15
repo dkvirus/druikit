@@ -8,7 +8,7 @@
     background-color: #e6eaea!important;
 }
 
-.select-option_wrapper-hover:hover .select-option_label:not(.disabled),
+.select-option_wrapper-hover:hover > .select-option_label:not(.disabled),
 .select-option_label-active {
     color: #01a699 !important;
 }
