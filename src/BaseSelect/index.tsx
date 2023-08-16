@@ -40,6 +40,7 @@ export interface BaseSelectProps {
 
 export interface BaseSelectRefProps {
   close: () => void;
+  getIsOpen: () => boolean;
 }
 
 const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
@@ -91,7 +92,7 @@ const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
     const selectorCls = classnames({
       'base-select_selector': true,
       [`base-select_selector-radius-${selectorSize}`]: true,
-      'base-select_selector-hover': true,
+      'base-select_selector-hover': !disabled,
       'base-select_selector-selected': selected,
       [selectorClassName]: true,
     });
@@ -120,6 +121,7 @@ const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
     /* ************************* 组件对外暴露的方法 ****************************** */
     useImperativeHandle(ref, () => ({
       close: () => setOpen(false),
+      getIsOpen: () => open,
     }));
 
     const onClickSelector = () => {

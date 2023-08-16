@@ -34,6 +34,103 @@ export default () => {
 };
 ```
 
+## 下拉框联动
+
+```jsx
+import { useState } from 'react';
+import { MultiSelect, Select, Flex, Box } from 'druikit';
+
+const getMultiSelectOptions = (singleSelectedValue, regionList) => {
+  return regionList.filter(r => r !== singleSelectedValue)
+    .map(r => ({ value: r, label: r }))
+}
+
+const getMultiSelectValue = (multiSelectOptions) => {
+  return multiSelectOptions.map(r => r.value)
+}
+
+export default () => {
+  const regionList = [ 'Sweden', 'Finland', 'Norway' ]
+
+  const [ selectedOptions, setSelectedOptions ] = useState(regionList.map(r => ({ value: r, label: r })))
+  const [ selectedValue, setSelectedValue ] = useState(regionList[0])
+
+  const [ multiSelectedOptions, setMultiSelectedOptions ] = useState(getMultiSelectOptions(selectedValue, regionList))
+  const [ multiSelectedValue, setMultiSelectedValue ] = useState<string[]>(getMultiSelectValue(multiSelectedOptions))
+
+  const options = [
+    { label: 'Sweden', value: 'Sweden' },
+    { label: 'Finland', value: 'Finland' },
+    { label: 'Norway', value: 'Norway' },
+  ];
+
+  return (
+    <Flex>
+      <Select
+        label="Single Region"
+        placeholder="Region"
+        dropdownTitle="Region"
+        options={selectedOptions}
+        value={selectedValue}
+        onChange={value => {
+          setSelectedValue(value)
+          const multiSelectOptions = getMultiSelectOptions(value, regionList)
+          setMultiSelectedOptions(multiSelectOptions)
+          const multiSelectValue = getMultiSelectValue(multiSelectOptions)
+          setMultiSelectedValue(multiSelectValue)
+        }}
+      />
+      <Box width={10} />
+      <MultiSelect
+        label="Multi Region"
+        placeholder="Region"
+        dropdownTitle="Region"
+        options={multiSelectedOptions}
+        value={multiSelectedValue}
+        onChange={(value) => setMultiSelectedValue(value)}
+      />
+      <Box width={10} />
+      <Box>
+        Multi selected value: {multiSelectedValue.join(',')}
+      </Box>
+    </Flex>
+  );
+};
+```
+
+## disabled
+
+```jsx
+import { useState } from 'react';
+import { MultiSelect, Flex, Box } from 'druikit';
+
+export default () => {
+  const [value, setValue] = useState<string[]>([]);
+
+  const options = [
+    { label: 'Sweden', value: 'Sweden' },
+    { label: 'Finland', value: 'Finland' },
+    { label: 'Norway', value: 'Norway' },
+  ];
+
+  return (
+    <Flex>
+      <MultiSelect
+        disabled
+        label="Region"
+        placeholder="Region"
+        dropdownTitle="Region"
+        options={options}
+        value={value}
+        onChange={(value) => setValue(value)}
+      />
+      <Box width={20} />
+      <Box>{value.join(', ')}</Box>
+    </Flex>
+  );
+};
+```
+
 ## Select all 和 Clear all
 
 ```jsx

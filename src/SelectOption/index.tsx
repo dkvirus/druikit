@@ -2,8 +2,8 @@ import React, { CSSProperties, FC, ReactNode } from 'react';
 import Button from '../Button';
 import Checkbox from '../Checkbox';
 import Flex from '../Flex';
-import { CloseOutlined } from '../icons';
 import Text from '../Text';
+import { CloseOutlined } from '../icons';
 import { classnames } from '../utils/cssUtils';
 import './styles.css';
 
@@ -160,19 +160,25 @@ export const SelectButtonGroup = ({
 };
 
 export const SelectOkButton = ({
+  style,
+  className,
   onClick,
   disabled,
 }: {
+  style?: CSSProperties;
+  className?: string;
   onClick?: () => void;
   disabled?: boolean;
 }) => {
   return (
     <Button
       shape="square"
-      primary
+      danger
       fullWidth
       onClick={onClick}
       disabled={disabled}
+      className={className}
+      style={{ borderTopLeftRadius: 0, borderTopRightRadius: 0, ...style }}
     >
       OK
     </Button>

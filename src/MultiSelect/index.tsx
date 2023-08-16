@@ -263,7 +263,11 @@ const MultiSelect: FC<MultiSelectProps> = ({
       renderDropdown={renderDropdown}
       dropdownStyle={dropdownSty}
       dropdownClassName={dropdownClassName}
-      onClickAway={onOk}
+      onClickAway={() => {
+        // 当前是关闭状态, 直接返回
+        if (!selectRef.current?.getIsOpen()) return;
+        onOk();
+      }}
       {...props}
     />
   );
