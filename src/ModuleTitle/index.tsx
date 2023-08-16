@@ -1,4 +1,5 @@
 import React, { CSSProperties, FC, ReactNode } from 'react';
+import Box from '../Box';
 import InfoCircleOutlined from '../icons/InfoCircleOutlined';
 
 export interface ModuleTitleProps {
@@ -61,6 +62,8 @@ const ModuleTitle: FC<ModuleTitleProps> = ({
   /* ********************************** title ************************************** */
   const titleSty: CSSProperties = {
     fontSize: 20,
+    display: 'flex',
+    alignItems: 'center',
     ...titleStyle,
   };
 
@@ -71,7 +74,10 @@ const ModuleTitle: FC<ModuleTitleProps> = ({
       <div style={titleSty} className={titleClassName}>
         {title}
         {showInfoIcon ? (
-          <InfoCircleOutlined style={{ marginLeft: 10 }} color="#999" />
+          <>
+            <Box width={10} />
+            <InfoCircleOutlined color="#999" />
+          </>
         ) : null}
       </div>
     );
