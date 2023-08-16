@@ -32,7 +32,9 @@ export declare const SelectButtonGroup: ({ clearAll, onClearAll, selectAll, onSe
     selectAll?: boolean | undefined;
     onSelectAll?: (() => void) | undefined;
 }) => React.JSX.Element;
-export declare const SelectOkButton: ({ onClick, disabled, }: {
+export declare const SelectOkButton: ({ style, className, onClick, disabled, }: {
+    style?: React.CSSProperties | undefined;
+    className?: string | undefined;
     onClick?: (() => void) | undefined;
     disabled?: boolean | undefined;
 }) => React.JSX.Element;

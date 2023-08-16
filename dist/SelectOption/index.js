@@ -8,8 +8,8 @@ import React from 'react';
 import Button from "../Button";
 import Checkbox from "../Checkbox";
 import Flex from "../Flex";
-import { CloseOutlined } from "../icons";
 import Text from "../Text";
+import { CloseOutlined } from "../icons";
 import { classnames } from "../utils/cssUtils";
 import "./styles.css";
 var SelectOption = function SelectOption(_ref) {
@@ -104,13 +104,20 @@ export var SelectButtonGroup = function SelectButtonGroup(_ref3) {
   }, selectAll ? 'Select all' : ''));
 };
 export var SelectOkButton = function SelectOkButton(_ref4) {
-  var onClick = _ref4.onClick,
+  var style = _ref4.style,
+    className = _ref4.className,
+    onClick = _ref4.onClick,
     disabled = _ref4.disabled;
   return /*#__PURE__*/React.createElement(Button, {
     shape: "square",
-    primary: true,
+    danger: true,
     fullWidth: true,
     onClick: onClick,
-    disabled: disabled
+    disabled: disabled,
+    className: className,
+    style: _objectSpread({
+      borderTopLeftRadius: 0,
+      borderTopRightRadius: 0
+    }, style)
   }, "OK");
 };

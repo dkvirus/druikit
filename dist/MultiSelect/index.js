@@ -244,7 +244,12 @@ var MultiSelect = function MultiSelect(_ref) {
     renderDropdown: renderDropdown,
     dropdownStyle: dropdownSty,
     dropdownClassName: dropdownClassName,
-    onClickAway: onOk
+    onClickAway: function onClickAway() {
+      var _selectRef$current3;
+      // 当前是关闭状态, 直接返回
+      if (!((_selectRef$current3 = selectRef.current) !== null && _selectRef$current3 !== void 0 && _selectRef$current3.getIsOpen())) return;
+      onOk();
+    }
   }, props));
 };
 export default MultiSelect;

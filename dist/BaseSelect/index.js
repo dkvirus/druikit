@@ -63,7 +63,7 @@ var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
   /* ************************* selector ****************************** */
   var selectorCls = classnames((_classnames3 = {
     'base-select_selector': true
-  }, _defineProperty(_classnames3, "base-select_selector-radius-".concat(selectorSize), true), _defineProperty(_classnames3, 'base-select_selector-hover', true), _defineProperty(_classnames3, 'base-select_selector-selected', selected), _defineProperty(_classnames3, selectorClassName, true), _classnames3));
+  }, _defineProperty(_classnames3, "base-select_selector-radius-".concat(selectorSize), true), _defineProperty(_classnames3, 'base-select_selector-hover', !disabled), _defineProperty(_classnames3, 'base-select_selector-selected', selected), _defineProperty(_classnames3, selectorClassName, true), _classnames3));
   var selectorSelectionCls = classnames(['base-select_selector-selection']);
   var selectorArrowCls = classnames({
     'base-select_selector-arrow': true,
@@ -82,6 +82,9 @@ var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
     return {
       close: function close() {
         return setOpen(false);
+      },
+      getIsOpen: function getIsOpen() {
+        return open;
       }
     };
   });

@@ -28,6 +28,7 @@ export interface BaseSelectProps {
 }
 export interface BaseSelectRefProps {
     close: () => void;
+    getIsOpen: () => boolean;
 }
 declare const BaseSelect: React.ForwardRefExoticComponent<BaseSelectProps & React.RefAttributes<BaseSelectRefProps>>;
 export default BaseSelect;
