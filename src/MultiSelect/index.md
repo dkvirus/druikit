@@ -279,6 +279,47 @@ export default () => {
 };
 ```
 
+## dropdownLabelStyle
+
+```jsx
+import { useState } from 'react';
+import { MultiSelect, Flex, Box } from 'druikit';
+
+export default () => {
+  const [value, setValue] = useState<string[]>([]);
+  const [value2, setValue2] = useState<string[]>([]);
+
+  const options = [
+    { label: 'Sweden', value: 'Sweden' },
+    { label: 'Finland', value: 'Finland' },
+  ];
+
+  return (
+    <Flex>
+      <MultiSelect
+        label="Region"
+        labelStyle={{ fontSize: 16, color: 'red' }}
+        placeholder="Region"
+        dropdownTitle="Region"
+        options={options}
+        value={value}
+        onChange={(value) => setValue(value)}
+      />
+      <Box width={20} />
+      <MultiSelect
+        label="Region"
+        labelStyle={{ fontSize: 12, color: 'red' }}
+        placeholder="Region"
+        dropdownTitle="Region"
+        options={options}
+        value={value2}
+        onChange={(value) => setValue2(value)}
+      />
+    </Flex>
+  );
+};
+```
+
 ## 分组
 
 ```jsx

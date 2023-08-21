@@ -29,6 +29,8 @@ export interface MultiSelectProps extends BaseSelectProps {
   dropdownMaxHeight?: number;
   dropdownStyle?: CSSProperties;
   dropdownClassName?: string;
+  dropdownLabelStyle?: CSSProperties;
+  dropdownLabelClassName?: string;
   /**
    * @description 显示 Select All 按钮
    * @default true
@@ -105,6 +107,8 @@ const MultiSelect: FC<MultiSelectProps> = ({
   dropdownMaxHeight = 300,
   dropdownStyle,
   dropdownClassName,
+  dropdownLabelStyle,
+  dropdownLabelClassName,
   selectAll = true,
   clearAll = true,
   minCount = 0,
@@ -133,10 +137,10 @@ const MultiSelect: FC<MultiSelectProps> = ({
     ...dropdownStyle,
   };
 
-  const dropdownLabelStyle: CSSProperties = {
+  const dropdownLabelSty: CSSProperties = {
     width: 'fit-content',
     whiteSpace: 'nowrap',
-    ...labelStyle,
+    ...dropdownLabelStyle,
   };
 
   const onClick = (checked: boolean, item: OptionItem) => {
@@ -221,8 +225,8 @@ const MultiSelect: FC<MultiSelectProps> = ({
               return (
                 <SelectOption
                   key={key}
-                  labelStyle={dropdownLabelStyle}
-                  labelClassName={labelClassName}
+                  labelStyle={dropdownLabelSty}
+                  labelClassName={dropdownLabelClassName}
                   value={item.checked}
                   onChange={(checked) => onClick(checked, item)}
                   disabled={
@@ -257,6 +261,8 @@ const MultiSelect: FC<MultiSelectProps> = ({
       className={className}
       disabled={disabled}
       label={label}
+      labelStyle={labelStyle}
+      labelClassName={labelClassName}
       selectorValue={selectorValue}
       selectorSize={size}
       placeholder={placeholder}
