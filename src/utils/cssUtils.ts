@@ -9,10 +9,10 @@ import { CSSProperties } from 'react';
  * ```
  */
 export function classnames(
-  cls: string[] | Record<string, boolean | undefined>,
+  cls: Array<string | undefined> | Record<string, boolean | undefined>,
 ): string {
   if (Array.isArray(cls)) {
-    return cls.filter((c) => c.trim()).join(' ');
+    return cls.filter((c) => (c || '').trim()).join(' ');
   }
   return Object.keys(cls || {})
     .filter((c) => c)

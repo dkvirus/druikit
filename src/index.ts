@@ -19,6 +19,8 @@ export type { DividerProps } from './Divider';
 export { default as ExportSelect } from './ExportSelect';
 export type { ExportSelectProps } from './ExportSelect';
 export { default as Flex, Flex1 } from './Flex';
+export { default as Image } from './Image';
+export type { ImageProps } from './Image';
 export { default as InputNumber } from './InputNumber';
 export type { InputNumberProps, InputNumberValue } from './InputNumber';
 export { default as ModuleTitle } from './ModuleTitle';

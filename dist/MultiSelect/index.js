@@ -1,5 +1,5 @@
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-var _excluded = ["style", "className", "value", "onChange", "disabled", "options", "size", "label", "labelStyle", "labelClassName", "placeholder", "selectorTextWhenSelectAll", "dropdownTitle", "dropdownMaxHeight", "dropdownStyle", "dropdownClassName", "selectAll", "clearAll", "minCount", "maxCount"];
+var _excluded = ["style", "className", "value", "onChange", "disabled", "options", "size", "label", "labelStyle", "labelClassName", "placeholder", "selectorTextWhenSelectAll", "dropdownTitle", "dropdownMaxHeight", "dropdownStyle", "dropdownClassName", "dropdownLabelStyle", "dropdownLabelClassName", "selectAll", "clearAll", "minCount", "maxCount"];
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -90,6 +90,8 @@ var MultiSelect = function MultiSelect(_ref) {
     dropdownMaxHeight = _ref$dropdownMaxHeigh === void 0 ? 300 : _ref$dropdownMaxHeigh,
     dropdownStyle = _ref.dropdownStyle,
     dropdownClassName = _ref.dropdownClassName,
+    dropdownLabelStyle = _ref.dropdownLabelStyle,
+    dropdownLabelClassName = _ref.dropdownLabelClassName,
     _ref$selectAll = _ref.selectAll,
     selectAll = _ref$selectAll === void 0 ? true : _ref$selectAll,
     _ref$clearAll = _ref.clearAll,
@@ -123,10 +125,10 @@ var MultiSelect = function MultiSelect(_ref) {
     minWidth: 164,
     maxHeight: 330
   }, dropdownStyle);
-  var dropdownLabelStyle = _objectSpread({
+  var dropdownLabelSty = _objectSpread({
     width: 'fit-content',
     whiteSpace: 'nowrap'
-  }, labelStyle);
+  }, dropdownLabelStyle);
   var onClick = function onClick(checked, item) {
     if (item.disabled) return;
     var newOpts = opts.map(function (o) {
@@ -214,8 +216,8 @@ var MultiSelect = function MultiSelect(_ref) {
     if (typeof item.value === 'string') {
       return /*#__PURE__*/React.createElement(SelectOption, {
         key: key,
-        labelStyle: dropdownLabelStyle,
-        labelClassName: labelClassName,
+        labelStyle: dropdownLabelSty,
+        labelClassName: dropdownLabelClassName,
         value: item.checked,
         onChange: function onChange(checked) {
           return onClick(checked, item);
@@ -238,6 +240,8 @@ var MultiSelect = function MultiSelect(_ref) {
     className: className,
     disabled: disabled,
     label: label,
+    labelStyle: labelStyle,
+    labelClassName: labelClassName,
     selectorValue: selectorValue,
     selectorSize: size,
     placeholder: placeholder,

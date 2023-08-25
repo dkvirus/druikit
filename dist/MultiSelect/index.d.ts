@@ -22,6 +22,8 @@ export interface MultiSelectProps extends BaseSelectProps {
     dropdownMaxHeight?: number;
     dropdownStyle?: CSSProperties;
     dropdownClassName?: string;
+    dropdownLabelStyle?: CSSProperties;
+    dropdownLabelClassName?: string;
     /**
      * @description 显示 Select All 按钮
      * @default true

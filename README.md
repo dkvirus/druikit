@@ -18,17 +18,24 @@ Documentation at [druikit.dkvirus.com](https://druikit.dkvirus.com/)
 - [x] Card
 - [x] Checkbox
 - [x] ClickAwayListener
+- [x] Clothes
+- [x] DisplayText
 - [x] Divider
+- [x] ExportSelect
 - [x] Flex
+- [x] Icons
+- [x] Image
 - [x] InputNumber
+- [x] Logos
+- [x] ModuleTitle
 - [x] MonthPanel
 - [x] MonthPicker
 - [x] MultiSelect
+- [x] RightPoint
 - [x] Select
 - [x] Spin
 - [x] Switch
 - [x] Text
-- [x] Icons
 
 ## Development
 

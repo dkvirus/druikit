@@ -1,0 +1,35 @@
+.dr-image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.dr-image-loading {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(238, 238, 238);
+    background-image: linear-gradient(90deg, rgb(238, 238, 238), rgb(245, 245, 245), rgb(238, 238, 238));
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+    animation: dr-image-ripple 1s infinite ease-out;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.dr-image-hidden {
+    display: none;
+}
+
+.dr-image-block {
+    display: block;
+}
+
+@keyframes dr-image-ripple {
+    0% {
+      background-position: -10%
+    }
+  
+    40%, 100% {
+      background-position: 150%
+    }
+}
