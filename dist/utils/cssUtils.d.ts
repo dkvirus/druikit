@@ -7,7 +7,7 @@ import { CSSProperties } from 'react';
  * classnames({'aaa': true, 'bbb': false, 'ccc': true})   // 'aaa ccc'
  * ```
  */
-export declare function classnames(cls: string[] | Record<string, boolean | undefined>): string;
+export declare function classnames(cls: Array<string | undefined> | Record<string, boolean | undefined>): string;
 export declare function handlePlacement(placement: 'bottomLeft' | 'bottomRight'): CSSProperties;
 export declare const cssUtils: {
     classnames: typeof classnames;

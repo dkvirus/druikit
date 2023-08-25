@@ -9,7 +9,7 @@
 export function classnames(cls) {
   if (Array.isArray(cls)) {
     return cls.filter(function (c) {
-      return c.trim();
+      return (c || '').trim();
     }).join(' ');
   }
   return Object.keys(cls || {}).filter(function (c) {

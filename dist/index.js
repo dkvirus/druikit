@@ -9,6 +9,7 @@ export { default as DisplayText } from "./DisplayText";
 export { default as Divider } from "./Divider";
 export { default as ExportSelect } from "./ExportSelect";
 export { default as Flex, Flex1 } from "./Flex";
+export { default as Image } from "./Image";
 export { default as InputNumber } from "./InputNumber";
 export { default as ModuleTitle } from "./ModuleTitle";
 export { default as MonthPanel } from "./MonthPanel";
