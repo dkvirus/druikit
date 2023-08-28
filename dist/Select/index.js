@@ -1,6 +1,10 @@
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-var _excluded = ["style", "className", "value", "onChange", "disabled", "options", "size", "label", "labelStyle", "labelClassName", "placeholder", "dropdownTitle", "dropdownStyle", "dropdownClassName", "dropdownLabelStyle", "dropdownLabelClassName"];
+var _excluded = ["style", "className", "value", "onChange", "disabled", "options", "size", "label", "labelStyle", "labelClassName", "placeholder", "dropdownTitle", "dropdownStyle", "dropdownClassName", "dropdownLabelStyle", "dropdownLabelClassName", "showSearch"];
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -45,6 +49,8 @@ var Select = function Select(_ref) {
     dropdownClassName = _ref.dropdownClassName,
     dropdownLabelStyle = _ref.dropdownLabelStyle,
     dropdownLabelClassName = _ref.dropdownLabelClassName,
+    _ref$showSearch = _ref.showSearch,
+    showSearch = _ref$showSearch === void 0 ? false : _ref$showSearch,
     props = _objectWithoutProperties(_ref, _excluded);
   var selectRef = useRef(null);
   var _useState = useState(getSelectorValue(value, options)),
@@ -65,14 +71,61 @@ var Select = function Select(_ref) {
     width: 'fit-content',
     whiteSpace: 'nowrap'
   }, dropdownLabelStyle);
+
+  // 下拉弹窗 (dropdown) 中搜索框填写值
+  var _useState3 = useState(''),
+    _useState4 = _slicedToArray(_useState3, 2),
+    searchValue = _useState4[0],
+    setSearchValue = _useState4[1];
+  // 下拉框选项列表
+  var _useState5 = useState([]),
+    _useState6 = _slicedToArray(_useState5, 2),
+    dropdownOptions = _useState6[0],
+    setDropdownOptions = _useState6[1];
+  useEffect(function () {
+    setDropdownOptions(options || []);
+  }, [options]);
+  useEffect(function () {
+    if (!searchValue) {
+      setDropdownOptions(_toConsumableArray(options));
+    } else {
+      var filterOptions = options.filter(function (item) {
+        return item.label.toLowerCase().indexOf(searchValue.trim().toLowerCase()) !== -1;
+      });
+      setDropdownOptions(_toConsumableArray(filterOptions));
+    }
+  }, [searchValue]);
+  var searchEl = null;
+  if (showSearch) {
+    searchEl = /*#__PURE__*/React.createElement("div", {
+      style: {
+        padding: '10px 15px 0px'
+      }
+    }, /*#__PURE__*/React.createElement("input", {
+      style: {
+        outline: 'none',
+        border: '1px solid #d9d9d9',
+        borderRadius: 4,
+        padding: '4px 6px',
+        width: '100%',
+        color: '#666',
+        fontSize: 12
+      },
+      placeholder: "Search",
+      value: searchValue,
+      onChange: function onChange(e) {
+        return setSearchValue(e.target.value);
+      }
+    }));
+  }
   var renderDropdown = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SelectDropdownHeader, {
     title: dropdownTitle
-  }), /*#__PURE__*/React.createElement("div", {
+  }), searchEl, /*#__PURE__*/React.createElement("div", {
     style: {
       paddingTop: 10,
       paddingBottom: 10
     }
-  }, options.map(function (item, index) {
+  }, dropdownOptions.map(function (item, index) {
     var key = item.label + index.toString();
     if (typeof item.value === 'string') {
       return /*#__PURE__*/React.createElement(SelectOption, {
