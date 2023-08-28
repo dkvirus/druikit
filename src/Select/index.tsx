@@ -1,4 +1,11 @@
-import React, { CSSProperties, FC, useEffect, useRef, useState } from 'react';
+import React, {
+  CSSProperties,
+  FC,
+  ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import BaseSelect, { BaseSelectProps, BaseSelectRefProps } from '../BaseSelect';
 import SelectOption, {
   OptionItem,
@@ -26,6 +33,7 @@ export interface SelectProps extends BaseSelectProps {
   dropdownClassName?: string;
   dropdownLabelStyle?: CSSProperties;
   dropdownLabelClassName?: string;
+  showSearch?: boolean;
 }
 
 const getSelectorValue = (value: string, options: OptionItem[]) => {
@@ -50,6 +58,7 @@ const Select: FC<SelectProps> = ({
   dropdownClassName,
   dropdownLabelStyle,
   dropdownLabelClassName,
+  showSearch = false,
   ...props
 }) => {
   const selectRef = useRef<BaseSelectRefProps>(null);
@@ -75,11 +84,61 @@ const Select: FC<SelectProps> = ({
     ...dropdownLabelStyle,
   };
 
+  // 下拉弹窗 (dropdown) 中搜索框填写值
+  const [searchValue, setSearchValue] = useState('');
+  // 下拉框选项列表
+  const [dropdownOptions, setDropdownOptions] = useState<any[]>([]);
+
+  useEffect(() => {
+    setDropdownOptions(options || []);
+  }, [options]);
+
+  useEffect(() => {
+    if (!searchValue) {
+      setDropdownOptions([...options]);
+    } else {
+      const filterOptions = options.filter(
+        (item) =>
+          item.label.toLowerCase().indexOf(searchValue.trim().toLowerCase()) !==
+          -1,
+      );
+      setDropdownOptions([...filterOptions]);
+    }
+  }, [searchValue]);
+
+  let searchEl: ReactNode = null;
+
+  if (showSearch) {
+    searchEl = (
+      <div
+        style={{
+          padding: '10px 15px 0px',
+        }}
+      >
+        <input
+          style={{
+            outline: 'none',
+            border: '1px solid #d9d9d9',
+            borderRadius: 4,
+            padding: '4px 6px',
+            width: '100%',
+            color: '#666',
+            fontSize: 12,
+          }}
+          placeholder="Search"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+      </div>
+    );
+  }
+
   const renderDropdown = (
     <>
       <SelectDropdownHeader title={dropdownTitle} />
+      {searchEl}
       <div style={{ paddingTop: 10, paddingBottom: 10 }}>
-        {options.map((item, index) => {
+        {dropdownOptions.map((item, index) => {
           const key = item.label + index.toString();
           if (typeof item.value === 'string') {
             return (

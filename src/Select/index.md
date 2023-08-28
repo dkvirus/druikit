@@ -29,6 +29,38 @@ export default () => {
 };
 ```
 
+## showSearch
+
+显示搜索框
+
+```jsx
+import { useState } from 'react';
+import { Select, Box, Flex } from 'druikit';
+
+export default () => {
+  const [value, setValue] = useState('');
+
+  const options = [
+    { label: 'Sweden', value: 'Sweden' },
+    { label: 'Japan', value: 'Japan' },
+    { label: 'USA', value: 'USA' },
+    { label: 'France', value: 'France' },
+  ];
+
+  return (
+    <Flex alignItems="flex-end">
+      <Select
+        placeholder="Region"
+        options={options}
+        value={value}
+        onChange={(value) => setValue(value)}
+        showSearch
+      />
+    </Flex>
+  );
+};
+```
+
 ## label
 
 ```jsx
