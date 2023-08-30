@@ -1,5 +1,5 @@
 import { Property } from 'csstype';
-import React, { CSSProperties, useLayoutEffect, useRef } from 'react';
+import React, { CSSProperties, useLayoutEffect, useRef, useState } from 'react';
 import { classnames } from '../utils/cssUtils';
 import './styles.css';
 
@@ -37,28 +37,33 @@ const Image = ({
   ...props
 }: ImageProps) => {
   const imgRef = useRef<HTMLImageElement>(null);
+  const [loading, setLoading] = useState(false);
 
   /* *************************** 监听加载状态 ********************************** */
   useLayoutEffect(() => {
     const imgEl = imgRef.current;
     if (!imgEl) return;
 
+    setLoading(true);
+
     const onImgError = () => {
       if (typeof fallback === 'string') {
         imgEl.src = fallback;
       }
+      setLoading(false);
     };
 
-    // const onImgLoad = () => {
-    // }
+    const onImgLoad = () => {
+      setLoading(false);
+    };
 
     imgEl.addEventListener('error', onImgError);
-    // imgEl.addEventListener('load', onImgLoad)
+    imgEl.addEventListener('load', onImgLoad);
 
     return () => {
       if (!imgEl) return;
       imgEl.removeEventListener('error', onImgError);
-      // imgEl.removeEventListener('load', onImgLoad)
+      imgEl.removeEventListener('load', onImgLoad);
     };
   }, []);
 
@@ -72,7 +77,7 @@ const Image = ({
 
   return (
     <div style={rootSty} className="dr-image-wrapper">
-      <div className="dr-image-loading"></div>
+      {loading ? <div className="dr-image-loading"></div> : null}
       <img
         ref={imgRef}
         loading={lazy ? 'lazy' : 'eager'}
