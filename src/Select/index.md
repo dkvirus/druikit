@@ -29,6 +29,68 @@ export default () => {
 };
 ```
 
+## dropdownHeight
+
+设置下拉框高度。
+
+```jsx
+import { useState } from 'react';
+import { Select, Flex, Box } from 'druikit';
+
+export default () => {
+  const [value, setValue] = useState('Sweden');
+
+  const options = [
+    { label: 'Sweden', value: 'Sweden' },
+    { label: 'Japan', value: 'Japan' },
+    { label: 'Sweden2', value: 'Sweden2' },
+    { label: 'Japan2', value: 'Japan2' },
+    { label: 'Sweden3', value: 'Sweden3' },
+    { label: 'Japan3', value: 'Japan3' },
+    { label: 'Sweden4', value: 'Sweden4' },
+    { label: 'Japan4', value: 'Japan4' },
+    { label: 'Sweden5', value: 'Sweden5' },
+    { label: 'Japan5', value: 'Japan5' },
+    { label: 'Sweden6', value: 'Sweden6' },
+    { label: 'Japan6', value: 'Japan6' },
+    { label: 'Sweden7', value: 'Sweden7' },
+    { label: 'Japan7', value: 'Japan7' },
+    { label: 'Sweden8', value: 'Sweden8' },
+    { label: 'Japan8', value: 'Japan8' },
+    { label: 'Sweden9', value: 'Sweden9' },
+    { label: 'Japan9', value: 'Japan9' },
+  ];
+
+  return (
+    <Flex>
+      <Select
+        placeholder="Region"
+        options={options}
+        value={value}
+        onChange={(value) => setValue(value)}
+        dropdownHeight={100}
+      />
+      <Box width={10} />
+      <Select
+        placeholder="Region"
+        options={options}
+        value={value}
+        onChange={(value) => setValue(value)}
+        dropdownHeight={200}
+      />
+      <Box width={10} />
+      <Select
+        placeholder="Region"
+        options={options}
+        value={value}
+        onChange={(value) => setValue(value)}
+        dropdownHeight={300}
+      />
+    </Flex>
+  );
+};
+```
+
 ## showSearch
 
 显示搜索框

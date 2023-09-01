@@ -48,7 +48,7 @@ const Button: FC<ButtonProps> = ({
     justifyContent: 'center',
     alignItems: 'center',
     fontSize: 14,
-    cursor: 'pointer',
+    cursor: typeof onClick === 'function' ? 'pointer' : 'auto',
     boxSizing: 'border-box',
   };
 
@@ -91,11 +91,12 @@ const Button: FC<ButtonProps> = ({
 
   /* *************************** disabled ***************************** */
   if (disabled) {
-    // sty.backgroundColor = 'rgba(0,0,0,.04)';
-    // sty.color = 'rgba(0,0,0,.25)';
     sty.opacity = 0.5;
-    sty.border = '1px solid #d9d9d9';
     sty.cursor = 'not-allowed';
+  }
+
+  if (disabled && bordered) {
+    sty.border = '1px solid #d9d9d9';
   }
 
   /* *************************** loading ***************************** */

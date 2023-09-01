@@ -41,6 +41,14 @@ export default () => {
           Disabled Danger Button
         </Button>
       </Flex>
+      <Box height={10} />
+      <Flex>
+        <Button bordered={false}>no border Button</Button>
+        <Box width={10} />
+        <Button bordered={false} disabled>
+          Disabled no border Button
+        </Button>
+      </Flex>
     </Box>
   );
 };

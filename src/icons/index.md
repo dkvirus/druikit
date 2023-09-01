@@ -26,6 +26,7 @@ import {
   ClockCircleOutlined,
   CloseOutlined,
   CloudDownloadFilled,
+  CopyOutlined,
   DashboardFilled,
   DeleteFilled,
   DoubleRightOutlined,
@@ -54,6 +55,7 @@ import {
   MinusOutlined,
   MoreOutlined,
   MulticolorFilled,
+  PasteOutlined,
   PinFilled,
   SearchOutlined,
   SettingOutlined,
@@ -140,6 +142,14 @@ export default () => {
     {
       name: 'CloseOutlined',
       icon: <CloseOutlined size={40} />,
+    },
+    {
+      name: 'CopyOutlined',
+      icon: <CopyOutlined size={40} />,
+    },
+    {
+      name: 'PasteOutlined',
+      icon: <PasteOutlined size={40} />,
     },
     {
       name: 'DashboardFilled',

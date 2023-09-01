@@ -33,6 +33,7 @@ export interface SelectProps extends BaseSelectProps {
   dropdownClassName?: string;
   dropdownLabelStyle?: CSSProperties;
   dropdownLabelClassName?: string;
+  dropdownHeight?: number;
   showSearch?: boolean;
 }
 
@@ -58,6 +59,7 @@ const Select: FC<SelectProps> = ({
   dropdownClassName,
   dropdownLabelStyle,
   dropdownLabelClassName,
+  dropdownHeight = 200,
   showSearch = false,
   ...props
 }) => {
@@ -75,6 +77,8 @@ const Select: FC<SelectProps> = ({
   const dropdownSty: CSSProperties = {
     padding: 0,
     minWidth: 164,
+    maxHeight: dropdownHeight,
+    overflow: 'auto',
     ...dropdownStyle,
   };
 
