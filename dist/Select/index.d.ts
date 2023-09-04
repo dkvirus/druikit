@@ -22,6 +22,7 @@ export interface SelectProps extends BaseSelectProps {
     dropdownClassName?: string;
     dropdownLabelStyle?: CSSProperties;
     dropdownLabelClassName?: string;
+    dropdownHeight?: number;
     showSearch?: boolean;
 }
 declare const Select: FC<SelectProps>;

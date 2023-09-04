@@ -23,7 +23,7 @@
 }
 
 .base-select_select {
-    background-color: #ffffff;
+    background-color: transparent;
     cursor: pointer;
     position: relative;
 }
@@ -64,6 +64,7 @@
     padding-right: 10px;
     border: solid 1px #999999;
     color: #666666;
+    background-color: #fff;
 }
 
 .base-select_selector-radius-small {

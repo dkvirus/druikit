@@ -1,5 +1,5 @@
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-var _excluded = ["style", "className", "value", "onChange", "disabled", "options", "size", "label", "labelStyle", "labelClassName", "placeholder", "dropdownTitle", "dropdownStyle", "dropdownClassName", "dropdownLabelStyle", "dropdownLabelClassName", "showSearch"];
+var _excluded = ["style", "className", "value", "onChange", "disabled", "options", "size", "label", "labelStyle", "labelClassName", "placeholder", "dropdownTitle", "dropdownStyle", "dropdownClassName", "dropdownLabelStyle", "dropdownLabelClassName", "dropdownHeight", "showSearch"];
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -49,6 +49,8 @@ var Select = function Select(_ref) {
     dropdownClassName = _ref.dropdownClassName,
     dropdownLabelStyle = _ref.dropdownLabelStyle,
     dropdownLabelClassName = _ref.dropdownLabelClassName,
+    _ref$dropdownHeight = _ref.dropdownHeight,
+    dropdownHeight = _ref$dropdownHeight === void 0 ? 200 : _ref$dropdownHeight,
     _ref$showSearch = _ref.showSearch,
     showSearch = _ref$showSearch === void 0 ? false : _ref$showSearch,
     props = _objectWithoutProperties(_ref, _excluded);
@@ -65,7 +67,9 @@ var Select = function Select(_ref) {
   /* ************************* dropdown ******************************* */
   var dropdownSty = _objectSpread({
     padding: 0,
-    minWidth: 164
+    minWidth: 164,
+    maxHeight: dropdownHeight,
+    overflow: 'auto'
   }, dropdownStyle);
   var dropdownLabelSty = _objectSpread({
     width: 'fit-content',

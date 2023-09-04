@@ -21,6 +21,7 @@ export interface BaseSelectProps {
   selectorStyle?: CSSProperties;
   selectorClassName?: string;
   selectorSize?: 'small' | 'middle' | 'large';
+  selectorWidth?: number | string;
   renderDropdown?: ReactNode;
   dropdownStyle?: CSSProperties;
   dropdownClassName?: string;
@@ -56,6 +57,7 @@ const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
       selectorClassName = '',
       selectorValue,
       selectorSize = 'middle',
+      selectorWidth,
       renderDropdown,
       dropdownStyle,
       dropdownClassName = '',
@@ -105,6 +107,14 @@ const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
       'base-select_selector-arrow-selected': selected,
     });
 
+    const selectorSty: CSSProperties = {
+      ...selectorStyle,
+    };
+
+    if (typeof selectorWidth !== 'undefined') {
+      selectorSty.width = selectorWidth;
+    }
+
     /* ************************* dropdown ****************************** */
     const dropdownSty: CSSProperties = {
       ...dropdownStyle,
@@ -147,7 +157,7 @@ const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
               <div onClick={onClickSelector}>{renderSelector}</div>
             ) : (
               <div
-                style={selectorStyle}
+                style={selectorSty}
                 className={selectorCls}
                 onClick={onClickSelector}
               >

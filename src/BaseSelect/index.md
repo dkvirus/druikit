@@ -26,6 +26,39 @@ export default () => {
 };
 ```
 
+## selectorWidth
+
+```jsx
+import { BaseSelect, Box } from 'druikit';
+
+export default () => {
+  const renderDropdown = (
+    <>
+      <div>hello</div>
+      <div>world</div>
+    </>
+  );
+
+  return (
+    <>
+      <BaseSelect selectorValue="Email" renderDropdown={renderDropdown} />
+      <Box height={10} />
+      <BaseSelect
+        selectorValue="Email"
+        renderDropdown={renderDropdown}
+        selectorWidth={200}
+      />
+      <Box height={10} />
+      <BaseSelect
+        selectorValue="Email"
+        renderDropdown={renderDropdown}
+        selectorWidth={300}
+      />
+    </>
+  );
+};
+```
+
 ## label
 
 ```jsx
