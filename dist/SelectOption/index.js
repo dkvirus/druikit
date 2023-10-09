@@ -110,7 +110,7 @@ export var SelectOkButton = function SelectOkButton(_ref4) {
     disabled = _ref4.disabled;
   return /*#__PURE__*/React.createElement(Button, {
     shape: "square",
-    danger: true,
+    primary: true,
     fullWidth: true,
     onClick: onClick,
     disabled: disabled,

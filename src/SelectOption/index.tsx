@@ -173,7 +173,7 @@ export const SelectOkButton = ({
   return (
     <Button
       shape="square"
-      danger
+      primary
       fullWidth
       onClick={onClick}
       disabled={disabled}

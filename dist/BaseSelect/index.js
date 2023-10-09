@@ -31,6 +31,7 @@ var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
     selectorValue = _ref.selectorValue,
     _ref$selectorSize = _ref.selectorSize,
     selectorSize = _ref$selectorSize === void 0 ? 'middle' : _ref$selectorSize,
+    selectorWidth = _ref.selectorWidth,
     renderDropdown = _ref.renderDropdown,
     dropdownStyle = _ref.dropdownStyle,
     _ref$dropdownClassNam = _ref.dropdownClassName,
@@ -70,6 +71,10 @@ var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
     'base-select_selector-arrow-open': open,
     'base-select_selector-arrow-selected': selected
   });
+  var selectorSty = _objectSpread({}, selectorStyle);
+  if (typeof selectorWidth !== 'undefined') {
+    selectorSty.width = selectorWidth;
+  }
 
   /* ************************* dropdown ****************************** */
   var dropdownSty = _objectSpread(_objectSpread({}, dropdownStyle), handlePlacement(placement));
@@ -108,7 +113,7 @@ var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
   }, renderSelector ? /*#__PURE__*/React.createElement("div", {
     onClick: onClickSelector
   }, renderSelector) : /*#__PURE__*/React.createElement("div", {
-    style: selectorStyle,
+    style: selectorSty,
     className: selectorCls,
     onClick: onClickSelector
   }, /*#__PURE__*/React.createElement("div", {

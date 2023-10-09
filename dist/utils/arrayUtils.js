@@ -30,8 +30,30 @@ export function difference(a1, a2) {
   });
   return result;
 }
+
+/**
+ * 一维数组转二维数组
+ */
+export function chunk(arr, len) {
+  if (len < 1) return arr;
+  var arrLen = arr.length;
+  var result = [];
+  for (var i = 0; i < arrLen; i += len) {
+    result.push(arr.slice(i, i + len));
+  }
+  return result;
+}
+
+/**
+ * 简单数据类型去重
+ */
+export function uniq(arr) {
+  return Array.from(new Set(arr));
+}
 export var arrayUtils = {
   last: last,
   intersection: intersection,
-  difference: difference
+  difference: difference,
+  chunk: chunk,
+  uniq: uniq
 };
