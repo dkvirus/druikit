@@ -17,6 +17,7 @@ export interface OptionProps {
     labelStyle?: CSSProperties;
     labelClassName?: string;
     boxVisible?: boolean;
+    boxPosition?: 'left' | 'right';
     groupTitle?: boolean;
 }
 declare const SelectOption: FC<OptionProps>;

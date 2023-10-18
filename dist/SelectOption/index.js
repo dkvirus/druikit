@@ -26,6 +26,8 @@ var SelectOption = function SelectOption(_ref) {
     labelClassName = _ref$labelClassName === void 0 ? '' : _ref$labelClassName,
     _ref$boxVisible = _ref.boxVisible,
     boxVisible = _ref$boxVisible === void 0 ? false : _ref$boxVisible,
+    _ref$boxPosition = _ref.boxPosition,
+    boxPosition = _ref$boxPosition === void 0 ? 'left' : _ref$boxPosition,
     _ref$groupTitle = _ref.groupTitle,
     groupTitle = _ref$groupTitle === void 0 ? false : _ref$groupTitle;
   var cls = classnames((_classnames = {}, _defineProperty(_classnames, 'select-option_wrapper', true), _defineProperty(_classnames, 'select-option_wrapper-hover', !disabled && !groupTitle), _defineProperty(_classnames, className, true), _classnames));
@@ -41,6 +43,7 @@ var SelectOption = function SelectOption(_ref) {
     labelStyle: labelSty,
     labelClassName: labelCls,
     boxVisible: boxVisible,
+    boxPosition: boxPosition,
     value: value,
     onChange: onChange,
     disabled: disabled

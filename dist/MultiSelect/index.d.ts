@@ -42,6 +42,7 @@ export interface MultiSelectProps extends BaseSelectProps {
      * 最多选中数目
      */
     maxCount?: number;
+    boxPosition?: 'left' | 'right';
 }
 declare const MultiSelect: FC<MultiSelectProps>;
 export default MultiSelect;
