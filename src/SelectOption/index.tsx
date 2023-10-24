@@ -25,6 +25,7 @@ export interface OptionProps {
   labelStyle?: CSSProperties;
   labelClassName?: string;
   boxVisible?: boolean;
+  boxPosition?: 'left' | 'right';
   groupTitle?: boolean;
 }
 
@@ -38,6 +39,7 @@ const SelectOption: FC<OptionProps> = ({
   labelStyle,
   labelClassName = '',
   boxVisible = false,
+  boxPosition = 'left',
   groupTitle = false,
 }) => {
   const cls = classnames({
@@ -65,6 +67,7 @@ const SelectOption: FC<OptionProps> = ({
       labelStyle={labelSty}
       labelClassName={labelCls}
       boxVisible={boxVisible}
+      boxPosition={boxPosition}
       value={value}
       onChange={onChange}
       disabled={disabled}

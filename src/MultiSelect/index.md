@@ -34,6 +34,47 @@ export default () => {
 };
 ```
 
+## 复选框位置
+
+```jsx
+import { useState } from 'react';
+import { MultiSelect, Flex, Box } from 'druikit';
+
+export default () => {
+  const [value, setValue] = useState<string[]>([]);
+
+  const options = [
+    { label: 'Sweden', value: 'Sweden' },
+    { label: 'Finland', value: 'Finland' },
+    { label: 'Norway', value: 'Norway' },
+  ];
+
+  return (
+    <Flex>
+      <MultiSelect
+        label="Region"
+        placeholder="Region"
+        dropdownTitle="Region"
+        options={options}
+        value={value}
+        onChange={(value) => setValue(value)}
+        boxPosition="left"
+      />
+      <Box width={20} />
+      <MultiSelect
+        label="Region"
+        placeholder="Region"
+        dropdownTitle="Region"
+        options={options}
+        value={value}
+        onChange={(value) => setValue(value)}
+        boxPosition="right"
+      />
+    </Flex>
+  );
+};
+```
+
 ## 下拉框联动
 
 ```jsx

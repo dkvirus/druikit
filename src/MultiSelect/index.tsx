@@ -49,6 +49,7 @@ export interface MultiSelectProps extends BaseSelectProps {
    * 最多选中数目
    */
   maxCount?: number;
+  boxPosition?: 'left' | 'right';
 }
 
 function getOpts(options: OptionItem[], value: string[]) {
@@ -113,6 +114,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
   clearAll = true,
   minCount = 0,
   maxCount = 9999,
+  boxPosition,
   ...props
 }) => {
   const selectRef = useRef<BaseSelectRefProps>(null);
@@ -233,6 +235,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
                     minCountNotAllowed || maxCountNotAllowed || item.disabled
                   }
                   boxVisible
+                  boxPosition={boxPosition}
                 >
                   {item.label}
                 </SelectOption>
@@ -243,6 +246,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
                 key={key}
                 groupTitle
                 labelClassName={item.labelClassName}
+                boxPosition={boxPosition}
               >
                 {item.label}
               </SelectOption>
