@@ -24,9 +24,32 @@
     cursor: not-allowed;
 }
 
+.switch_switch-wrapper-small {
+    height: 28px;
+}
+
+.switch_switch-wrapper-middle {
+    height: 36px;
+}
+
+.switch_switch-wrapper-large {
+    height: 44px;
+}
+
 .switch_label-item {
-    font-size: 14px;
     color: #666;
+}
+
+.switch_label-item-small {
+    font-size: 12px;
+}
+
+.switch_label-item-middle {
+    font-size: 14px;
+}
+
+.switch_label-item-large {
+    font-size: 16px;
 }
 
 .switch_label-item-left-active,
@@ -44,7 +67,7 @@
     position: relative;
 }
 
-.switch-switch-handle {
+.switch_switch-handle {
     width: 17px;
     height: 17px;
     border-radius: 17px;
@@ -54,7 +77,7 @@
     transition: left .3s ease 0s;
 }
 
-.switch-switch-handle-active {
+.switch_switch-handle-active {
     position: relative;
     left: 17px;
     transition: left .3s ease 0s;

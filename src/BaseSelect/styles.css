@@ -8,20 +8,6 @@
     text-transform: uppercase;
 }
 
-.base-select_label-small {
-    font-size: 12px;
-    transform: scale(0.83);
-    transform-origin: center left;
-}
-
-.base-select_label-middle {
-    font-size: 12px;
-}
-
-.base-select_label-large {
-    font-size: 14px;
-}
-
 .base-select_select {
     background-color: transparent;
     cursor: pointer;

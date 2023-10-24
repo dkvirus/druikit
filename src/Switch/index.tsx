@@ -9,7 +9,11 @@ export interface SwitchProps {
   onChange?: (value: boolean) => void;
   disabled?: boolean;
   leftLabel?: string;
+  leftLabelStyle?: CSSProperties;
+  leftLabelClassName?: string;
   rightLabel?: string;
+  rightLabelStyle?: CSSProperties;
+  rightLabelClassName?: string;
   label?: string;
   labelStyle?: CSSProperties;
   labelClassName?: string;
@@ -18,6 +22,7 @@ export interface SwitchProps {
    * @default 4
    */
   gap?: number;
+  size?: 'small' | 'middle' | 'large';
 }
 
 const Switch: FC<SwitchProps> = ({
@@ -27,11 +32,16 @@ const Switch: FC<SwitchProps> = ({
   onChange,
   disabled,
   leftLabel,
+  leftLabelStyle,
+  leftLabelClassName = '',
   rightLabel,
+  rightLabelStyle,
+  rightLabelClassName = '',
   label,
   labelStyle,
   labelClassName = '',
   gap = 4,
+  size = 'middle',
 }) => {
   const cls = classnames({
     ['switch_wrapper']: true,
@@ -43,21 +53,26 @@ const Switch: FC<SwitchProps> = ({
   const switchWrapperCls = classnames({
     'switch_switch-wrapper': true,
     'switch_switch-wrapper-disabled': disabled,
+    [`switch_switch-wrapper-${size}`]: true,
   });
 
   const leftLabelItemCls = classnames({
     ['switch_label-item']: true,
+    [`switch_label-item-${size}`]: true,
     ['switch_label-item-left-active']: !value,
+    [leftLabelClassName]: true,
   });
 
   const rightLabelItemCls = classnames({
     ['switch_label-item']: true,
+    [`switch_label-item-${size}`]: true,
     ['switch_label-item-right-active']: value,
+    [rightLabelClassName]: true,
   });
 
   const switchHandleCls = classnames({
-    ['switch-switch-handle']: true,
-    ['switch-switch-handle-active']: value,
+    ['switch_switch-handle']: true,
+    ['switch_switch-handle-active']: value,
   });
 
   const gapEl = <div style={{ width: gap }} />;
@@ -68,7 +83,9 @@ const Switch: FC<SwitchProps> = ({
         {label}
       </div>
       <div className={switchWrapperCls}>
-        <div className={leftLabelItemCls}>{leftLabel}</div>
+        <div className={leftLabelItemCls} style={leftLabelStyle}>
+          {leftLabel}
+        </div>
         {leftLabel ? gapEl : null}
         <div
           className="switch_switch-round"
@@ -80,7 +97,9 @@ const Switch: FC<SwitchProps> = ({
           <div className={switchHandleCls} />
         </div>
         {rightLabel ? gapEl : null}
-        <div className={rightLabelItemCls}>{rightLabel}</div>
+        <div className={rightLabelItemCls} style={rightLabelStyle}>
+          {rightLabel}
+        </div>
       </div>
     </div>
   );

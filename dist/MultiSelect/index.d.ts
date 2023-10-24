@@ -35,14 +35,24 @@ export interface MultiSelectProps extends BaseSelectProps {
      */
     clearAll?: boolean;
     /**
-     * 最少选中数目
+     * @description 最少选中数目
      */
     minCount?: number;
     /**
-     * 最多选中数目
+     * @description 最多选中数目
      */
     maxCount?: number;
+    formatMinCountMessage?: (count: number) => string;
+    formatMaxCountMessage?: (count: number) => string;
     boxPosition?: 'left' | 'right';
+    /**
+     * @description 点击 ok 按钮时关闭下拉框
+     */
+    okClosable?: boolean;
+    /**
+     * @description 点击下拉框外部是否关闭下拉框
+     */
+    clickAwayClosable?: boolean;
 }
 declare const MultiSelect: FC<MultiSelectProps>;
 export default MultiSelect;

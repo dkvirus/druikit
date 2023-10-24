@@ -16,7 +16,7 @@ import { CaretDownOutlined } from "../icons";
 import { classnames, handlePlacement } from "../utils/cssUtils";
 import "./styles.css";
 var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
-  var _classnames, _classnames2, _classnames3, _classnames4;
+  var _classnames2, _classnames3, _classnames4;
   var style = _ref.style,
     _ref$className = _ref.className,
     className = _ref$className === void 0 ? '' : _ref$className,
@@ -41,7 +41,9 @@ var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
     _onClickAway = _ref.onClickAway,
     placeholder = _ref.placeholder,
     _ref$placement = _ref.placement,
-    placement = _ref$placement === void 0 ? 'bottomLeft' : _ref$placement;
+    placement = _ref$placement === void 0 ? 'bottomLeft' : _ref$placement,
+    _ref$clickAwayClosabl = _ref.clickAwayClosable,
+    clickAwayClosable = _ref$clickAwayClosabl === void 0 ? true : _ref$clickAwayClosabl;
   var _useState = useState(false),
     _useState2 = _slicedToArray(_useState, 2),
     open = _useState2[0],
@@ -52,9 +54,9 @@ var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
   }, [open]);
 
   /* ************************* label ****************************** */
-  var labelCls = classnames((_classnames = {
+  var labelCls = classnames(_defineProperty({
     'base-select_label': true
-  }, _defineProperty(_classnames, "base-select_label-".concat(selectorSize), true), _defineProperty(_classnames, labelClassName, true), _classnames));
+  }, labelClassName, true));
 
   /* ************************* select ****************************** */
   var selectCls = classnames((_classnames2 = {
@@ -99,7 +101,9 @@ var BaseSelect = /*#__PURE__*/forwardRef(function (_ref, ref) {
   };
   return /*#__PURE__*/React.createElement(ClickAwayListener, {
     onClickAway: function onClickAway() {
-      setOpen(false);
+      if (clickAwayClosable) {
+        setOpen(false);
+      }
       _onClickAway === null || _onClickAway === void 0 ? void 0 : _onClickAway();
     }
   }, /*#__PURE__*/React.createElement("div", {

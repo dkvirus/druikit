@@ -1,5 +1,5 @@
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-var _excluded = ["style", "className", "value", "onChange", "disabled", "options", "size", "label", "labelStyle", "labelClassName", "placeholder", "selectorTextWhenSelectAll", "dropdownTitle", "dropdownMaxHeight", "dropdownStyle", "dropdownClassName", "dropdownLabelStyle", "dropdownLabelClassName", "selectAll", "clearAll", "minCount", "maxCount", "boxPosition"];
+var _excluded = ["style", "className", "value", "onChange", "disabled", "options", "size", "label", "labelStyle", "labelClassName", "placeholder", "selectorTextWhenSelectAll", "dropdownTitle", "dropdownMaxHeight", "dropdownStyle", "dropdownClassName", "dropdownLabelStyle", "dropdownLabelClassName", "selectAll", "clearAll", "minCount", "maxCount", "formatMinCountMessage", "formatMaxCountMessage", "boxPosition", "okClosable", "clickAwayClosable"];
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -59,15 +59,13 @@ function getSelectedValue(options) {
   });
   return value;
 }
-function getUnselectedValue(options) {
-  var newOptions = options.filter(function (o) {
-    return !o.disabled && !o.checked;
-  });
-  var value = newOptions.map(function (o) {
-    return o.value;
-  });
-  return value;
-}
+
+// function getUnselectedValue(options: OptionItem[]) {
+//   const newOptions = options.filter((o) => !o.disabled && !o.checked);
+//   const value = newOptions.map((o) => o.value);
+//   return value;
+// }
+
 var MultiSelect = function MultiSelect(_ref) {
   var style = _ref.style,
     className = _ref.className,
@@ -100,7 +98,13 @@ var MultiSelect = function MultiSelect(_ref) {
     minCount = _ref$minCount === void 0 ? 0 : _ref$minCount,
     _ref$maxCount = _ref.maxCount,
     maxCount = _ref$maxCount === void 0 ? 9999 : _ref$maxCount,
+    formatMinCountMessage = _ref.formatMinCountMessage,
+    formatMaxCountMessage = _ref.formatMaxCountMessage,
     boxPosition = _ref.boxPosition,
+    _ref$okClosable = _ref.okClosable,
+    okClosable = _ref$okClosable === void 0 ? true : _ref$okClosable,
+    _ref$clickAwayClosabl = _ref.clickAwayClosable,
+    clickAwayClosable = _ref$clickAwayClosabl === void 0 ? false : _ref$clickAwayClosabl,
     props = _objectWithoutProperties(_ref, _excluded);
   var selectRef = useRef(null);
   var _useState = useState([]),
@@ -150,9 +154,8 @@ var MultiSelect = function MultiSelect(_ref) {
     var newOpts = opts.map(function (o) {
       return o;
     });
-    var selectedValue = getSelectedValue(newOpts).slice(0, minCount);
-    newOpts.forEach(function (o) {
-      o.checked = selectedValue.includes(o.value);
+    newOpts.forEach(function (item) {
+      item.checked = false;
     });
     setOpts(newOpts);
     setSelectorValue(getSelectorValue(newOpts, selectorTextWhenSelectAll));
@@ -165,32 +168,64 @@ var MultiSelect = function MultiSelect(_ref) {
     var newOpts = opts.map(function (o) {
       return o;
     });
-    var selectedValue = getSelectedValue(newOpts);
-    var unselectedValue = getUnselectedValue(newOpts).slice(0, maxCount - selectedValue.length);
-    newOpts.forEach(function (o) {
-      if (unselectedValue.includes(o.value)) {
-        o.checked = true;
+    newOpts.forEach(function (item) {
+      if (!item.disabled) {
+        item.checked = true;
       }
     });
     setOpts(newOpts);
     setSelectorValue(getSelectorValue(newOpts, selectorTextWhenSelectAll));
   };
   var onOk = function onOk() {
-    var _selectRef$current;
+    var _selectRef$current2;
+    if (okDisabled) return;
     var selectedValue = getSelectedValue(opts);
-    if (JSON.stringify(value.sort()) === JSON.stringify(selectedValue.sort())) {
+    if (JSON.stringify(value.sort()) === JSON.stringify(selectedValue.sort()) && okClosable) {
+      var _selectRef$current;
+      (_selectRef$current = selectRef.current) === null || _selectRef$current === void 0 ? void 0 : _selectRef$current.close();
       return;
     }
     onChange === null || onChange === void 0 ? void 0 : onChange(selectedValue);
-    (_selectRef$current = selectRef.current) === null || _selectRef$current === void 0 ? void 0 : _selectRef$current.close();
+    (_selectRef$current2 = selectRef.current) === null || _selectRef$current2 === void 0 ? void 0 : _selectRef$current2.close();
+  };
+  var _useState5 = useState(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    okDisabled = _useState6[0],
+    setOkDisabled = _useState6[1];
+  var _useState7 = useState(false),
+    _useState8 = _slicedToArray(_useState7, 2),
+    showMaxCountMessage = _useState8[0],
+    setShowMaxCountMessage = _useState8[1];
+  var _useState9 = useState(false),
+    _useState10 = _slicedToArray(_useState9, 2),
+    showMinCountMessage = _useState10[0],
+    setShowMinCountMessage = _useState10[1];
+  useEffect(function () {
+    var newOpts = opts.map(function (o) {
+      return o;
+    });
+    var selectedValue = getSelectedValue(newOpts);
+    setOkDisabled((selectedValue === null || selectedValue === void 0 ? void 0 : selectedValue.length) > maxCount || (selectedValue === null || selectedValue === void 0 ? void 0 : selectedValue.length) < minCount);
+    setShowMaxCountMessage((selectedValue === null || selectedValue === void 0 ? void 0 : selectedValue.length) > maxCount);
+    setShowMinCountMessage((selectedValue === null || selectedValue === void 0 ? void 0 : selectedValue.length) < minCount);
+  }, [opts]);
+  var countMessageSty = {
+    fontSize: 12,
+    color: 'red',
+    paddingInline: 15,
+    marginTop: 4
   };
   var renderDropdown = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SelectDropdownHeader, {
     title: dropdownTitle,
     onClick: function onClick() {
-      var _selectRef$current2;
-      return (_selectRef$current2 = selectRef.current) === null || _selectRef$current2 === void 0 ? void 0 : _selectRef$current2.close();
+      var _selectRef$current3;
+      return (_selectRef$current3 = selectRef.current) === null || _selectRef$current3 === void 0 ? void 0 : _selectRef$current3.close();
     }
-  }), /*#__PURE__*/React.createElement("div", {
+  }), showMaxCountMessage ? /*#__PURE__*/React.createElement("div", {
+    style: countMessageSty
+  }, typeof formatMaxCountMessage === 'function' ? formatMaxCountMessage(maxCount) : "Maximum ".concat(maxCount, ".")) : null, showMinCountMessage ? /*#__PURE__*/React.createElement("div", {
+    style: countMessageSty
+  }, typeof formatMinCountMessage === 'function' ? formatMinCountMessage(minCount) : "Minimum ".concat(minCount, ".")) : null, /*#__PURE__*/React.createElement("div", {
     style: {
       maxHeight: dropdownMaxHeight,
       overflow: 'auto'
@@ -210,10 +245,8 @@ var MultiSelect = function MultiSelect(_ref) {
       paddingBottom: 10
     }
   }, opts.map(function (item, index) {
-    var selectedValue = getSelectedValue(opts);
-    var minCountNotAllowed = selectedValue.length === minCount && selectedValue.includes(item.value);
-    var maxCountNotAllowed = selectedValue.length === maxCount && !selectedValue.includes(item.value);
     var key = item.label + index.toString();
+    var disabled = item.disabled;
     if (typeof item.value === 'string') {
       return /*#__PURE__*/React.createElement(SelectOption, {
         key: key,
@@ -223,7 +256,7 @@ var MultiSelect = function MultiSelect(_ref) {
         onChange: function onChange(checked) {
           return onClick(checked, item);
         },
-        disabled: minCountNotAllowed || maxCountNotAllowed || item.disabled,
+        disabled: disabled,
         boxVisible: true,
         boxPosition: boxPosition
       }, item.label);
@@ -235,7 +268,8 @@ var MultiSelect = function MultiSelect(_ref) {
       boxPosition: boxPosition
     }, item.label);
   }))), /*#__PURE__*/React.createElement(SelectOkButton, {
-    onClick: onOk
+    onClick: onOk,
+    disabled: okDisabled
   }));
   return /*#__PURE__*/React.createElement(BaseSelect, _extends({
     ref: selectRef,
@@ -251,10 +285,11 @@ var MultiSelect = function MultiSelect(_ref) {
     renderDropdown: renderDropdown,
     dropdownStyle: dropdownSty,
     dropdownClassName: dropdownClassName,
+    clickAwayClosable: clickAwayClosable,
     onClickAway: function onClickAway() {
-      var _selectRef$current3;
+      var _selectRef$current4;
       // 当前是关闭状态, 直接返回
-      if (!((_selectRef$current3 = selectRef.current) !== null && _selectRef$current3 !== void 0 && _selectRef$current3.getIsOpen())) return;
+      if (!((_selectRef$current4 = selectRef.current) !== null && _selectRef$current4 !== void 0 && _selectRef$current4.getIsOpen())) return;
       onOk();
     }
   }, props));

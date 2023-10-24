@@ -25,6 +25,48 @@ export default () => {
 };
 ```
 
+## 三种大小
+
+```jsx
+import { useState } from 'react';
+import { Switch, Box, Flex } from 'druikit';
+
+export default () => {
+  const [value, setValue] = useState(false);
+
+  return (
+    <Flex alignItems="center">
+      <Switch
+        label="Switch"
+        leftLabel="Close"
+        rightLabel="Open"
+        value={value}
+        onChange={(value) => setValue(value)}
+        size="small"
+      />
+      <Box width={30} />
+      <Switch
+        label="Switch"
+        leftLabel="Close"
+        rightLabel="Open"
+        value={value}
+        onChange={(value) => setValue(value)}
+        size="middle"
+      />
+      <Box width={30} />
+      <Switch
+        label="Switch"
+        leftLabel="Close"
+        rightLabel="Open"
+        value={value}
+        onChange={(value) => setValue(value)}
+        size="large"
+      />
+    </Flex>
+  );
+};
+```
+
 ## disabled
 
 ```jsx

@@ -26,6 +26,10 @@ export interface BaseSelectProps {
      */
     placeholder?: string;
     placement?: 'bottomLeft' | 'bottomRight';
+    /**
+     * @description 点击下拉框外部是否允许关闭
+     */
+    clickAwayClosable?: boolean;
 }
 export interface BaseSelectRefProps {
     close: () => void;

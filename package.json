@@ -1,6 +1,6 @@
 {
   "name": "druikit",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "description": "A react library developed with dumi",
   "license": "MIT",
   "module": "dist/index.js",

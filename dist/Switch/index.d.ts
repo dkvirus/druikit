@@ -7,7 +7,11 @@ export interface SwitchProps {
     onChange?: (value: boolean) => void;
     disabled?: boolean;
     leftLabel?: string;
+    leftLabelStyle?: CSSProperties;
+    leftLabelClassName?: string;
     rightLabel?: string;
+    rightLabelStyle?: CSSProperties;
+    rightLabelClassName?: string;
     label?: string;
     labelStyle?: CSSProperties;
     labelClassName?: string;
@@ -16,6 +20,7 @@ export interface SwitchProps {
      * @default 4
      */
     gap?: number;
+    size?: 'small' | 'middle' | 'large';
 }
 declare const Switch: FC<SwitchProps>;
 export default Switch;

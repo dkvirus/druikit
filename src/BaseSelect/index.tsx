@@ -37,6 +37,10 @@ export interface BaseSelectProps {
    */
   placeholder?: string;
   placement?: 'bottomLeft' | 'bottomRight';
+  /**
+   * @description 点击下拉框外部是否允许关闭
+   */
+  clickAwayClosable?: boolean;
 }
 
 export interface BaseSelectRefProps {
@@ -66,6 +70,7 @@ const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
       onClickAway,
       placeholder,
       placement = 'bottomLeft',
+      clickAwayClosable = true,
     }: BaseSelectProps,
     ref,
   ) => {
@@ -79,7 +84,6 @@ const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
     /* ************************* label ****************************** */
     const labelCls = classnames({
       'base-select_label': true,
-      [`base-select_label-${selectorSize}`]: true,
       [labelClassName]: true,
     });
 
@@ -142,7 +146,9 @@ const BaseSelect = forwardRef<BaseSelectRefProps, BaseSelectProps>(
     return (
       <ClickAwayListener
         onClickAway={() => {
-          setOpen(false);
+          if (clickAwayClosable) {
+            setOpen(false);
+          }
           onClickAway?.();
         }}
       >

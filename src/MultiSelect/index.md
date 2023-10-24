@@ -258,6 +258,8 @@ export default () => {
         dropdownTitle="Region"
         minCount={2}
         maxCount={4}
+        formatMaxCountMessage={value => `Maximum ${value} regions.`}
+        formatMinCountMessage={value => `Minimum ${value} regions.`}
         options={options}
         value={value}
         onChange={(value) => setValue(value)}
@@ -339,9 +341,9 @@ export default () => {
     <Flex>
       <MultiSelect
         label="Region"
-        labelStyle={{ fontSize: 16, color: 'red' }}
         placeholder="Region"
         dropdownTitle="Region"
+        dropdownLabelStyle={{ fontSize: 16, color: 'red' }}
         options={options}
         value={value}
         onChange={(value) => setValue(value)}
@@ -349,9 +351,9 @@ export default () => {
       <Box width={20} />
       <MultiSelect
         label="Region"
-        labelStyle={{ fontSize: 12, color: 'red' }}
         placeholder="Region"
         dropdownTitle="Region"
+        dropdownLabelStyle={{ fontSize: 12, color: 'red' }}
         options={options}
         value={value2}
         onChange={(value) => setValue2(value)}

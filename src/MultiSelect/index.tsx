@@ -42,14 +42,24 @@ export interface MultiSelectProps extends BaseSelectProps {
    */
   clearAll?: boolean;
   /**
-   * 最少选中数目
+   * @description 最少选中数目
    */
   minCount?: number;
   /**
-   * 最多选中数目
+   * @description 最多选中数目
    */
   maxCount?: number;
+  formatMinCountMessage?: (count: number) => string;
+  formatMaxCountMessage?: (count: number) => string;
   boxPosition?: 'left' | 'right';
+  /**
+   * @description 点击 ok 按钮时关闭下拉框
+   */
+  okClosable?: boolean;
+  /**
+   * @description 点击下拉框外部是否关闭下拉框
+   */
+  clickAwayClosable?: boolean;
 }
 
 function getOpts(options: OptionItem[], value: string[]) {
@@ -85,11 +95,11 @@ function getSelectedValue(options: OptionItem[]) {
   return value;
 }
 
-function getUnselectedValue(options: OptionItem[]) {
-  const newOptions = options.filter((o) => !o.disabled && !o.checked);
-  const value = newOptions.map((o) => o.value);
-  return value;
-}
+// function getUnselectedValue(options: OptionItem[]) {
+//   const newOptions = options.filter((o) => !o.disabled && !o.checked);
+//   const value = newOptions.map((o) => o.value);
+//   return value;
+// }
 
 const MultiSelect: FC<MultiSelectProps> = ({
   style,
@@ -114,7 +124,11 @@ const MultiSelect: FC<MultiSelectProps> = ({
   clearAll = true,
   minCount = 0,
   maxCount = 9999,
+  formatMinCountMessage,
+  formatMaxCountMessage,
   boxPosition,
+  okClosable = true,
+  clickAwayClosable = false,
   ...props
 }) => {
   const selectRef = useRef<BaseSelectRefProps>(null);
@@ -161,9 +175,8 @@ const MultiSelect: FC<MultiSelectProps> = ({
    */
   const onClearAll = () => {
     const newOpts = opts.map((o) => o);
-    const selectedValue = getSelectedValue(newOpts).slice(0, minCount);
-    newOpts.forEach((o) => {
-      o.checked = selectedValue.includes(o.value);
+    newOpts.forEach((item) => {
+      item.checked = false;
     });
     setOpts(newOpts);
     setSelectorValue(getSelectorValue(newOpts, selectorTextWhenSelectAll));
@@ -174,14 +187,9 @@ const MultiSelect: FC<MultiSelectProps> = ({
    */
   const onSelectAll = () => {
     const newOpts = opts.map((o) => o);
-    const selectedValue = getSelectedValue(newOpts);
-    const unselectedValue = getUnselectedValue(newOpts).slice(
-      0,
-      maxCount - selectedValue.length,
-    );
-    newOpts.forEach((o) => {
-      if (unselectedValue.includes(o.value)) {
-        o.checked = true;
+    newOpts.forEach((item) => {
+      if (!item.disabled) {
+        item.checked = true;
       }
     });
     setOpts(newOpts);
@@ -189,12 +197,38 @@ const MultiSelect: FC<MultiSelectProps> = ({
   };
 
   const onOk = () => {
+    if (okDisabled) return;
     const selectedValue = getSelectedValue(opts) as string[];
-    if (JSON.stringify(value.sort()) === JSON.stringify(selectedValue.sort())) {
+    if (
+      JSON.stringify(value.sort()) === JSON.stringify(selectedValue.sort()) &&
+      okClosable
+    ) {
+      selectRef.current?.close();
       return;
     }
     onChange?.(selectedValue);
     selectRef.current?.close();
+  };
+
+  const [okDisabled, setOkDisabled] = useState(false);
+  const [showMaxCountMessage, setShowMaxCountMessage] = useState(false);
+  const [showMinCountMessage, setShowMinCountMessage] = useState(false);
+
+  useEffect(() => {
+    const newOpts = opts.map((o) => o);
+    const selectedValue = getSelectedValue(newOpts);
+    setOkDisabled(
+      selectedValue?.length > maxCount || selectedValue?.length < minCount,
+    );
+    setShowMaxCountMessage(selectedValue?.length > maxCount);
+    setShowMinCountMessage(selectedValue?.length < minCount);
+  }, [opts]);
+
+  const countMessageSty: CSSProperties = {
+    fontSize: 12,
+    color: 'red',
+    paddingInline: 15,
+    marginTop: 4,
   };
 
   const renderDropdown = (
@@ -203,6 +237,23 @@ const MultiSelect: FC<MultiSelectProps> = ({
         title={dropdownTitle}
         onClick={() => selectRef.current?.close()}
       />
+
+      {showMaxCountMessage ? (
+        <div style={countMessageSty}>
+          {typeof formatMaxCountMessage === 'function'
+            ? formatMaxCountMessage(maxCount)
+            : `Maximum ${maxCount}.`}
+        </div>
+      ) : null}
+
+      {showMinCountMessage ? (
+        <div style={countMessageSty}>
+          {typeof formatMinCountMessage === 'function'
+            ? formatMinCountMessage(minCount)
+            : `Minimum ${minCount}.`}
+        </div>
+      ) : null}
+
       <div style={{ maxHeight: dropdownMaxHeight, overflow: 'auto' }}>
         <SelectButtonGroup
           clearAll={clearAll}
@@ -215,14 +266,8 @@ const MultiSelect: FC<MultiSelectProps> = ({
         ) : null}
         <div style={{ paddingTop: 10, paddingBottom: 10 }}>
           {opts.map((item, index) => {
-            const selectedValue = getSelectedValue(opts);
-            const minCountNotAllowed =
-              selectedValue.length === minCount &&
-              selectedValue.includes(item.value);
-            const maxCountNotAllowed =
-              selectedValue.length === maxCount &&
-              !selectedValue.includes(item.value);
             const key = item.label + index.toString();
+            const disabled = item.disabled;
             if (typeof item.value === 'string') {
               return (
                 <SelectOption
@@ -231,9 +276,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
                   labelClassName={dropdownLabelClassName}
                   value={item.checked}
                   onChange={(checked) => onClick(checked, item)}
-                  disabled={
-                    minCountNotAllowed || maxCountNotAllowed || item.disabled
-                  }
+                  disabled={disabled}
                   boxVisible
                   boxPosition={boxPosition}
                 >
@@ -254,7 +297,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
           })}
         </div>
       </div>
-      <SelectOkButton onClick={onOk} />
+      <SelectOkButton onClick={onOk} disabled={okDisabled} />
     </>
   );
 
@@ -273,6 +316,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
       renderDropdown={renderDropdown}
       dropdownStyle={dropdownSty}
       dropdownClassName={dropdownClassName}
+      clickAwayClosable={clickAwayClosable}
       onClickAway={() => {
         // 当前是关闭状态, 直接返回
         if (!selectRef.current?.getIsOpen()) return;
