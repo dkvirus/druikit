@@ -82,12 +82,8 @@ export var SelectButtonGroup = function SelectButtonGroup(_ref3) {
     _ref3$selectAll = _ref3.selectAll,
     selectAll = _ref3$selectAll === void 0 ? true : _ref3$selectAll,
     onSelectAll = _ref3.onSelectAll;
-  if (!clearAll && !selectAll) return /*#__PURE__*/React.createElement("div", {
-    style: {
-      height: 10,
-      width: 1
-    }
-  });
+  // if (!clearAll && !selectAll) return <div style={{ height: 10, width: 1 }} />;
+  if (!clearAll && !selectAll) return null;
   var clearBtnCls = classnames((_classnames3 = {}, _defineProperty(_classnames3, 'select-button-group_item', true), _defineProperty(_classnames3, 'select-button-group_item-clear', true), _defineProperty(_classnames3, 'select-button-group_item-hover', clearAll), _classnames3));
   var selectBtnCls = classnames((_classnames4 = {}, _defineProperty(_classnames4, 'select-button-group_item', true), _defineProperty(_classnames4, 'select-button-group_item-select', true), _defineProperty(_classnames4, 'select-button-group_item-hover', selectAll), _classnames4));
   return /*#__PURE__*/React.createElement("div", {

@@ -127,8 +127,7 @@ var MultiSelect = function MultiSelect(_ref) {
   /* ************************* dropdown ******************************* */
   var dropdownSty = _objectSpread({
     padding: 0,
-    minWidth: 164,
-    maxHeight: 330
+    minWidth: 164
   }, dropdownStyle);
   var dropdownLabelSty = _objectSpread({
     width: 'fit-content',
@@ -213,7 +212,7 @@ var MultiSelect = function MultiSelect(_ref) {
     fontSize: 12,
     color: 'red',
     paddingInline: 15,
-    marginTop: 4
+    marginTop: 8
   };
   var renderDropdown = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SelectDropdownHeader, {
     title: dropdownTitle,
@@ -235,7 +234,7 @@ var MultiSelect = function MultiSelect(_ref) {
     onClearAll: onClearAll,
     selectAll: selectAll,
     onSelectAll: onSelectAll
-  }), selectAll && clearAll ? /*#__PURE__*/React.createElement(Divider, {
+  }), selectAll || clearAll ? /*#__PURE__*/React.createElement(Divider, {
     fullLength: true,
     gap: 0,
     color: "#eee"

@@ -124,7 +124,8 @@ export const SelectButtonGroup = ({
   selectAll?: boolean;
   onSelectAll?: () => void;
 }) => {
-  if (!clearAll && !selectAll) return <div style={{ height: 10, width: 1 }} />;
+  // if (!clearAll && !selectAll) return <div style={{ height: 10, width: 1 }} />;
+  if (!clearAll && !selectAll) return null;
 
   const clearBtnCls = classnames({
     ['select-button-group_item']: true,

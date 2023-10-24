@@ -149,7 +149,6 @@ const MultiSelect: FC<MultiSelectProps> = ({
   const dropdownSty: CSSProperties = {
     padding: 0,
     minWidth: 164,
-    maxHeight: 330,
     ...dropdownStyle,
   };
 
@@ -228,7 +227,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
     fontSize: 12,
     color: 'red',
     paddingInline: 15,
-    marginTop: 4,
+    marginTop: 8,
   };
 
   const renderDropdown = (
@@ -261,7 +260,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
           selectAll={selectAll}
           onSelectAll={onSelectAll}
         />
-        {selectAll && clearAll ? (
+        {selectAll || clearAll ? (
           <Divider fullLength gap={0} color="#eee" />
         ) : null}
         <div style={{ paddingTop: 10, paddingBottom: 10 }}>

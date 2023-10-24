@@ -313,6 +313,30 @@ export default () => {
         label="Region"
         placeholder="Region"
         dropdownTitle="Region"
+        minCount={2}
+        maxCount={4}
+        options={options}
+        value={value}
+        onChange={(value) => setValue(value)}
+      />
+      <Box width={20} />
+      <MultiSelect
+        label="Region"
+        placeholder="Region"
+        dropdownTitle="Region"
+        minCount={2}
+        maxCount={4}
+        selectAll={false}
+        clearAll={false}
+        options={options}
+        value={value}
+        onChange={(value) => setValue(value)}
+      />
+      <Box width={20} />
+      <MultiSelect
+        label="Region"
+        placeholder="Region"
+        dropdownTitle="Region"
         options={options.slice(0,4)}
         value={value2}
         onChange={(value) => setValue2(value)}
