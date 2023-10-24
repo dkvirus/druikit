@@ -52,8 +52,6 @@ export { default as Switch } from './Switch';
 export type { SwitchProps } from './Switch';
 export { default as Text } from './Text';
 export type { TextProps } from './Text';
-export { default as TreeSelect } from './TreeSelect';
-export type { TreeSelectProps } from './TreeSelect';
 export {
   ChildrenAccessories,
   ChildrenBodies,
