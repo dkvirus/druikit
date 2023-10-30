@@ -29,6 +29,40 @@ export default () => {
 };
 ```
 
+## onClick
+
+```jsx
+import { useState } from 'react';
+import { Select, Box } from 'druikit';
+
+export default () => {
+  const [value, setValue] = useState('Sweden');
+  const [clickValue, setClickValue] = useState([]);
+
+  const options = [
+    { label: 'Sweden', value: 'Sweden' },
+    { label: 'Japan', value: 'Japan' },
+  ];
+
+  return (
+    <>
+      <Select
+        placeholder="Region"
+        options={options}
+        value={value}
+        onChange={(value) => setValue(value)}
+        onClick={(value) => {
+          const newClickValue = [...clickValue];
+          newClickValue.push(value);
+          setClickValue([...newClickValue]);
+        }}
+      />
+      <Box>{clickValue.join('  ')}</Box>
+    </>
+  );
+};
+```
+
 ## selectorWidth
 
 设置下拉框宽度

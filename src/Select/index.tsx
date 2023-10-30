@@ -17,6 +17,7 @@ export interface SelectProps extends BaseSelectProps {
   className?: string;
   value?: string;
   onChange?: (value: string) => void;
+  onClick?: (value: string) => void;
   disabled?: boolean;
   options?: OptionItem[];
   /**
@@ -47,6 +48,7 @@ const Select: FC<SelectProps> = ({
   className = '',
   value = '',
   onChange,
+  onClick,
   disabled,
   options = [],
   size = 'middle',
@@ -160,6 +162,7 @@ const Select: FC<SelectProps> = ({
                     onChange?.(item.value as string);
                   }
                 }}
+                onClick={() => onClick?.(item.value)}
               >
                 {item.label}
               </SelectOption>

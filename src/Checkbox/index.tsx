@@ -9,6 +9,7 @@ export interface CheckboxProps {
   // form
   value?: boolean;
   onChange?: (value: boolean) => void;
+  onClick?: () => void;
   disabled?: boolean;
   // label
   labelStyle?: CSSProperties;
@@ -41,6 +42,7 @@ const Checkbox: FC<CheckboxProps> = ({
   // form
   value,
   onChange,
+  onClick,
   disabled,
   // label
   labelStyle,
@@ -147,6 +149,7 @@ const Checkbox: FC<CheckboxProps> = ({
       className={className}
       onClick={() => {
         if (disabled) return;
+        onClick?.();
         onChange?.(!value);
       }}
     >

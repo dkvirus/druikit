@@ -21,6 +21,7 @@ export interface OptionProps {
   children?: ReactNode;
   value?: boolean;
   onChange?: (value: boolean) => void;
+  onClick?: () => void;
   disabled?: boolean;
   labelStyle?: CSSProperties;
   labelClassName?: string;
@@ -35,6 +36,7 @@ const SelectOption: FC<OptionProps> = ({
   children,
   value,
   onChange,
+  onClick,
   disabled,
   labelStyle,
   labelClassName = '',
@@ -70,6 +72,7 @@ const SelectOption: FC<OptionProps> = ({
       boxPosition={boxPosition}
       value={value}
       onChange={onChange}
+      onClick={onClick}
       disabled={disabled}
     >
       {children}
