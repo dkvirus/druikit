@@ -14,6 +14,7 @@ var Checkbox = function Checkbox(_ref) {
     children = _ref.children,
     value = _ref.value,
     onChange = _ref.onChange,
+    _onClick = _ref.onClick,
     disabled = _ref.disabled,
     labelStyle = _ref.labelStyle,
     _ref$labelClassName = _ref.labelClassName,
@@ -98,6 +99,7 @@ var Checkbox = function Checkbox(_ref) {
     className: className,
     onClick: function onClick() {
       if (disabled) return;
+      _onClick === null || _onClick === void 0 ? void 0 : _onClick();
       onChange === null || onChange === void 0 ? void 0 : onChange(!value);
     }
   }, contentEl);
