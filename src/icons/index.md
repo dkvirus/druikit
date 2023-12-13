@@ -47,6 +47,8 @@ import {
   SolidCircleOutlined,
   CloudUploadFilled,
   EmptyCircleOutlined,
+  EmptySquareOutlined,
+  SolidSquareOutlined,
   EyeInvisibleOutlined,
   FilePdfFilled,
   LaunchOutlined,
@@ -254,6 +256,14 @@ export default () => {
     {
       name: 'LinkOutlined',
       icon: <LinkOutlined size={40} />,
+    },
+    {
+      name: 'SolidSquareOutlined',
+      icon: <SolidSquareOutlined size={40} />,
+    },
+    {
+      name: 'EmptySquareOutlined',
+      icon: <EmptySquareOutlined size={40} />,
     },
     {
       name: 'LockFilled',

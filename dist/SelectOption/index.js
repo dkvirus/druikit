@@ -20,6 +20,7 @@ var SelectOption = function SelectOption(_ref) {
     children = _ref.children,
     value = _ref.value,
     onChange = _ref.onChange,
+    onClick = _ref.onClick,
     disabled = _ref.disabled,
     labelStyle = _ref.labelStyle,
     _ref$labelClassName = _ref.labelClassName,
@@ -46,6 +47,7 @@ var SelectOption = function SelectOption(_ref) {
     boxPosition: boxPosition,
     value: value,
     onChange: onChange,
+    onClick: onClick,
     disabled: disabled
   }, children);
 };

@@ -5,6 +5,7 @@ export interface CheckboxProps {
     children?: string | ReactNode;
     value?: boolean;
     onChange?: (value: boolean) => void;
+    onClick?: () => void;
     disabled?: boolean;
     labelStyle?: CSSProperties;
     labelClassName?: string;

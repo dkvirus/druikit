@@ -13,6 +13,7 @@ export interface OptionProps {
     children?: ReactNode;
     value?: boolean;
     onChange?: (value: boolean) => void;
+    onClick?: () => void;
     disabled?: boolean;
     labelStyle?: CSSProperties;
     labelClassName?: string;

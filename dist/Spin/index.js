@@ -15,11 +15,11 @@ import { LoadingOutlined } from "../icons";
 // 定义 LoadingIcon 展示模式
 // LoadingMode.flex 容器高度小于浏览器可视窗口高度时，LoadingIcon 垂直水平居中展示
 // LoadingMode.sticky 容器高度大于浏览器可视窗口高度时，
-var LoadingMode;
-(function (LoadingMode) {
+var LoadingMode = /*#__PURE__*/function (LoadingMode) {
   LoadingMode["flex"] = "\u5782\u76F4\u6C34\u5E73\u5C45\u4E2D";
   LoadingMode["sticky"] = "\u7C98\u6027\u5B9A\u4F4D";
-})(LoadingMode || (LoadingMode = {}));
+  return LoadingMode;
+}(LoadingMode || {});
 var Spin = function Spin(_ref) {
   var style = _ref.style,
     className = _ref.className,

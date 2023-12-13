@@ -43,6 +43,17 @@ const getSelectorValue = (value: string, options: OptionItem[]) => {
   return options.find((item) => item.value === value)?.label || '';
 };
 
+const getFilterOptions = (options: any[], searchValue?: string) => {
+  if (!searchValue) {
+    return [...options];
+  }
+  const filterOptions = options.filter(
+    (item) =>
+      item.label.toLowerCase().indexOf(searchValue.trim().toLowerCase()) !== -1,
+  );
+  return [...filterOptions];
+};
+
 const Select: FC<SelectProps> = ({
   style,
   className = '',
@@ -100,16 +111,8 @@ const Select: FC<SelectProps> = ({
   }, [options]);
 
   useEffect(() => {
-    if (!searchValue) {
-      setDropdownOptions([...options]);
-    } else {
-      const filterOptions = options.filter(
-        (item) =>
-          item.label.toLowerCase().indexOf(searchValue.trim().toLowerCase()) !==
-          -1,
-      );
-      setDropdownOptions([...filterOptions]);
-    }
+    const newOptions = getFilterOptions(options, searchValue);
+    setDropdownOptions([...newOptions]);
   }, [searchValue]);
 
   let searchEl: ReactNode = null;
@@ -187,6 +190,11 @@ const Select: FC<SelectProps> = ({
       ref={selectRef}
       style={style}
       className={className}
+      onOpenChanged={(open) => {
+        if (open && showSearch && searchValue) {
+          setDropdownOptions(getFilterOptions(options, searchValue));
+        }
+      }}
       disabled={disabled}
       label={label}
       labelStyle={labelStyle}

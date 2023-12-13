@@ -6,6 +6,7 @@ export interface SelectProps extends BaseSelectProps {
     className?: string;
     value?: string;
     onChange?: (value: string) => void;
+    onClick?: (value: string) => void;
     disabled?: boolean;
     options?: OptionItem[];
     /**
