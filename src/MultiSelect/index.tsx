@@ -13,6 +13,7 @@ export interface MultiSelectProps extends BaseSelectProps {
   className?: string;
   value?: string[];
   onChange?: (value: string[]) => void;
+  onItemChange?: (value: string[]) => void;
   disabled?: boolean;
   options?: OptionItem[];
   /**
@@ -106,6 +107,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
   className,
   value = [],
   onChange,
+  onItemChange,
   disabled,
   options = [],
   size = 'middle',
@@ -221,6 +223,7 @@ const MultiSelect: FC<MultiSelectProps> = ({
     );
     setShowMaxCountMessage(selectedValue?.length > maxCount);
     setShowMinCountMessage(selectedValue?.length < minCount);
+    onItemChange?.(selectedValue.filter((item) => item) as string[]);
   }, [opts]);
 
   const countMessageSty: CSSProperties = {
